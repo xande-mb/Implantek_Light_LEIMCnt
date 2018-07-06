@@ -1,0 +1,8 @@
+syntax: glob
+*.o
+*.o.d
+*.orig
+*.cof
+*.elf
+LEIMCnt.X/nbproject/Makefile*.*
+private/*
