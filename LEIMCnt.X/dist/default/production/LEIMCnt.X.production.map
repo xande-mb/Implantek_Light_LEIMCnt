@@ -238,12 +238,12 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x2254          0x337e  (13182)
 .const                      0x2454               0x5ba           0x897  (2199)
-.text                       0x2a0e              0x1ab0          0x2808  (10248)
-.dinit                      0x44be               0x18a           0x24f  (591)
-.text                       0x4648               0x6e2           0xa53  (2643)
-.init.delay32               0x4d2a                0x1c            0x2a  (42)
+.text                       0x2a0e              0x1aae          0x2805  (10245)
+.dinit                      0x44bc               0x18a           0x24f  (591)
+.text                       0x4646               0x6e2           0xa53  (2643)
+.init.delay32               0x4d28                0x1c            0x2a  (42)
 
-                 Total program memory used (bytes):         0x70e9  (28905) 43%
+                 Total program memory used (bytes):         0x70e6  (28902) 43%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -526,127 +526,127 @@ External Symbols in Program Memory (by address):
                   0x003824                  _serialflash_add_commands
                   0x003842                  _serialflash_init
                   0x0038dc                  _init_ctt_eeprom
-                  0x003a52                  _eeprom_init_data
-                  0x003bae                  _eeprom_read_data
-                  0x003bca                  _eeprom_write_data
-                  0x003be6                  _eeprom_read_data_units
-                  0x003c00                  _eeprom_write_data_units
-                  0x003c1c                  _priv_dd_alloc_coalesce
-                  0x003c54                  _verify_allocation
-                  0x003d9c                  _dd_free
-                  0x003da6                  _dd_alloc
-                  0x003e92                  _verify_alocation_command
-                  0x003ece                  _dd_free_all
-                  0x003ed4                  _is_alocated
-                  0x003eee                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f94                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x004038                  _clear_buffer
-                  0x004040                  _clear_send_buffer
-                  0x00404c                  _set_send_buffer
-                  0x004086                  _serial_printf
-                  0x00409e                  _append_buffer
-                  0x0040ae                  _UartInterface_init_task
-                  0x0040bc                  _teste_cmd
-                  0x0040dc                  _uart_add_comand
-                  0x0040ec                  _UartInterface_init
-                  0x0040fc                  _ActivityMan_getCurrActivity
-                  0x004106                  _ActivityMan_ForceStartActivity
-                  0x004126                  _ActivityMan_ForceStartSubActivity
-                  0x0041a8                  _ActivityMan_startSubActivity
-                  0x0041ae                  _ActivityMan_getPastActivity
-                  0x0041b4                  _ActivityMan_onTick
-                  0x004250                  _ActivityMan_redirect
-                  0x004254                  _ActivityMan_registerEvent
-                  0x004284                  _ActivityMan_unregisterEvent
-                  0x0042b4                  _ActivityMan_init_nested
-                  0x0042be                  _ActivityMan_stop_nesting
-                  0x0042cc                  _ActivityMan_startActivity
-                  0x0042d8                  _ActivityMan_getBack
-                  0x0042e0                  _ActivityMan_Task
-                  0x004304                  _list_create
-                  0x004312                  _list_insert
-                  0x00436a                  _list_put
-                  0x0043c8                  _list_is_present
-                  0x0043e6                  _list_pop
-                  0x004410                  _list_delete_item
-                  0x00444e                  _list_length
-                  0x00446c                  _list_get
-                  0x0044a2                  _list_delete
-                  0x004670                  build/default/production/_ext/229065323/fan.o:_fan_task
-                  0x004700                  _fan_is_error
-                  0x00472a                  _fan_start
-                  0x004796                  _fan_get_ident
-                  0x00479a                  _fan_get_rotation
-                  0x0047a4                  _buzz_task_func_q
-                  0x004810                  _init_buzz
-                  0x00483a                  _sys_buzz
-                  0x004886                  _sys_clear_buzz
-                  0x0048c6                  _portman_setAsOutput
-                  0x0048d2                  _portman_setAsInput
-                  0x0048de                  _portman_setOutput
-                  0x0048ea                  _portman_clearOutput
-                  0x0048f6                  _portman_getInput
-                  0x004902                  _portman_setAsDigital
-                  0x00490e                  _portman_setAsAnalog
-                  0x00491a                  _portman_get_fast_port
-                  0x004940                  _portman_fast_set
-                  0x004948                  _portman_fast_clear
-                  0x004978                  _task_test
-                  0x0049a0                  _main
-                  0x0049e8                  _getBase64index
-                  0x004a20                  _base64Decode
-                  0x004a80                  _uart_put_char
-                  0x004a8e                  _sys_uart_init
-                  0x004ac0                  __U2TXInterrupt
-                  0x004ac6                  __U2RXInterrupt
-                  0x004b62                  _kernel_build_code
-                  0x004b8e                  _ShortDelay
-                  0x004bc6                  _Delay_us
-                  0x004bca                  _Delay_ms
-                  0x004bd6                  _timer_get_counter_ms
-                  0x004bfc                  _timer_set_ms_ref
-                  0x004c06                  _timer_get_core_timer
-                  0x004c0a                  _getCrc
-                  0x004c3c                  _append_CRC
-                  0x004c50                  _verify_crc
-                  0x004c76                  _buzzer_init_timer
-                  0x004c96                  _BuzzerEnable
-                  0x004c9a                  _BuzzerDisable
-                  0x004c9e                  __T2Interrupt
-                  0x004cd4                  _setLang
-                  0x004ce2                  _getLanguage
-                  0x004ce6                  _getDefaultLanguage
-                  0x004cea                  _setDefaultLanguage
-                  0x004cf0                  _getResourcePrivate
-                  0x004d02                  _init_adc
-                  0x004d26                  __ADC1Interrupt
-                  0x004d2a                  ___delay32
+                  0x003a50                  _eeprom_init_data
+                  0x003bac                  _eeprom_read_data
+                  0x003bc8                  _eeprom_write_data
+                  0x003be4                  _eeprom_read_data_units
+                  0x003bfe                  _eeprom_write_data_units
+                  0x003c1a                  _priv_dd_alloc_coalesce
+                  0x003c52                  _verify_allocation
+                  0x003d9a                  _dd_free
+                  0x003da4                  _dd_alloc
+                  0x003e90                  _verify_alocation_command
+                  0x003ecc                  _dd_free_all
+                  0x003ed2                  _is_alocated
+                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x004036                  _clear_buffer
+                  0x00403e                  _clear_send_buffer
+                  0x00404a                  _set_send_buffer
+                  0x004084                  _serial_printf
+                  0x00409c                  _append_buffer
+                  0x0040ac                  _UartInterface_init_task
+                  0x0040ba                  _teste_cmd
+                  0x0040da                  _uart_add_comand
+                  0x0040ea                  _UartInterface_init
+                  0x0040fa                  _ActivityMan_getCurrActivity
+                  0x004104                  _ActivityMan_ForceStartActivity
+                  0x004124                  _ActivityMan_ForceStartSubActivity
+                  0x0041a6                  _ActivityMan_startSubActivity
+                  0x0041ac                  _ActivityMan_getPastActivity
+                  0x0041b2                  _ActivityMan_onTick
+                  0x00424e                  _ActivityMan_redirect
+                  0x004252                  _ActivityMan_registerEvent
+                  0x004282                  _ActivityMan_unregisterEvent
+                  0x0042b2                  _ActivityMan_init_nested
+                  0x0042bc                  _ActivityMan_stop_nesting
+                  0x0042ca                  _ActivityMan_startActivity
+                  0x0042d6                  _ActivityMan_getBack
+                  0x0042de                  _ActivityMan_Task
+                  0x004302                  _list_create
+                  0x004310                  _list_insert
+                  0x004368                  _list_put
+                  0x0043c6                  _list_is_present
+                  0x0043e4                  _list_pop
+                  0x00440e                  _list_delete_item
+                  0x00444c                  _list_length
+                  0x00446a                  _list_get
+                  0x0044a0                  _list_delete
+                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x0046fe                  _fan_is_error
+                  0x004728                  _fan_start
+                  0x004794                  _fan_get_ident
+                  0x004798                  _fan_get_rotation
+                  0x0047a2                  _buzz_task_func_q
+                  0x00480e                  _init_buzz
+                  0x004838                  _sys_buzz
+                  0x004884                  _sys_clear_buzz
+                  0x0048c4                  _portman_setAsOutput
+                  0x0048d0                  _portman_setAsInput
+                  0x0048dc                  _portman_setOutput
+                  0x0048e8                  _portman_clearOutput
+                  0x0048f4                  _portman_getInput
+                  0x004900                  _portman_setAsDigital
+                  0x00490c                  _portman_setAsAnalog
+                  0x004918                  _portman_get_fast_port
+                  0x00493e                  _portman_fast_set
+                  0x004946                  _portman_fast_clear
+                  0x004976                  _task_test
+                  0x00499e                  _main
+                  0x0049e6                  _getBase64index
+                  0x004a1e                  _base64Decode
+                  0x004a7e                  _uart_put_char
+                  0x004a8c                  _sys_uart_init
+                  0x004abe                  __U2TXInterrupt
+                  0x004ac4                  __U2RXInterrupt
+                  0x004b60                  _kernel_build_code
+                  0x004b8c                  _ShortDelay
+                  0x004bc4                  _Delay_us
+                  0x004bc8                  _Delay_ms
+                  0x004bd4                  _timer_get_counter_ms
+                  0x004bfa                  _timer_set_ms_ref
+                  0x004c04                  _timer_get_core_timer
+                  0x004c08                  _getCrc
+                  0x004c3a                  _append_CRC
+                  0x004c4e                  _verify_crc
+                  0x004c74                  _buzzer_init_timer
+                  0x004c94                  _BuzzerEnable
+                  0x004c98                  _BuzzerDisable
+                  0x004c9c                  __T2Interrupt
+                  0x004cd2                  _setLang
+                  0x004ce0                  _getLanguage
+                  0x004ce4                  _getDefaultLanguage
+                  0x004ce8                  _setDefaultLanguage
+                  0x004cee                  _getResourcePrivate
+                  0x004d00                  _init_adc
+                  0x004d24                  __ADC1Interrupt
+                  0x004d28                  ___delay32
                   0x00affa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x004106                  _ActivityMan_ForceStartActivity
-                  0x004126                  _ActivityMan_ForceStartSubActivity
-                  0x0042e0                  _ActivityMan_Task
-                  0x0042d8                  _ActivityMan_getBack
-                  0x0040fc                  _ActivityMan_getCurrActivity
-                  0x0041ae                  _ActivityMan_getPastActivity
-                  0x0042b4                  _ActivityMan_init_nested
-                  0x0041b4                  _ActivityMan_onTick
-                  0x004250                  _ActivityMan_redirect
-                  0x004254                  _ActivityMan_registerEvent
-                  0x0042cc                  _ActivityMan_startActivity
-                  0x0041a8                  _ActivityMan_startSubActivity
-                  0x0042be                  _ActivityMan_stop_nesting
-                  0x004284                  _ActivityMan_unregisterEvent
-                  0x004c9a                  _BuzzerDisable
-                  0x004c96                  _BuzzerEnable
-                  0x004bca                  _Delay_ms
-                  0x004bc6                  _Delay_us
-                  0x004b8e                  _ShortDelay
-                  0x0040ec                  _UartInterface_init
-                  0x0040ae                  _UartInterface_init_task
-                  0x004d26                  __ADC1Interrupt
+                  0x004104                  _ActivityMan_ForceStartActivity
+                  0x004124                  _ActivityMan_ForceStartSubActivity
+                  0x0042de                  _ActivityMan_Task
+                  0x0042d6                  _ActivityMan_getBack
+                  0x0040fa                  _ActivityMan_getCurrActivity
+                  0x0041ac                  _ActivityMan_getPastActivity
+                  0x0042b2                  _ActivityMan_init_nested
+                  0x0041b2                  _ActivityMan_onTick
+                  0x00424e                  _ActivityMan_redirect
+                  0x004252                  _ActivityMan_registerEvent
+                  0x0042ca                  _ActivityMan_startActivity
+                  0x0041a6                  _ActivityMan_startSubActivity
+                  0x0042bc                  _ActivityMan_stop_nesting
+                  0x004282                  _ActivityMan_unregisterEvent
+                  0x004c98                  _BuzzerDisable
+                  0x004c94                  _BuzzerEnable
+                  0x004bc8                  _Delay_ms
+                  0x004bc4                  _Delay_us
+                  0x004b8c                  _ShortDelay
+                  0x0040ea                  _UartInterface_init
+                  0x0040ac                  _UartInterface_init_task
+                  0x004d24                  __ADC1Interrupt
                   0x000688                  __AddressError
                   0x0006c4                  __DefaultInterrupt
                   0x001b08                  __Dnorm
@@ -666,12 +666,12 @@ External Symbols in Program Memory (by name):
                   0x00069c                  __StackError
                   0x000c68                  __Stoul
                   0x00040a                  __T1Interrupt
-                  0x004c9e                  __T2Interrupt
-                  0x004ac6                  __U2RXInterrupt
-                  0x004ac0                  __U2TXInterrupt
+                  0x004c9c                  __T2Interrupt
+                  0x004ac4                  __U2RXInterrupt
+                  0x004abe                  __U2TXInterrupt
                   0x00124a                  __Vacopy
                   0x002204                  ___adddf3
-                  0x004d2a                  ___delay32
+                  0x004d28                  ___delay32
                   0x001f30                  ___divdf3
                   0x000a8c                  ___divdi3
                   0x0006ca                  ___divsf3
@@ -721,40 +721,40 @@ External Symbols in Program Memory (by name):
                   0x000886                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x004c3c                  _append_CRC
-                  0x00409e                  _append_buffer
-                  0x004a20                  _base64Decode
-                  0x0047a4                  _buzz_task_func_q
-                  0x004c76                  _buzzer_init_timer
-                  0x004038                  _clear_buffer
-                  0x004040                  _clear_send_buffer
+                  0x004c3a                  _append_CRC
+                  0x00409c                  _append_buffer
+                  0x004a1e                  _base64Decode
+                  0x0047a2                  _buzz_task_func_q
+                  0x004c74                  _buzzer_init_timer
+                  0x004036                  _clear_buffer
+                  0x00403e                  _clear_send_buffer
                   0x002a14                  _cmd_getequip
-                  0x003da6                  _dd_alloc
-                  0x003d9c                  _dd_free
-                  0x003ece                  _dd_free_all
+                  0x003da4                  _dd_alloc
+                  0x003d9a                  _dd_free
+                  0x003ecc                  _dd_free_all
                   0x001f06                  _div
                   0x002a0e                  _dumy_print
-                  0x003a52                  _eeprom_init_data
-                  0x003bae                  _eeprom_read_data
-                  0x003be6                  _eeprom_read_data_units
-                  0x003bca                  _eeprom_write_data
-                  0x003c00                  _eeprom_write_data_units
-                  0x004796                  _fan_get_ident
-                  0x00479a                  _fan_get_rotation
-                  0x004700                  _fan_is_error
-                  0x00472a                  _fan_start
-                  0x0049e8                  _getBase64index
-                  0x004c0a                  _getCrc
-                  0x004ce6                  _getDefaultLanguage
-                  0x004ce2                  _getLanguage
-                  0x004cf0                  _getResourcePrivate
+                  0x003a50                  _eeprom_init_data
+                  0x003bac                  _eeprom_read_data
+                  0x003be4                  _eeprom_read_data_units
+                  0x003bc8                  _eeprom_write_data
+                  0x003bfe                  _eeprom_write_data_units
+                  0x004794                  _fan_get_ident
+                  0x004798                  _fan_get_rotation
+                  0x0046fe                  _fan_is_error
+                  0x004728                  _fan_start
+                  0x0049e6                  _getBase64index
+                  0x004c08                  _getCrc
+                  0x004ce4                  _getDefaultLanguage
+                  0x004ce0                  _getLanguage
+                  0x004cee                  _getResourcePrivate
                   0x000670                  _get_CoreTimer
                   0x002ea4                  _get_color_set_out
-                  0x004d02                  _init_adc
-                  0x004810                  _init_buzz
+                  0x004d00                  _init_adc
+                  0x00480e                  _init_buzz
                   0x0038dc                  _init_ctt_eeprom
                   0x0031b2                  _init_kernel_commands
-                  0x003ed4                  _is_alocated
+                  0x003ed2                  _is_alocated
                   0x001206                  _isspace
                   0x002ac6                  _kSchedule
                   0x002aea                  _kTask_bind_param
@@ -769,7 +769,7 @@ External Symbols in Program Memory (by name):
                   0x002a7c                  _kTasker_alocated_tasks
                   0x0031c4                  _kTasker_init
                   0x002c08                  _kTime_micros
-                  0x004b62                  _kernel_build_code
+                  0x004b60                  _kernel_build_code
                   0x002c8e                  _kernel_get_outfunc
                   0x002c80                  _kernel_isMode
                   0x002c7c                  _kernel_setMode
@@ -778,16 +778,16 @@ External Symbols in Program Memory (by name):
                   0x002d58                  _kernel_tasks_command_handler
                   0x002c9c                  _kernel_version_command_handler
                   0x001ade                  _ldiv
-                  0x004304                  _list_create
-                  0x0044a2                  _list_delete
-                  0x004410                  _list_delete_item
-                  0x00446c                  _list_get
-                  0x004312                  _list_insert
-                  0x0043c8                  _list_is_present
-                  0x00444e                  _list_length
-                  0x0043e6                  _list_pop
-                  0x00436a                  _list_put
-                  0x0049a0                  _main
+                  0x004302                  _list_create
+                  0x0044a0                  _list_delete
+                  0x00440e                  _list_delete_item
+                  0x00446a                  _list_get
+                  0x004310                  _list_insert
+                  0x0043c6                  _list_is_present
+                  0x00444c                  _list_length
+                  0x0043e4                  _list_pop
+                  0x004368                  _list_put
+                  0x00499e                  _main
                   0x00124e                  _memchr
                   0x001262                  _memcpy
                   0x00054c                  _port_disable_timeout_verification
@@ -795,17 +795,17 @@ External Symbols in Program Memory (by name):
                   0x000640                  _port_init_timer
                   0x000560                  _port_init_verification
                   0x000552                  _port_reset_stuck_verification
-                  0x0048ea                  _portman_clearOutput
-                  0x004948                  _portman_fast_clear
-                  0x004940                  _portman_fast_set
-                  0x0048f6                  _portman_getInput
-                  0x00491a                  _portman_get_fast_port
-                  0x00490e                  _portman_setAsAnalog
-                  0x004902                  _portman_setAsDigital
-                  0x0048d2                  _portman_setAsInput
-                  0x0048c6                  _portman_setAsOutput
-                  0x0048de                  _portman_setOutput
-                  0x003c1c                  _priv_dd_alloc_coalesce
+                  0x0048e8                  _portman_clearOutput
+                  0x004946                  _portman_fast_clear
+                  0x00493e                  _portman_fast_set
+                  0x0048f4                  _portman_getInput
+                  0x004918                  _portman_get_fast_port
+                  0x00490c                  _portman_setAsAnalog
+                  0x004900                  _portman_setAsDigital
+                  0x0048d0                  _portman_setAsInput
+                  0x0048c4                  _portman_setAsOutput
+                  0x0048dc                  _portman_setOutput
+                  0x003c1a                  _priv_dd_alloc_coalesce
                   0x002a80                  _sQueue_create
                   0x002a92                  _sQueue_delete
                   0x002b62                  _sQueue_do_schedule
@@ -820,7 +820,7 @@ External Symbols in Program Memory (by name):
                   0x002bdc                  _sTask_delete
                   0x002c04                  _sTask_get
                   0x0037b4                  _serial_flash_get_cs
-                  0x004086                  _serial_printf
+                  0x004084                  _serial_printf
                   0x003824                  _serialflash_add_commands
                   0x003556                  _serialflash_chiperase
                   0x0033ca                  _serialflash_disable_wp
@@ -833,9 +833,9 @@ External Symbols in Program Memory (by name):
                   0x003682                  _serialflash_write
                   0x00361c                  _serialflash_write_size
                   0x0033a0                  _serialflash_wrsr
-                  0x004cea                  _setDefaultLanguage
-                  0x004cd4                  _setLang
-                  0x00404c                  _set_send_buffer
+                  0x004ce8                  _setDefaultLanguage
+                  0x004cd2                  _setLang
+                  0x00404a                  _set_send_buffer
                   0x00039a                  _spi1_send_receive
                   0x000388                  _spi1_send_receive_byte
                   0x000354                  _spi_init
@@ -848,20 +848,20 @@ External Symbols in Program Memory (by name):
                   0x000c16                  _strncpy
                   0x001292                  _strspn
                   0x000c34                  _strtok
-                  0x00483a                  _sys_buzz
-                  0x004886                  _sys_clear_buzz
-                  0x004a8e                  _sys_uart_init
-                  0x004978                  _task_test
-                  0x0040bc                  _teste_cmd
-                  0x004c06                  _timer_get_core_timer
-                  0x004bd6                  _timer_get_counter_ms
-                  0x004bfc                  _timer_set_ms_ref
+                  0x004838                  _sys_buzz
+                  0x004884                  _sys_clear_buzz
+                  0x004a8c                  _sys_uart_init
+                  0x004976                  _task_test
+                  0x0040ba                  _teste_cmd
+                  0x004c04                  _timer_get_core_timer
+                  0x004bd4                  _timer_get_counter_ms
+                  0x004bfa                  _timer_set_ms_ref
                   0x001216                  _tolower
-                  0x0040dc                  _uart_add_comand
-                  0x004a80                  _uart_put_char
-                  0x003c54                  _verify_allocation
-                  0x003e92                  _verify_alocation_command
-                  0x004c50                  _verify_crc
+                  0x0040da                  _uart_add_comand
+                  0x004a7e                  _uart_put_char
+                  0x003c52                  _verify_allocation
+                  0x003e90                  _verify_alocation_command
+                  0x004c4e                  _verify_crc
                   0x000daa                  _vsprintf
                   0x0035e2                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
                   0x0036fc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
@@ -870,9 +870,9 @@ External Symbols in Program Memory (by name):
                   0x0031e6                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
                   0x003338                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
                   0x003432                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
-                  0x003eee                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f94                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x004670                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
                   0x000d9c                  vsprintf.EP_eo:_prout
 
 Memory Configuration
@@ -1214,29 +1214,29 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0xa51b
+.debug_info       0x000000       0xa473
  *(.debug_info)
- .debug_info      0x000000        0x80c build/default/production/_ext/2107534167/adc.o
- .debug_info      0x00080c        0xc0b build/default/production/_ext/2107534167/spi.o
- .debug_info      0x001417        0x72e build/default/production/_ext/1693421727/main.o
- .debug_info      0x001b45        0x24e build/default/production/_ext/570691859/resourceMan.o
- .debug_info      0x001d93        0x849 build/default/production/_ext/570691859/ActivityMan.o
- .debug_info      0x0025dc       0x13f4 build/default/production/_ext/699447939/tasker.o
- .debug_info      0x0039d0       0x10aa build/default/production/_ext/581574207/port.o
- .debug_info      0x004a7a        0x2c7 build/default/production/_ext/844173455/time.o
- .debug_info      0x004d41        0x529 build/default/production/_ext/844173455/utils.o
- .debug_info      0x00526a        0x6fd build/default/production/_ext/844173455/d_alloc.o
- .debug_info      0x005967        0x1ff build/default/production/_ext/844173455/version.o
- .debug_info      0x005b66        0x4e9 build/default/production/_ext/229065323/fan.o
- .debug_info      0x00604f        0xd96 build/default/production/_ext/1440923950/SerialFlash.o
- .debug_info      0x006de5        0x9fe build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_info      0x0077e3        0x945 build/default/production/_ext/1055087429/port.o
- .debug_info      0x008128        0x809 build/default/production/_ext/1670384666/UartCommand.o
- .debug_info      0x008931        0xa93 build/default/production/_ext/1670384666/port.o
- .debug_info      0x0093c4        0x4ab build/default/production/_ext/1977464509/Buzzer.o
- .debug_info      0x00986f        0x855 build/default/production/_ext/1977464509/port.o
- .debug_info      0x00a0c4        0x26c build/default/production/_ext/654086336/crc16.o
- .debug_info      0x00a330        0x1eb build/default/production/_ext/654086336/base64.o
+ .debug_info      0x000000        0x804 build/default/production/_ext/2107534167/adc.o
+ .debug_info      0x000804        0xc03 build/default/production/_ext/2107534167/spi.o
+ .debug_info      0x001407        0x726 build/default/production/_ext/1693421727/main.o
+ .debug_info      0x001b2d        0x246 build/default/production/_ext/570691859/resourceMan.o
+ .debug_info      0x001d73        0x841 build/default/production/_ext/570691859/ActivityMan.o
+ .debug_info      0x0025b4       0x13ec build/default/production/_ext/699447939/tasker.o
+ .debug_info      0x0039a0       0x10a2 build/default/production/_ext/581574207/port.o
+ .debug_info      0x004a42        0x2bf build/default/production/_ext/844173455/time.o
+ .debug_info      0x004d01        0x521 build/default/production/_ext/844173455/utils.o
+ .debug_info      0x005222        0x6f5 build/default/production/_ext/844173455/d_alloc.o
+ .debug_info      0x005917        0x1f7 build/default/production/_ext/844173455/version.o
+ .debug_info      0x005b0e        0x4e1 build/default/production/_ext/229065323/fan.o
+ .debug_info      0x005fef        0xd8e build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_info      0x006d7d        0x9f6 build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_info      0x007773        0x93d build/default/production/_ext/1055087429/port.o
+ .debug_info      0x0080b0        0x801 build/default/production/_ext/1670384666/UartCommand.o
+ .debug_info      0x0088b1        0xa8b build/default/production/_ext/1670384666/port.o
+ .debug_info      0x00933c        0x4a3 build/default/production/_ext/1977464509/Buzzer.o
+ .debug_info      0x0097df        0x84d build/default/production/_ext/1977464509/port.o
+ .debug_info      0x00a02c        0x264 build/default/production/_ext/654086336/crc16.o
+ .debug_info      0x00a290        0x1e3 build/default/production/_ext/654086336/base64.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000       0x1a93
@@ -3111,7 +3111,7 @@ __c30_signature
  .const             0xaa00          0x8 build/default/production/_ext/229065323/fan.o
  .const             0xaa08          0x6 build/default/production/_ext/1977464509/Buzzer.o
 
-.text             0x002a0e       0x1ab0
+.text             0x002a0e       0x1aae
  .text            0x002a0e        0x7d8 build/default/production/_ext/699447939/tasker.o
                   0x002a0e                  _dumy_print
                   0x002a14                  _cmd_getequip
@@ -3171,124 +3171,124 @@ __c30_signature
                   0x0037b4                  _serial_flash_get_cs
                   0x003824                  _serialflash_add_commands
                   0x003842                  _serialflash_init
- .text            0x00385a        0x3c2 build/default/production/_ext/1440923950/eeprom_i2c.o
+ .text            0x00385a        0x3c0 build/default/production/_ext/1440923950/eeprom_i2c.o
                   0x0038dc                  _init_ctt_eeprom
-                  0x003a52                  _eeprom_init_data
-                  0x003bae                  _eeprom_read_data
-                  0x003bca                  _eeprom_write_data
-                  0x003be6                  _eeprom_read_data_units
-                  0x003c00                  _eeprom_write_data_units
- .text            0x003c1c        0x2d2 build/default/production/_ext/844173455/d_alloc.o
-                  0x003c1c                  _priv_dd_alloc_coalesce
-                  0x003c54                  _verify_allocation
-                  0x003d9c                  _dd_free
-                  0x003da6                  _dd_alloc
-                  0x003e92                  _verify_alocation_command
-                  0x003ece                  _dd_free_all
-                  0x003ed4                  _is_alocated
- .text            0x003eee        0x20e build/default/production/_ext/1670384666/UartCommand.o
-                  0x003eee                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f94                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x004038                  _clear_buffer
-                  0x004040                  _clear_send_buffer
-                  0x00404c                  _set_send_buffer
-                  0x004086                  _serial_printf
-                  0x00409e                  _append_buffer
-                  0x0040ae                  _UartInterface_init_task
-                  0x0040bc                  _teste_cmd
-                  0x0040dc                  _uart_add_comand
-                  0x0040ec                  _UartInterface_init
- .text            0x0040fc        0x1f0 build/default/production/_ext/570691859/ActivityMan.o
-                  0x0040fc                  _ActivityMan_getCurrActivity
-                  0x004106                  _ActivityMan_ForceStartActivity
-                  0x004126                  _ActivityMan_ForceStartSubActivity
-                  0x0041a8                  _ActivityMan_startSubActivity
-                  0x0041ae                  _ActivityMan_getPastActivity
-                  0x0041b4                  _ActivityMan_onTick
-                  0x004250                  _ActivityMan_redirect
-                  0x004254                  _ActivityMan_registerEvent
-                  0x004284                  _ActivityMan_unregisterEvent
-                  0x0042b4                  _ActivityMan_init_nested
-                  0x0042be                  _ActivityMan_stop_nesting
-                  0x0042cc                  _ActivityMan_startActivity
-                  0x0042d8                  _ActivityMan_getBack
-                  0x0042e0                  _ActivityMan_Task
- .text            0x0042ec        0x1d2 build/default/production/_ext/844173455/utils.o
-                  0x004304                  _list_create
-                  0x004312                  _list_insert
-                  0x00436a                  _list_put
-                  0x0043c8                  _list_is_present
-                  0x0043e6                  _list_pop
-                  0x004410                  _list_delete_item
-                  0x00444e                  _list_length
-                  0x00446c                  _list_get
-                  0x0044a2                  _list_delete
+                  0x003a50                  _eeprom_init_data
+                  0x003bac                  _eeprom_read_data
+                  0x003bc8                  _eeprom_write_data
+                  0x003be4                  _eeprom_read_data_units
+                  0x003bfe                  _eeprom_write_data_units
+ .text            0x003c1a        0x2d2 build/default/production/_ext/844173455/d_alloc.o
+                  0x003c1a                  _priv_dd_alloc_coalesce
+                  0x003c52                  _verify_allocation
+                  0x003d9a                  _dd_free
+                  0x003da4                  _dd_alloc
+                  0x003e90                  _verify_alocation_command
+                  0x003ecc                  _dd_free_all
+                  0x003ed2                  _is_alocated
+ .text            0x003eec        0x20e build/default/production/_ext/1670384666/UartCommand.o
+                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x004036                  _clear_buffer
+                  0x00403e                  _clear_send_buffer
+                  0x00404a                  _set_send_buffer
+                  0x004084                  _serial_printf
+                  0x00409c                  _append_buffer
+                  0x0040ac                  _UartInterface_init_task
+                  0x0040ba                  _teste_cmd
+                  0x0040da                  _uart_add_comand
+                  0x0040ea                  _UartInterface_init
+ .text            0x0040fa        0x1f0 build/default/production/_ext/570691859/ActivityMan.o
+                  0x0040fa                  _ActivityMan_getCurrActivity
+                  0x004104                  _ActivityMan_ForceStartActivity
+                  0x004124                  _ActivityMan_ForceStartSubActivity
+                  0x0041a6                  _ActivityMan_startSubActivity
+                  0x0041ac                  _ActivityMan_getPastActivity
+                  0x0041b2                  _ActivityMan_onTick
+                  0x00424e                  _ActivityMan_redirect
+                  0x004252                  _ActivityMan_registerEvent
+                  0x004282                  _ActivityMan_unregisterEvent
+                  0x0042b2                  _ActivityMan_init_nested
+                  0x0042bc                  _ActivityMan_stop_nesting
+                  0x0042ca                  _ActivityMan_startActivity
+                  0x0042d6                  _ActivityMan_getBack
+                  0x0042de                  _ActivityMan_Task
+ .text            0x0042ea        0x1d2 build/default/production/_ext/844173455/utils.o
+                  0x004302                  _list_create
+                  0x004310                  _list_insert
+                  0x004368                  _list_put
+                  0x0043c6                  _list_is_present
+                  0x0043e4                  _list_pop
+                  0x00440e                  _list_delete_item
+                  0x00444c                  _list_length
+                  0x00446a                  _list_get
+                  0x0044a0                  _list_delete
 
-.dinit            0x0044be        0x18a
- .dinit           0x0044be        0x18a data_init
+.dinit            0x0044bc        0x18a
+ .dinit           0x0044bc        0x18a data_init
 
-.text             0x004648        0x6e2
- .text            0x004648        0x15c build/default/production/_ext/229065323/fan.o
-                  0x004670                  build/default/production/_ext/229065323/fan.o:_fan_task
-                  0x004700                  _fan_is_error
-                  0x00472a                  _fan_start
-                  0x004796                  _fan_get_ident
-                  0x00479a                  _fan_get_rotation
- .text            0x0047a4        0x100 build/default/production/_ext/1977464509/Buzzer.o
-                  0x0047a4                  _buzz_task_func_q
-                  0x004810                  _init_buzz
-                  0x00483a                  _sys_buzz
-                  0x004886                  _sys_clear_buzz
- .text            0x0048a4         0xac build/default/production/_ext/1055087429/port.o
-                  0x0048c6                  _portman_setAsOutput
-                  0x0048d2                  _portman_setAsInput
-                  0x0048de                  _portman_setOutput
-                  0x0048ea                  _portman_clearOutput
-                  0x0048f6                  _portman_getInput
-                  0x004902                  _portman_setAsDigital
-                  0x00490e                  _portman_setAsAnalog
-                  0x00491a                  _portman_get_fast_port
-                  0x004940                  _portman_fast_set
-                  0x004948                  _portman_fast_clear
- .text            0x004950         0x98 build/default/production/_ext/1693421727/main.o
-                  0x004978                  _task_test
-                  0x0049a0                  _main
- .text            0x0049e8         0x98 build/default/production/_ext/654086336/base64.o
-                  0x0049e8                  _getBase64index
-                  0x004a20                  _base64Decode
- .text            0x004a80         0x8e build/default/production/_ext/1670384666/port.o
-                  0x004a80                  _uart_put_char
-                  0x004a8e                  _sys_uart_init
-                  0x004ac0                  __U2TXInterrupt
-                  0x004ac6                  __U2RXInterrupt
- .text            0x004b0e         0x80 build/default/production/_ext/844173455/version.o
-                  0x004b62                  _kernel_build_code
- .text            0x004b8e         0x7c build/default/production/_ext/844173455/time.o
-                  0x004b8e                  _ShortDelay
-                  0x004bc6                  _Delay_us
-                  0x004bca                  _Delay_ms
-                  0x004bd6                  _timer_get_counter_ms
-                  0x004bfc                  _timer_set_ms_ref
-                  0x004c06                  _timer_get_core_timer
- .text            0x004c0a         0x6c build/default/production/_ext/654086336/crc16.o
-                  0x004c0a                  _getCrc
-                  0x004c3c                  _append_CRC
-                  0x004c50                  _verify_crc
- .text            0x004c76         0x5e build/default/production/_ext/1977464509/port.o
-                  0x004c76                  _buzzer_init_timer
-                  0x004c96                  _BuzzerEnable
-                  0x004c9a                  _BuzzerDisable
-                  0x004c9e                  __T2Interrupt
- .text            0x004cd4         0x2e build/default/production/_ext/570691859/resourceMan.o
-                  0x004cd4                  _setLang
-                  0x004ce2                  _getLanguage
-                  0x004ce6                  _getDefaultLanguage
-                  0x004cea                  _setDefaultLanguage
-                  0x004cf0                  _getResourcePrivate
- .text            0x004d02         0x28 build/default/production/_ext/2107534167/adc.o
-                  0x004d02                  _init_adc
-                  0x004d26                  __ADC1Interrupt
+.text             0x004646        0x6e2
+ .text            0x004646        0x15c build/default/production/_ext/229065323/fan.o
+                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x0046fe                  _fan_is_error
+                  0x004728                  _fan_start
+                  0x004794                  _fan_get_ident
+                  0x004798                  _fan_get_rotation
+ .text            0x0047a2        0x100 build/default/production/_ext/1977464509/Buzzer.o
+                  0x0047a2                  _buzz_task_func_q
+                  0x00480e                  _init_buzz
+                  0x004838                  _sys_buzz
+                  0x004884                  _sys_clear_buzz
+ .text            0x0048a2         0xac build/default/production/_ext/1055087429/port.o
+                  0x0048c4                  _portman_setAsOutput
+                  0x0048d0                  _portman_setAsInput
+                  0x0048dc                  _portman_setOutput
+                  0x0048e8                  _portman_clearOutput
+                  0x0048f4                  _portman_getInput
+                  0x004900                  _portman_setAsDigital
+                  0x00490c                  _portman_setAsAnalog
+                  0x004918                  _portman_get_fast_port
+                  0x00493e                  _portman_fast_set
+                  0x004946                  _portman_fast_clear
+ .text            0x00494e         0x98 build/default/production/_ext/1693421727/main.o
+                  0x004976                  _task_test
+                  0x00499e                  _main
+ .text            0x0049e6         0x98 build/default/production/_ext/654086336/base64.o
+                  0x0049e6                  _getBase64index
+                  0x004a1e                  _base64Decode
+ .text            0x004a7e         0x8e build/default/production/_ext/1670384666/port.o
+                  0x004a7e                  _uart_put_char
+                  0x004a8c                  _sys_uart_init
+                  0x004abe                  __U2TXInterrupt
+                  0x004ac4                  __U2RXInterrupt
+ .text            0x004b0c         0x80 build/default/production/_ext/844173455/version.o
+                  0x004b60                  _kernel_build_code
+ .text            0x004b8c         0x7c build/default/production/_ext/844173455/time.o
+                  0x004b8c                  _ShortDelay
+                  0x004bc4                  _Delay_us
+                  0x004bc8                  _Delay_ms
+                  0x004bd4                  _timer_get_counter_ms
+                  0x004bfa                  _timer_set_ms_ref
+                  0x004c04                  _timer_get_core_timer
+ .text            0x004c08         0x6c build/default/production/_ext/654086336/crc16.o
+                  0x004c08                  _getCrc
+                  0x004c3a                  _append_CRC
+                  0x004c4e                  _verify_crc
+ .text            0x004c74         0x5e build/default/production/_ext/1977464509/port.o
+                  0x004c74                  _buzzer_init_timer
+                  0x004c94                  _BuzzerEnable
+                  0x004c98                  _BuzzerDisable
+                  0x004c9c                  __T2Interrupt
+ .text            0x004cd2         0x2e build/default/production/_ext/570691859/resourceMan.o
+                  0x004cd2                  _setLang
+                  0x004ce0                  _getLanguage
+                  0x004ce4                  _getDefaultLanguage
+                  0x004ce8                  _setDefaultLanguage
+                  0x004cee                  _getResourcePrivate
+ .text            0x004d00         0x28 build/default/production/_ext/2107534167/adc.o
+                  0x004d00                  _init_adc
+                  0x004d24                  __ADC1Interrupt
 
-.init.delay32     0x004d2a         0x1c
- .init.delay32    0x004d2a         0x1c /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
-                  0x004d2a                  ___delay32
+.init.delay32     0x004d28         0x1c
+ .init.delay32    0x004d28         0x1c /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
+                  0x004d28                  ___delay32
