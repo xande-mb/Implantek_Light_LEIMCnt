@@ -18,6 +18,7 @@ Command:
   build/default/production/_ext/2107534167/adc.o \
   build/default/production/_ext/2107534167/spi.o \
   build/default/production/_ext/1693421727/main.o \
+  build/default/production/_ext/1693421727/DisplayController.o \
   build/default/production/_ext/570691859/resourceMan.o \
   build/default/production/_ext/570691859/ActivityMan.o \
   build/default/production/_ext/1714851182/asn1write.o \
@@ -126,13 +127,13 @@ Archive member included because of file (symbol)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcmp.EP_eo)
                               build/default/production/_ext/1670384666/UartCommand.o (_strcmp)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcpy.EP_eo)
-                              build/default/production/_ext/1670384666/UartCommand.o (_strcpy)
+                              build/default/production/_ext/1693421727/DisplayController.o (_strcpy)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strlen.EP_eo)
-                              build/default/production/_ext/699447939/tasker.o (_strlen)
+                              build/default/production/_ext/1693421727/DisplayController.o (_strlen)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strncpy.EP_eo)
                               build/default/production/_ext/1670384666/UartCommand.o (_strncpy)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strtok.EP_eo)
-                              build/default/production/_ext/1670384666/UartCommand.o (_strtok)
+                              build/default/production/_ext/1693421727/DisplayController.o (_strtok)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xstoul.EP_eo)
                               build/default/production/_ext/1440923950/SerialFlash.o (__Stoul)
 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(vsprintf.EP_eo)
@@ -237,13 +238,13 @@ Program Memory  [Origin = 0x200, Length = 0xadec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x2254          0x337e  (13182)
-.const                      0x2454               0x5ba           0x897  (2199)
-.text                       0x2a0e              0x1aae          0x2805  (10245)
-.dinit                      0x44bc               0x18a           0x24f  (591)
-.text                       0x4646               0x6e2           0xa53  (2643)
-.init.delay32               0x4d28                0x1c            0x2a  (42)
+.const                      0x2454               0xd16          0x13a1  (5025)
+.text                       0x316a              0x212a          0x31bf  (12735)
+.dinit                      0x5294               0x18a           0x24f  (591)
+.text                       0x541e               0x648           0x96c  (2412)
+.init.delay32               0x5a66                0x1c            0x2a  (42)
 
-                 Total program memory used (bytes):         0x70e6  (28902) 43%
+                 Total program memory used (bytes):         0x84c3  (33987) 50%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -265,18 +266,18 @@ Data Memory  [Origin = 0x1000, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.bss                        0x1000                   0          0x1a4e  (6734)
-.data                       0x2a4e                   0           0x11c  (284)
-.bss                        0x2b6a                   0            0x16  (22)
-.data                       0x2b80                   0            0x10  (16)
-.bss                        0x2b90                   0            0x32  (50)
-.data                       0x2bc2                   0             0xe  (14)
-.bss                        0x2bd0                   0             0x8  (8)
-.data                       0x2bd8                   0             0x4  (4)
-.bss                        0x2bdc                   0             0x6  (6)
-.data                       0x2be2                   0             0x2  (2)
+.bss                        0x1000                   0          0x1550  (5456)
+.data                       0x2550                   0           0x11c  (284)
+.bss                        0x266c                   0            0x16  (22)
+.data                       0x2682                   0            0x10  (16)
+.bss                        0x2692                   0            0x32  (50)
+.data                       0x26c4                   0             0xe  (14)
+.bss                        0x26d2                   0             0x6  (6)
+.data                       0x26d8                   0             0x4  (4)
+.bss                        0x26dc                   0             0x6  (6)
+.data                       0x26e2                   0             0x2  (2)
 
-                 Total data memory used (bytes):         0x1be4  (7140) 87%
+                 Total data memory used (bytes):         0x16e4  (5860) 71%
 
 
 Dynamic Memory Usage
@@ -284,92 +285,94 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x2be4                               0x41c  (1052)
+stack                       0x26e4                               0x91c  (2332)
 
-                 Maximum dynamic memory (bytes):          0x41c  (1052)
+                 Maximum dynamic memory (bytes):          0x91c  (2332)
 
 
 External Symbols in Data Memory (by address):
 
                     0x1000                  _priv_dd_alloc_HEAP
-                    0x2000                  _max_empty_space
-                    0x2002                  _total_space_used
-                    0x2004                  _total_space_unused
-                    0x2006                  _number_of_allocated_vars
-                    0x2008                  _number_of_allocated_blocks
-                    0x200a                  _number_of_unallocated_blocks
-                    0x200c                  _line_buffer
-                    0x220c                  _send_buffer
-                    0x240c                  _comands
-                    0x2470                  _debug_verify
-                    0x289a                  _kTasks_list
-                    0x2962                  _kTasks_listHigh
-                    0x2b34                  _comand_clear_sector
-                    0x2b38                  _comand_set_add
-                    0x2b3c                  _comand_erase_flash
-                    0x2b40                  _comand_read_flash
-                    0x2b44                  _comand_put_on_bufferb64
-                    0x2b48                  _comand_conf_put_on_buffer64
-                    0x2b4c                  _comand_finish_buffer
-                    0x2b80                  _running_tasks_cmd
-                    0x2b84                  _cmd_verify_alocation
-                    0x2b88                  _cmd_version
-                    0x2b8c                  _comand_get_equip
-                    0x2b90                  _this_activity
-                    0x2b92                  _next_activity
-                    0x2b94                  _redir_activity
-                    0x2b9e                  _counter_wait_task
-                    0x2ba2                  _StkAddrLo
-                    0x2ba4                  _StkAddrHi
-                    0x2bc2                  _uart_commands_list_cmd
-                    0x2bc8                  _dd_alloc_private_data
-                    0x2bd0                  _errno
-                    0x2bd2                  __Tls_setup_errno
-                    0x2bd4                  _spi1_wait
-                    0x2bd8                  _language
-                    0x2bda                  _flag_should_verify
-                    0x2bdc                  _dummy
+                    0x1800                  _max_empty_space
+                    0x1802                  _total_space_used
+                    0x1804                  _total_space_unused
+                    0x1806                  _number_of_allocated_vars
+                    0x1808                  _number_of_allocated_blocks
+                    0x180a                  _number_of_unallocated_blocks
+                    0x180c                  _displayBuffer
+                    0x222e                  _kTasks_list
+                    0x22f6                  _kTasks_listHigh
+                    0x23e2                  _line_buffer
+                    0x2462                  _send_buffer
+                    0x24e2                  _comands
+                    0x2546                  _debug_verify
+                    0x2636                  _comand_clear_sector
+                    0x263a                  _comand_set_add
+                    0x263e                  _comand_erase_flash
+                    0x2642                  _comand_read_flash
+                    0x2646                  _comand_put_on_bufferb64
+                    0x264a                  _comand_conf_put_on_buffer64
+                    0x264e                  _comand_finish_buffer
+                    0x2682                  _running_tasks_cmd
+                    0x2686                  _cmd_verify_alocation
+                    0x268a                  _cmd_version
+                    0x268e                  _comand_get_equip
+                    0x2692                  _this_activity
+                    0x2694                  _next_activity
+                    0x2696                  _redir_activity
+                    0x26a0                  _counter_wait_task
+                    0x26a4                  _StkAddrLo
+                    0x26a6                  _StkAddrHi
+                    0x26c4                  _uart_commands_list_cmd
+                    0x26ca                  _dd_alloc_private_data
+                    0x26d2                  _errno
+                    0x26d4                  __Tls_setup_errno
+                    0x26d6                  _spi1_wait
+                    0x26d8                  _language
+                    0x26da                  _flag_should_verify
+                    0x26dc                  _dummy
 
 External Symbols in Data Memory (by name):
 
-                    0x2ba4                  _StkAddrHi
-                    0x2ba2                  _StkAddrLo
-                    0x2bd2                  __Tls_setup_errno
-                    0x2b84                  _cmd_verify_alocation
-                    0x2b88                  _cmd_version
-                    0x2b34                  _comand_clear_sector
-                    0x2b48                  _comand_conf_put_on_buffer64
-                    0x2b3c                  _comand_erase_flash
-                    0x2b4c                  _comand_finish_buffer
-                    0x2b8c                  _comand_get_equip
-                    0x2b44                  _comand_put_on_bufferb64
-                    0x2b40                  _comand_read_flash
-                    0x2b38                  _comand_set_add
-                    0x240c                  _comands
-                    0x2b9e                  _counter_wait_task
-                    0x2bc8                  _dd_alloc_private_data
-                    0x2470                  _debug_verify
-                    0x2bdc                  _dummy
-                    0x2bd0                  _errno
-                    0x2bda                  _flag_should_verify
-                    0x289a                  _kTasks_list
-                    0x2962                  _kTasks_listHigh
-                    0x2bd8                  _language
-                    0x200c                  _line_buffer
-                    0x2000                  _max_empty_space
-                    0x2b92                  _next_activity
-                    0x2008                  _number_of_allocated_blocks
-                    0x2006                  _number_of_allocated_vars
-                    0x200a                  _number_of_unallocated_blocks
+                    0x26a6                  _StkAddrHi
+                    0x26a4                  _StkAddrLo
+                    0x26d4                  __Tls_setup_errno
+                    0x2686                  _cmd_verify_alocation
+                    0x268a                  _cmd_version
+                    0x2636                  _comand_clear_sector
+                    0x264a                  _comand_conf_put_on_buffer64
+                    0x263e                  _comand_erase_flash
+                    0x264e                  _comand_finish_buffer
+                    0x268e                  _comand_get_equip
+                    0x2646                  _comand_put_on_bufferb64
+                    0x2642                  _comand_read_flash
+                    0x263a                  _comand_set_add
+                    0x24e2                  _comands
+                    0x26a0                  _counter_wait_task
+                    0x26ca                  _dd_alloc_private_data
+                    0x2546                  _debug_verify
+                    0x180c                  _displayBuffer
+                    0x26dc                  _dummy
+                    0x26d2                  _errno
+                    0x26da                  _flag_should_verify
+                    0x222e                  _kTasks_list
+                    0x22f6                  _kTasks_listHigh
+                    0x26d8                  _language
+                    0x23e2                  _line_buffer
+                    0x1800                  _max_empty_space
+                    0x2694                  _next_activity
+                    0x1808                  _number_of_allocated_blocks
+                    0x1806                  _number_of_allocated_vars
+                    0x180a                  _number_of_unallocated_blocks
                     0x1000                  _priv_dd_alloc_HEAP
-                    0x2b94                  _redir_activity
-                    0x2b80                  _running_tasks_cmd
-                    0x220c                  _send_buffer
-                    0x2bd4                  _spi1_wait
-                    0x2b90                  _this_activity
-                    0x2004                  _total_space_unused
-                    0x2002                  _total_space_used
-                    0x2bc2                  _uart_commands_list_cmd
+                    0x2696                  _redir_activity
+                    0x2682                  _running_tasks_cmd
+                    0x2462                  _send_buffer
+                    0x26d6                  _spi1_wait
+                    0x2692                  _this_activity
+                    0x1804                  _total_space_unused
+                    0x1802                  _total_space_used
+                    0x26c4                  _uart_commands_list_cmd
 
 External Symbols in Program Memory (by address):
 
@@ -468,185 +471,199 @@ External Symbols in Program Memory (by address):
                   0x002390                  __dunpack
                   0x0023de                  ___floatdidf
                   0x0023fe                  ___floatundidf
-                  0x002a0e                  _dumy_print
-                  0x002a14                  _cmd_getequip
-                  0x002a7c                  _kTasker_alocated_tasks
-                  0x002a80                  _sQueue_create
-                  0x002a92                  _sQueue_delete
-                  0x002aa2                  _sQueue_force_pop
-                  0x002ac0                  _kTask_set_as_safe
-                  0x002ac6                  _kSchedule
-                  0x002ae6                  _kernel_set_long_running_operation
-                  0x002aea                  _kTask_bind_param
-                  0x002afc                  _kTask_unbind_param
-                  0x002b08                  _kTask_set_name
-                  0x002b12                  _kTask_get_name
-                  0x002b26                  _kTask_get_param
-                  0x002b30                  _kTask_isInitialization
-                  0x002b50                  _sTask_Delay
-                  0x002b62                  _sQueue_do_schedule
-                  0x002ba6                  _sQueue_wait
-                  0x002bb8                  _sQueue_send
-                  0x002bc8                  _sTask_DelayUntil
-                  0x002bdc                  _sTask_delete
-                  0x002be8                  _sTask_ReadySignal
-                  0x002bf4                  _sTask_WaitConclusion
-                  0x002c04                  _sTask_get
-                  0x002c08                  _kTime_micros
-                  0x002c26                  _kTask_create
-                  0x002c7c                  _kernel_setMode
-                  0x002c80                  _kernel_isMode
-                  0x002c8e                  _kernel_get_outfunc
-                  0x002c9c                  _kernel_version_command_handler
-                  0x002d58                  _kernel_tasks_command_handler
-                  0x002ea4                  _get_color_set_out
-                  0x00309e                  _kTasker
-                  0x0030a8                  _sQueue_receive
-                  0x00313c                  _kernel_set_safe_mode
-                  0x0031b2                  _init_kernel_commands
-                  0x0031c4                  _kTasker_init
-                  0x0031e6                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
-                  0x003338                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
-                  0x003384                  _serialflash_wren
-                  0x0033a0                  _serialflash_wrsr
-                  0x0033ca                  _serialflash_disable_wp
-                  0x0033d2                  _serialflash_read
-                  0x003432                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
-                  0x0034ea                  _serialflash_readid
-                  0x003526                  _serialflash_readsr
-                  0x003556                  _serialflash_chiperase
-                  0x003590                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
-                  0x00359e                  _serialflash_serase
-                  0x0035e2                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
-                  0x00361c                  _serialflash_write_size
-                  0x003682                  _serialflash_write
-                  0x0036dc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
-                  0x0036fc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
-                  0x0037b4                  _serial_flash_get_cs
-                  0x003824                  _serialflash_add_commands
-                  0x003842                  _serialflash_init
-                  0x0038dc                  _init_ctt_eeprom
-                  0x003a50                  _eeprom_init_data
-                  0x003bac                  _eeprom_read_data
-                  0x003bc8                  _eeprom_write_data
-                  0x003be4                  _eeprom_read_data_units
-                  0x003bfe                  _eeprom_write_data_units
-                  0x003c1a                  _priv_dd_alloc_coalesce
-                  0x003c52                  _verify_allocation
-                  0x003d9a                  _dd_free
-                  0x003da4                  _dd_alloc
-                  0x003e90                  _verify_alocation_command
-                  0x003ecc                  _dd_free_all
-                  0x003ed2                  _is_alocated
-                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x004036                  _clear_buffer
-                  0x00403e                  _clear_send_buffer
-                  0x00404a                  _set_send_buffer
-                  0x004084                  _serial_printf
-                  0x00409c                  _append_buffer
-                  0x0040ac                  _UartInterface_init_task
-                  0x0040ba                  _teste_cmd
-                  0x0040da                  _uart_add_comand
-                  0x0040ea                  _UartInterface_init
-                  0x0040fa                  _ActivityMan_getCurrActivity
-                  0x004104                  _ActivityMan_ForceStartActivity
-                  0x004124                  _ActivityMan_ForceStartSubActivity
-                  0x0041a6                  _ActivityMan_startSubActivity
-                  0x0041ac                  _ActivityMan_getPastActivity
-                  0x0041b2                  _ActivityMan_onTick
-                  0x00424e                  _ActivityMan_redirect
-                  0x004252                  _ActivityMan_registerEvent
-                  0x004282                  _ActivityMan_unregisterEvent
-                  0x0042b2                  _ActivityMan_init_nested
-                  0x0042bc                  _ActivityMan_stop_nesting
-                  0x0042ca                  _ActivityMan_startActivity
-                  0x0042d6                  _ActivityMan_getBack
-                  0x0042de                  _ActivityMan_Task
-                  0x004302                  _list_create
-                  0x004310                  _list_insert
-                  0x004368                  _list_put
-                  0x0043c6                  _list_is_present
-                  0x0043e4                  _list_pop
-                  0x00440e                  _list_delete_item
-                  0x00444c                  _list_length
-                  0x00446a                  _list_get
-                  0x0044a0                  _list_delete
-                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
-                  0x0046fe                  _fan_is_error
-                  0x004728                  _fan_start
-                  0x004794                  _fan_get_ident
-                  0x004798                  _fan_get_rotation
-                  0x0047a2                  _buzz_task_func_q
-                  0x00480e                  _init_buzz
-                  0x004838                  _sys_buzz
-                  0x004884                  _sys_clear_buzz
-                  0x0048c4                  _portman_setAsOutput
-                  0x0048d0                  _portman_setAsInput
-                  0x0048dc                  _portman_setOutput
-                  0x0048e8                  _portman_clearOutput
-                  0x0048f4                  _portman_getInput
-                  0x004900                  _portman_setAsDigital
-                  0x00490c                  _portman_setAsAnalog
-                  0x004918                  _portman_get_fast_port
-                  0x00493e                  _portman_fast_set
-                  0x004946                  _portman_fast_clear
-                  0x004976                  _task_test
-                  0x00499e                  _main
-                  0x0049e6                  _getBase64index
-                  0x004a1e                  _base64Decode
-                  0x004a7e                  _uart_put_char
-                  0x004a8c                  _sys_uart_init
-                  0x004abe                  __U2TXInterrupt
-                  0x004ac4                  __U2RXInterrupt
-                  0x004b60                  _kernel_build_code
-                  0x004b8c                  _ShortDelay
-                  0x004bc4                  _Delay_us
-                  0x004bc8                  _Delay_ms
-                  0x004bd4                  _timer_get_counter_ms
-                  0x004bfa                  _timer_set_ms_ref
-                  0x004c04                  _timer_get_core_timer
-                  0x004c08                  _getCrc
-                  0x004c3a                  _append_CRC
-                  0x004c4e                  _verify_crc
-                  0x004c74                  _buzzer_init_timer
-                  0x004c94                  _BuzzerEnable
-                  0x004c98                  _BuzzerDisable
-                  0x004c9c                  __T2Interrupt
-                  0x004cd2                  _setLang
-                  0x004ce0                  _getLanguage
-                  0x004ce4                  _getDefaultLanguage
-                  0x004ce8                  _setDefaultLanguage
-                  0x004cee                  _getResourcePrivate
-                  0x004d00                  _init_adc
-                  0x004d24                  __ADC1Interrupt
-                  0x004d28                  ___delay32
+                  0x002456                  _horizontalLengthsVerdana7
+                  0x0024f6                  _fontVerdana7
+                  0x00316a                  _dumy_print
+                  0x003170                  _cmd_getequip
+                  0x0031d8                  _kTasker_alocated_tasks
+                  0x0031dc                  _sQueue_create
+                  0x0031ee                  _sQueue_delete
+                  0x0031fe                  _sQueue_force_pop
+                  0x00321c                  _kTask_set_as_safe
+                  0x003222                  _kSchedule
+                  0x003242                  _kernel_set_long_running_operation
+                  0x003246                  _kTask_bind_param
+                  0x003258                  _kTask_unbind_param
+                  0x003264                  _kTask_set_name
+                  0x00326e                  _kTask_get_name
+                  0x003282                  _kTask_get_param
+                  0x00328c                  _kTask_isInitialization
+                  0x0032ac                  _sTask_Delay
+                  0x0032be                  _sQueue_do_schedule
+                  0x003302                  _sQueue_wait
+                  0x003314                  _sQueue_send
+                  0x003324                  _sTask_DelayUntil
+                  0x003338                  _sTask_delete
+                  0x003344                  _sTask_ReadySignal
+                  0x003350                  _sTask_WaitConclusion
+                  0x003360                  _sTask_get
+                  0x003364                  _kTime_micros
+                  0x003382                  _kTask_create
+                  0x0033d8                  _kernel_setMode
+                  0x0033dc                  _kernel_isMode
+                  0x0033ea                  _kernel_get_outfunc
+                  0x0033f8                  _kernel_version_command_handler
+                  0x0034b0                  _kernel_tasks_command_handler
+                  0x0035fc                  _get_color_set_out
+                  0x0037f6                  _kTasker
+                  0x003800                  _sQueue_receive
+                  0x003894                  _kernel_set_safe_mode
+                  0x00390a                  _init_kernel_commands
+                  0x00391c                  _kTasker_init
+                  0x00393e                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
+                  0x003a90                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
+                  0x003adc                  _serialflash_wren
+                  0x003af8                  _serialflash_wrsr
+                  0x003b22                  _serialflash_disable_wp
+                  0x003b2a                  _serialflash_read
+                  0x003b8a                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
+                  0x003c42                  _serialflash_readid
+                  0x003c7e                  _serialflash_readsr
+                  0x003cae                  _serialflash_chiperase
+                  0x003ce8                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
+                  0x003cf6                  _serialflash_serase
+                  0x003d3a                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
+                  0x003d74                  _serialflash_write_size
+                  0x003dda                  _serialflash_write
+                  0x003e34                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
+                  0x003e54                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
+                  0x003f0c                  _serial_flash_get_cs
+                  0x003f7c                  _serialflash_add_commands
+                  0x003f9a                  _serialflash_init
+                  0x003fb2                  _clearDisplayBuffer
+                  0x003fc0                  _sendByteDisplay
+                  0x00408a                  _setY
+                  0x00409a                  _setX
+                  0x0040aa                  _showDisplayBuffer
+                  0x004128                  _clearDisplay
+                  0x00412e                  _initializeDisplay
+                  0x004184                  _fillRectangle
+                  0x00424e                  _putPixel
+                  0x00425a                  _writeTextLine
+                  0x004446                  _writeText
+                  0x004522                  _init_ctt_eeprom
+                  0x004696                  _eeprom_init_data
+                  0x0047f2                  _eeprom_read_data
+                  0x00480e                  _eeprom_write_data
+                  0x00482a                  _eeprom_read_data_units
+                  0x004844                  _eeprom_write_data_units
+                  0x004860                  _priv_dd_alloc_coalesce
+                  0x004898                  _verify_allocation
+                  0x0049e0                  _dd_free
+                  0x0049ea                  _dd_alloc
+                  0x004ad6                  _verify_alocation_command
+                  0x004b12                  _dd_free_all
+                  0x004b18                  _is_alocated
+                  0x004b32                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x004bd8                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x004c7c                  _clear_buffer
+                  0x004c84                  _clear_send_buffer
+                  0x004c90                  _set_send_buffer
+                  0x004cca                  _serial_printf
+                  0x004ce2                  _append_buffer
+                  0x004cf2                  _UartInterface_init_task
+                  0x004d00                  _teste_cmd
+                  0x004d20                  _uart_add_comand
+                  0x004d30                  _UartInterface_init
+                  0x004d40                  _ActivityMan_getCurrActivity
+                  0x004d4a                  _ActivityMan_ForceStartActivity
+                  0x004d6a                  _ActivityMan_ForceStartSubActivity
+                  0x004dec                  _ActivityMan_startSubActivity
+                  0x004df2                  _ActivityMan_getPastActivity
+                  0x004df8                  _ActivityMan_onTick
+                  0x004e94                  _ActivityMan_redirect
+                  0x004e98                  _ActivityMan_registerEvent
+                  0x004ec8                  _ActivityMan_unregisterEvent
+                  0x004ef8                  _ActivityMan_init_nested
+                  0x004f02                  _ActivityMan_stop_nesting
+                  0x004f10                  _ActivityMan_startActivity
+                  0x004f1c                  _ActivityMan_getBack
+                  0x004f24                  _ActivityMan_Task
+                  0x004f48                  _list_create
+                  0x004f56                  _list_insert
+                  0x004fae                  _list_put
+                  0x00500c                  _list_is_present
+                  0x00502a                  _list_pop
+                  0x005054                  _list_delete_item
+                  0x005092                  _list_length
+                  0x0050b0                  _list_get
+                  0x0050e6                  _list_delete
+                  0x00512a                  _task_test
+                  0x005152                  _pinConfig
+                  0x005232                  _main
+                  0x005446                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x0054d6                  _fan_is_error
+                  0x005500                  _fan_start
+                  0x00556c                  _fan_get_ident
+                  0x005570                  _fan_get_rotation
+                  0x00557a                  _buzz_task_func_q
+                  0x0055e6                  _init_buzz
+                  0x005610                  _sys_buzz
+                  0x00565c                  _sys_clear_buzz
+                  0x00569c                  _portman_setAsOutput
+                  0x0056a8                  _portman_setAsInput
+                  0x0056b4                  _portman_setOutput
+                  0x0056c0                  _portman_clearOutput
+                  0x0056cc                  _portman_getInput
+                  0x0056d8                  _portman_setAsDigital
+                  0x0056e4                  _portman_setAsAnalog
+                  0x0056f0                  _portman_get_fast_port
+                  0x005716                  _portman_fast_set
+                  0x00571e                  _portman_fast_clear
+                  0x005726                  _getBase64index
+                  0x00575e                  _base64Decode
+                  0x0057be                  _uart_put_char
+                  0x0057cc                  _sys_uart_init
+                  0x0057fe                  __U2TXInterrupt
+                  0x005804                  __U2RXInterrupt
+                  0x0058a0                  _kernel_build_code
+                  0x0058ca                  _ShortDelay
+                  0x005902                  _Delay_us
+                  0x005906                  _Delay_ms
+                  0x005912                  _timer_get_counter_ms
+                  0x005938                  _timer_set_ms_ref
+                  0x005942                  _timer_get_core_timer
+                  0x005946                  _getCrc
+                  0x005978                  _append_CRC
+                  0x00598c                  _verify_crc
+                  0x0059b2                  _buzzer_init_timer
+                  0x0059d2                  _BuzzerEnable
+                  0x0059d6                  _BuzzerDisable
+                  0x0059da                  __T2Interrupt
+                  0x005a10                  _setLang
+                  0x005a1e                  _getLanguage
+                  0x005a22                  _getDefaultLanguage
+                  0x005a26                  _setDefaultLanguage
+                  0x005a2c                  _getResourcePrivate
+                  0x005a3e                  _init_adc
+                  0x005a62                  __ADC1Interrupt
+                  0x005a66                  ___delay32
                   0x00affa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x004104                  _ActivityMan_ForceStartActivity
-                  0x004124                  _ActivityMan_ForceStartSubActivity
-                  0x0042de                  _ActivityMan_Task
-                  0x0042d6                  _ActivityMan_getBack
-                  0x0040fa                  _ActivityMan_getCurrActivity
-                  0x0041ac                  _ActivityMan_getPastActivity
-                  0x0042b2                  _ActivityMan_init_nested
-                  0x0041b2                  _ActivityMan_onTick
-                  0x00424e                  _ActivityMan_redirect
-                  0x004252                  _ActivityMan_registerEvent
-                  0x0042ca                  _ActivityMan_startActivity
-                  0x0041a6                  _ActivityMan_startSubActivity
-                  0x0042bc                  _ActivityMan_stop_nesting
-                  0x004282                  _ActivityMan_unregisterEvent
-                  0x004c98                  _BuzzerDisable
-                  0x004c94                  _BuzzerEnable
-                  0x004bc8                  _Delay_ms
-                  0x004bc4                  _Delay_us
-                  0x004b8c                  _ShortDelay
-                  0x0040ea                  _UartInterface_init
-                  0x0040ac                  _UartInterface_init_task
-                  0x004d24                  __ADC1Interrupt
+                  0x004d4a                  _ActivityMan_ForceStartActivity
+                  0x004d6a                  _ActivityMan_ForceStartSubActivity
+                  0x004f24                  _ActivityMan_Task
+                  0x004f1c                  _ActivityMan_getBack
+                  0x004d40                  _ActivityMan_getCurrActivity
+                  0x004df2                  _ActivityMan_getPastActivity
+                  0x004ef8                  _ActivityMan_init_nested
+                  0x004df8                  _ActivityMan_onTick
+                  0x004e94                  _ActivityMan_redirect
+                  0x004e98                  _ActivityMan_registerEvent
+                  0x004f10                  _ActivityMan_startActivity
+                  0x004dec                  _ActivityMan_startSubActivity
+                  0x004f02                  _ActivityMan_stop_nesting
+                  0x004ec8                  _ActivityMan_unregisterEvent
+                  0x0059d6                  _BuzzerDisable
+                  0x0059d2                  _BuzzerEnable
+                  0x005906                  _Delay_ms
+                  0x005902                  _Delay_us
+                  0x0058ca                  _ShortDelay
+                  0x004d30                  _UartInterface_init
+                  0x004cf2                  _UartInterface_init_task
+                  0x005a62                  __ADC1Interrupt
                   0x000688                  __AddressError
                   0x0006c4                  __DefaultInterrupt
                   0x001b08                  __Dnorm
@@ -666,12 +683,12 @@ External Symbols in Program Memory (by name):
                   0x00069c                  __StackError
                   0x000c68                  __Stoul
                   0x00040a                  __T1Interrupt
-                  0x004c9c                  __T2Interrupt
-                  0x004ac4                  __U2RXInterrupt
-                  0x004abe                  __U2TXInterrupt
+                  0x0059da                  __T2Interrupt
+                  0x005804                  __U2RXInterrupt
+                  0x0057fe                  __U2TXInterrupt
                   0x00124a                  __Vacopy
                   0x002204                  ___adddf3
-                  0x004d28                  ___delay32
+                  0x005a66                  ___delay32
                   0x001f30                  ___divdf3
                   0x000a8c                  ___divdi3
                   0x0006ca                  ___divsf3
@@ -721,121 +738,133 @@ External Symbols in Program Memory (by name):
                   0x000886                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x004c3a                  _append_CRC
-                  0x00409c                  _append_buffer
-                  0x004a1e                  _base64Decode
-                  0x0047a2                  _buzz_task_func_q
-                  0x004c74                  _buzzer_init_timer
-                  0x004036                  _clear_buffer
-                  0x00403e                  _clear_send_buffer
-                  0x002a14                  _cmd_getequip
-                  0x003da4                  _dd_alloc
-                  0x003d9a                  _dd_free
-                  0x003ecc                  _dd_free_all
+                  0x005978                  _append_CRC
+                  0x004ce2                  _append_buffer
+                  0x00575e                  _base64Decode
+                  0x00557a                  _buzz_task_func_q
+                  0x0059b2                  _buzzer_init_timer
+                  0x004128                  _clearDisplay
+                  0x003fb2                  _clearDisplayBuffer
+                  0x004c7c                  _clear_buffer
+                  0x004c84                  _clear_send_buffer
+                  0x003170                  _cmd_getequip
+                  0x0049ea                  _dd_alloc
+                  0x0049e0                  _dd_free
+                  0x004b12                  _dd_free_all
                   0x001f06                  _div
-                  0x002a0e                  _dumy_print
-                  0x003a50                  _eeprom_init_data
-                  0x003bac                  _eeprom_read_data
-                  0x003be4                  _eeprom_read_data_units
-                  0x003bc8                  _eeprom_write_data
-                  0x003bfe                  _eeprom_write_data_units
-                  0x004794                  _fan_get_ident
-                  0x004798                  _fan_get_rotation
-                  0x0046fe                  _fan_is_error
-                  0x004728                  _fan_start
-                  0x0049e6                  _getBase64index
-                  0x004c08                  _getCrc
-                  0x004ce4                  _getDefaultLanguage
-                  0x004ce0                  _getLanguage
-                  0x004cee                  _getResourcePrivate
+                  0x00316a                  _dumy_print
+                  0x004696                  _eeprom_init_data
+                  0x0047f2                  _eeprom_read_data
+                  0x00482a                  _eeprom_read_data_units
+                  0x00480e                  _eeprom_write_data
+                  0x004844                  _eeprom_write_data_units
+                  0x00556c                  _fan_get_ident
+                  0x005570                  _fan_get_rotation
+                  0x0054d6                  _fan_is_error
+                  0x005500                  _fan_start
+                  0x004184                  _fillRectangle
+                  0x0024f6                  _fontVerdana7
+                  0x005726                  _getBase64index
+                  0x005946                  _getCrc
+                  0x005a22                  _getDefaultLanguage
+                  0x005a1e                  _getLanguage
+                  0x005a2c                  _getResourcePrivate
                   0x000670                  _get_CoreTimer
-                  0x002ea4                  _get_color_set_out
-                  0x004d00                  _init_adc
-                  0x00480e                  _init_buzz
-                  0x0038dc                  _init_ctt_eeprom
-                  0x0031b2                  _init_kernel_commands
-                  0x003ed2                  _is_alocated
+                  0x0035fc                  _get_color_set_out
+                  0x002456                  _horizontalLengthsVerdana7
+                  0x005a3e                  _init_adc
+                  0x0055e6                  _init_buzz
+                  0x004522                  _init_ctt_eeprom
+                  0x00390a                  _init_kernel_commands
+                  0x00412e                  _initializeDisplay
+                  0x004b18                  _is_alocated
                   0x001206                  _isspace
-                  0x002ac6                  _kSchedule
-                  0x002aea                  _kTask_bind_param
-                  0x002c26                  _kTask_create
-                  0x002b12                  _kTask_get_name
-                  0x002b26                  _kTask_get_param
-                  0x002b30                  _kTask_isInitialization
-                  0x002ac0                  _kTask_set_as_safe
-                  0x002b08                  _kTask_set_name
-                  0x002afc                  _kTask_unbind_param
-                  0x00309e                  _kTasker
-                  0x002a7c                  _kTasker_alocated_tasks
-                  0x0031c4                  _kTasker_init
-                  0x002c08                  _kTime_micros
-                  0x004b60                  _kernel_build_code
-                  0x002c8e                  _kernel_get_outfunc
-                  0x002c80                  _kernel_isMode
-                  0x002c7c                  _kernel_setMode
-                  0x002ae6                  _kernel_set_long_running_operation
-                  0x00313c                  _kernel_set_safe_mode
-                  0x002d58                  _kernel_tasks_command_handler
-                  0x002c9c                  _kernel_version_command_handler
+                  0x003222                  _kSchedule
+                  0x003246                  _kTask_bind_param
+                  0x003382                  _kTask_create
+                  0x00326e                  _kTask_get_name
+                  0x003282                  _kTask_get_param
+                  0x00328c                  _kTask_isInitialization
+                  0x00321c                  _kTask_set_as_safe
+                  0x003264                  _kTask_set_name
+                  0x003258                  _kTask_unbind_param
+                  0x0037f6                  _kTasker
+                  0x0031d8                  _kTasker_alocated_tasks
+                  0x00391c                  _kTasker_init
+                  0x003364                  _kTime_micros
+                  0x0058a0                  _kernel_build_code
+                  0x0033ea                  _kernel_get_outfunc
+                  0x0033dc                  _kernel_isMode
+                  0x0033d8                  _kernel_setMode
+                  0x003242                  _kernel_set_long_running_operation
+                  0x003894                  _kernel_set_safe_mode
+                  0x0034b0                  _kernel_tasks_command_handler
+                  0x0033f8                  _kernel_version_command_handler
                   0x001ade                  _ldiv
-                  0x004302                  _list_create
-                  0x0044a0                  _list_delete
-                  0x00440e                  _list_delete_item
-                  0x00446a                  _list_get
-                  0x004310                  _list_insert
-                  0x0043c6                  _list_is_present
-                  0x00444c                  _list_length
-                  0x0043e4                  _list_pop
-                  0x004368                  _list_put
-                  0x00499e                  _main
+                  0x004f48                  _list_create
+                  0x0050e6                  _list_delete
+                  0x005054                  _list_delete_item
+                  0x0050b0                  _list_get
+                  0x004f56                  _list_insert
+                  0x00500c                  _list_is_present
+                  0x005092                  _list_length
+                  0x00502a                  _list_pop
+                  0x004fae                  _list_put
+                  0x005232                  _main
                   0x00124e                  _memchr
                   0x001262                  _memcpy
+                  0x005152                  _pinConfig
                   0x00054c                  _port_disable_timeout_verification
                   0x000662                  _port_get_frac_timer
                   0x000640                  _port_init_timer
                   0x000560                  _port_init_verification
                   0x000552                  _port_reset_stuck_verification
-                  0x0048e8                  _portman_clearOutput
-                  0x004946                  _portman_fast_clear
-                  0x00493e                  _portman_fast_set
-                  0x0048f4                  _portman_getInput
-                  0x004918                  _portman_get_fast_port
-                  0x00490c                  _portman_setAsAnalog
-                  0x004900                  _portman_setAsDigital
-                  0x0048d0                  _portman_setAsInput
-                  0x0048c4                  _portman_setAsOutput
-                  0x0048dc                  _portman_setOutput
-                  0x003c1a                  _priv_dd_alloc_coalesce
-                  0x002a80                  _sQueue_create
-                  0x002a92                  _sQueue_delete
-                  0x002b62                  _sQueue_do_schedule
-                  0x002aa2                  _sQueue_force_pop
-                  0x0030a8                  _sQueue_receive
-                  0x002bb8                  _sQueue_send
-                  0x002ba6                  _sQueue_wait
-                  0x002b50                  _sTask_Delay
-                  0x002bc8                  _sTask_DelayUntil
-                  0x002be8                  _sTask_ReadySignal
-                  0x002bf4                  _sTask_WaitConclusion
-                  0x002bdc                  _sTask_delete
-                  0x002c04                  _sTask_get
-                  0x0037b4                  _serial_flash_get_cs
-                  0x004084                  _serial_printf
-                  0x003824                  _serialflash_add_commands
-                  0x003556                  _serialflash_chiperase
-                  0x0033ca                  _serialflash_disable_wp
-                  0x003842                  _serialflash_init
-                  0x0033d2                  _serialflash_read
-                  0x0034ea                  _serialflash_readid
-                  0x003526                  _serialflash_readsr
-                  0x00359e                  _serialflash_serase
-                  0x003384                  _serialflash_wren
-                  0x003682                  _serialflash_write
-                  0x00361c                  _serialflash_write_size
-                  0x0033a0                  _serialflash_wrsr
-                  0x004ce8                  _setDefaultLanguage
-                  0x004cd2                  _setLang
-                  0x00404a                  _set_send_buffer
+                  0x0056c0                  _portman_clearOutput
+                  0x00571e                  _portman_fast_clear
+                  0x005716                  _portman_fast_set
+                  0x0056cc                  _portman_getInput
+                  0x0056f0                  _portman_get_fast_port
+                  0x0056e4                  _portman_setAsAnalog
+                  0x0056d8                  _portman_setAsDigital
+                  0x0056a8                  _portman_setAsInput
+                  0x00569c                  _portman_setAsOutput
+                  0x0056b4                  _portman_setOutput
+                  0x004860                  _priv_dd_alloc_coalesce
+                  0x00424e                  _putPixel
+                  0x0031dc                  _sQueue_create
+                  0x0031ee                  _sQueue_delete
+                  0x0032be                  _sQueue_do_schedule
+                  0x0031fe                  _sQueue_force_pop
+                  0x003800                  _sQueue_receive
+                  0x003314                  _sQueue_send
+                  0x003302                  _sQueue_wait
+                  0x0032ac                  _sTask_Delay
+                  0x003324                  _sTask_DelayUntil
+                  0x003344                  _sTask_ReadySignal
+                  0x003350                  _sTask_WaitConclusion
+                  0x003338                  _sTask_delete
+                  0x003360                  _sTask_get
+                  0x003fc0                  _sendByteDisplay
+                  0x003f0c                  _serial_flash_get_cs
+                  0x004cca                  _serial_printf
+                  0x003f7c                  _serialflash_add_commands
+                  0x003cae                  _serialflash_chiperase
+                  0x003b22                  _serialflash_disable_wp
+                  0x003f9a                  _serialflash_init
+                  0x003b2a                  _serialflash_read
+                  0x003c42                  _serialflash_readid
+                  0x003c7e                  _serialflash_readsr
+                  0x003cf6                  _serialflash_serase
+                  0x003adc                  _serialflash_wren
+                  0x003dda                  _serialflash_write
+                  0x003d74                  _serialflash_write_size
+                  0x003af8                  _serialflash_wrsr
+                  0x005a26                  _setDefaultLanguage
+                  0x005a10                  _setLang
+                  0x00409a                  _setX
+                  0x00408a                  _setY
+                  0x004c90                  _set_send_buffer
+                  0x0040aa                  _showDisplayBuffer
                   0x00039a                  _spi1_send_receive
                   0x000388                  _spi1_send_receive_byte
                   0x000354                  _spi_init
@@ -848,31 +877,33 @@ External Symbols in Program Memory (by name):
                   0x000c16                  _strncpy
                   0x001292                  _strspn
                   0x000c34                  _strtok
-                  0x004838                  _sys_buzz
-                  0x004884                  _sys_clear_buzz
-                  0x004a8c                  _sys_uart_init
-                  0x004976                  _task_test
-                  0x0040ba                  _teste_cmd
-                  0x004c04                  _timer_get_core_timer
-                  0x004bd4                  _timer_get_counter_ms
-                  0x004bfa                  _timer_set_ms_ref
+                  0x005610                  _sys_buzz
+                  0x00565c                  _sys_clear_buzz
+                  0x0057cc                  _sys_uart_init
+                  0x00512a                  _task_test
+                  0x004d00                  _teste_cmd
+                  0x005942                  _timer_get_core_timer
+                  0x005912                  _timer_get_counter_ms
+                  0x005938                  _timer_set_ms_ref
                   0x001216                  _tolower
-                  0x0040da                  _uart_add_comand
-                  0x004a7e                  _uart_put_char
-                  0x003c52                  _verify_allocation
-                  0x003e90                  _verify_alocation_command
-                  0x004c4e                  _verify_crc
+                  0x004d20                  _uart_add_comand
+                  0x0057be                  _uart_put_char
+                  0x004898                  _verify_allocation
+                  0x004ad6                  _verify_alocation_command
+                  0x00598c                  _verify_crc
                   0x000daa                  _vsprintf
-                  0x0035e2                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
-                  0x0036fc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
-                  0x003590                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
-                  0x0036dc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
-                  0x0031e6                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
-                  0x003338                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
-                  0x003432                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
-                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x004446                  _writeText
+                  0x00425a                  _writeTextLine
+                  0x003d3a                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
+                  0x003e54                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
+                  0x003ce8                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
+                  0x003e34                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
+                  0x00393e                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
+                  0x003a90                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
+                  0x003b8a                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
+                  0x004b32                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x004bd8                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x005446                  build/default/production/_ext/229065323/fan.o:_fan_task
                   0x000d9c                  vsprintf.EP_eo:_prout
 
 Memory Configuration
@@ -900,6 +931,7 @@ Linker script and memory map
 LOAD build/default/production/_ext/2107534167/adc.o
 LOAD build/default/production/_ext/2107534167/spi.o
 LOAD build/default/production/_ext/1693421727/main.o
+LOAD build/default/production/_ext/1693421727/DisplayController.o
 LOAD build/default/production/_ext/570691859/resourceMan.o
 LOAD build/default/production/_ext/570691859/ActivityMan.o
 LOAD build/default/production/_ext/1714851182/asn1write.o
@@ -1214,164 +1246,169 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0xa473
+.debug_info       0x000000       0xacd5
  *(.debug_info)
- .debug_info      0x000000        0x804 build/default/production/_ext/2107534167/adc.o
- .debug_info      0x000804        0xc03 build/default/production/_ext/2107534167/spi.o
- .debug_info      0x001407        0x726 build/default/production/_ext/1693421727/main.o
- .debug_info      0x001b2d        0x246 build/default/production/_ext/570691859/resourceMan.o
- .debug_info      0x001d73        0x841 build/default/production/_ext/570691859/ActivityMan.o
- .debug_info      0x0025b4       0x13ec build/default/production/_ext/699447939/tasker.o
- .debug_info      0x0039a0       0x10a2 build/default/production/_ext/581574207/port.o
- .debug_info      0x004a42        0x2bf build/default/production/_ext/844173455/time.o
- .debug_info      0x004d01        0x521 build/default/production/_ext/844173455/utils.o
- .debug_info      0x005222        0x6f5 build/default/production/_ext/844173455/d_alloc.o
- .debug_info      0x005917        0x1f7 build/default/production/_ext/844173455/version.o
- .debug_info      0x005b0e        0x4e1 build/default/production/_ext/229065323/fan.o
- .debug_info      0x005fef        0xd8e build/default/production/_ext/1440923950/SerialFlash.o
- .debug_info      0x006d7d        0x9f6 build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_info      0x007773        0x93d build/default/production/_ext/1055087429/port.o
- .debug_info      0x0080b0        0x801 build/default/production/_ext/1670384666/UartCommand.o
- .debug_info      0x0088b1        0xa8b build/default/production/_ext/1670384666/port.o
- .debug_info      0x00933c        0x4a3 build/default/production/_ext/1977464509/Buzzer.o
- .debug_info      0x0097df        0x84d build/default/production/_ext/1977464509/port.o
- .debug_info      0x00a02c        0x264 build/default/production/_ext/654086336/crc16.o
- .debug_info      0x00a290        0x1e3 build/default/production/_ext/654086336/base64.o
+ .debug_info      0x000000        0x80c build/default/production/_ext/2107534167/adc.o
+ .debug_info      0x00080c        0xc0b build/default/production/_ext/2107534167/spi.o
+ .debug_info      0x001417        0x726 build/default/production/_ext/1693421727/main.o
+ .debug_info      0x001b3d        0x7b2 build/default/production/_ext/1693421727/DisplayController.o
+ .debug_info      0x0022ef        0x24e build/default/production/_ext/570691859/resourceMan.o
+ .debug_info      0x00253d        0x849 build/default/production/_ext/570691859/ActivityMan.o
+ .debug_info      0x002d86       0x13f4 build/default/production/_ext/699447939/tasker.o
+ .debug_info      0x00417a       0x10aa build/default/production/_ext/581574207/port.o
+ .debug_info      0x005224        0x2c7 build/default/production/_ext/844173455/time.o
+ .debug_info      0x0054eb        0x529 build/default/production/_ext/844173455/utils.o
+ .debug_info      0x005a14        0x6fd build/default/production/_ext/844173455/d_alloc.o
+ .debug_info      0x006111        0x1ff build/default/production/_ext/844173455/version.o
+ .debug_info      0x006310        0x4e9 build/default/production/_ext/229065323/fan.o
+ .debug_info      0x0067f9        0xd96 build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_info      0x00758f        0x9fe build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_info      0x007f8d        0x945 build/default/production/_ext/1055087429/port.o
+ .debug_info      0x0088d2        0x819 build/default/production/_ext/1670384666/UartCommand.o
+ .debug_info      0x0090eb        0xa93 build/default/production/_ext/1670384666/port.o
+ .debug_info      0x009b7e        0x4ab build/default/production/_ext/1977464509/Buzzer.o
+ .debug_info      0x00a029        0x855 build/default/production/_ext/1977464509/port.o
+ .debug_info      0x00a87e        0x26c build/default/production/_ext/654086336/crc16.o
+ .debug_info      0x00aaea        0x1eb build/default/production/_ext/654086336/base64.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000       0x1a93
+.debug_abbrev     0x000000       0x1c57
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xcb build/default/production/_ext/2107534167/adc.o
  .debug_abbrev    0x0000cb        0x147 build/default/production/_ext/2107534167/spi.o
- .debug_abbrev    0x000212        0x163 build/default/production/_ext/1693421727/main.o
- .debug_abbrev    0x000375         0xf8 build/default/production/_ext/570691859/resourceMan.o
- .debug_abbrev    0x00046d        0x19d build/default/production/_ext/570691859/ActivityMan.o
- .debug_abbrev    0x00060a          0x1 build/default/production/_ext/1714851182/asn1write.o
- .debug_abbrev    0x00060b          0x1 build/default/production/_ext/1714851182/bignum.o
- .debug_abbrev    0x00060c          0x1 build/default/production/_ext/1714851182/oid.o
- .debug_abbrev    0x00060d          0x1 build/default/production/_ext/1714851182/aes.o
- .debug_abbrev    0x00060e          0x1 build/default/production/_ext/1714851182/md_wrap.o
- .debug_abbrev    0x00060f          0x1 build/default/production/_ext/1714851182/sha1.o
- .debug_abbrev    0x000610          0x1 build/default/production/_ext/1714851182/md.o
- .debug_abbrev    0x000611          0x1 build/default/production/_ext/1714851182/rsa.o
- .debug_abbrev    0x000612          0x1 build/default/production/_ext/1714851182/asn1parse.o
- .debug_abbrev    0x000613        0x2d7 build/default/production/_ext/699447939/tasker.o
- .debug_abbrev    0x0008ea        0x21d build/default/production/_ext/581574207/port.o
- .debug_abbrev    0x000b07         0xbc build/default/production/_ext/844173455/time.o
- .debug_abbrev    0x000bc3        0x119 build/default/production/_ext/844173455/utils.o
- .debug_abbrev    0x000cdc        0x16e build/default/production/_ext/844173455/d_alloc.o
- .debug_abbrev    0x000e4a         0x8d build/default/production/_ext/844173455/version.o
- .debug_abbrev    0x000ed7          0x1 build/default/production/_ext/2113294451/GraphicsPMP.o
- .debug_abbrev    0x000ed8          0x1 build/default/production/_ext/2113294451/GraphicsController.o
- .debug_abbrev    0x000ed9        0x118 build/default/production/_ext/229065323/fan.o
- .debug_abbrev    0x000ff1        0x224 build/default/production/_ext/1440923950/SerialFlash.o
- .debug_abbrev    0x001215        0x16e build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_abbrev    0x001383        0x145 build/default/production/_ext/1055087429/port.o
- .debug_abbrev    0x0014c8          0x1 build/default/production/_ext/1733941594/TouchScreen.o
- .debug_abbrev    0x0014c9          0x1 build/default/production/_ext/1733941594/touchCalib.o
- .debug_abbrev    0x0014ca          0x1 build/default/production/_ext/1733941594/sys_activityTouchCalib.o
- .debug_abbrev    0x0014cb          0x1 build/default/production/_ext/1733941594/port.o
- .debug_abbrev    0x0014cc        0x1ad build/default/production/_ext/1670384666/UartCommand.o
- .debug_abbrev    0x001679        0x109 build/default/production/_ext/1670384666/port.o
- .debug_abbrev    0x001782          0x1 build/default/production/_ext/327596014/font_resource.o
- .debug_abbrev    0x001783          0x1 build/default/production/_ext/1977464509/PictureManager.o
- .debug_abbrev    0x001784         0xfd build/default/production/_ext/1977464509/Buzzer.o
- .debug_abbrev    0x001881          0x1 build/default/production/_ext/1977464509/nestedDialogs.o
- .debug_abbrev    0x001882          0x1 build/default/production/_ext/1977464509/PictureServiceManager.o
- .debug_abbrev    0x001883          0x1 build/default/production/_ext/1977464509/ViewCommons.o
- .debug_abbrev    0x001884          0x1 build/default/production/_ext/1977464509/bt_lib_2.o
- .debug_abbrev    0x001885        0x101 build/default/production/_ext/1977464509/port.o
- .debug_abbrev    0x001986         0xb0 build/default/production/_ext/654086336/crc16.o
- .debug_abbrev    0x001a36         0x5d build/default/production/_ext/654086336/base64.o
+ .debug_abbrev    0x000212        0x178 build/default/production/_ext/1693421727/main.o
+ .debug_abbrev    0x00038a        0x1af build/default/production/_ext/1693421727/DisplayController.o
+ .debug_abbrev    0x000539         0xf8 build/default/production/_ext/570691859/resourceMan.o
+ .debug_abbrev    0x000631        0x19d build/default/production/_ext/570691859/ActivityMan.o
+ .debug_abbrev    0x0007ce          0x1 build/default/production/_ext/1714851182/asn1write.o
+ .debug_abbrev    0x0007cf          0x1 build/default/production/_ext/1714851182/bignum.o
+ .debug_abbrev    0x0007d0          0x1 build/default/production/_ext/1714851182/oid.o
+ .debug_abbrev    0x0007d1          0x1 build/default/production/_ext/1714851182/aes.o
+ .debug_abbrev    0x0007d2          0x1 build/default/production/_ext/1714851182/md_wrap.o
+ .debug_abbrev    0x0007d3          0x1 build/default/production/_ext/1714851182/sha1.o
+ .debug_abbrev    0x0007d4          0x1 build/default/production/_ext/1714851182/md.o
+ .debug_abbrev    0x0007d5          0x1 build/default/production/_ext/1714851182/rsa.o
+ .debug_abbrev    0x0007d6          0x1 build/default/production/_ext/1714851182/asn1parse.o
+ .debug_abbrev    0x0007d7        0x2d7 build/default/production/_ext/699447939/tasker.o
+ .debug_abbrev    0x000aae        0x21d build/default/production/_ext/581574207/port.o
+ .debug_abbrev    0x000ccb         0xbc build/default/production/_ext/844173455/time.o
+ .debug_abbrev    0x000d87        0x119 build/default/production/_ext/844173455/utils.o
+ .debug_abbrev    0x000ea0        0x16e build/default/production/_ext/844173455/d_alloc.o
+ .debug_abbrev    0x00100e         0x8d build/default/production/_ext/844173455/version.o
+ .debug_abbrev    0x00109b          0x1 build/default/production/_ext/2113294451/GraphicsPMP.o
+ .debug_abbrev    0x00109c          0x1 build/default/production/_ext/2113294451/GraphicsController.o
+ .debug_abbrev    0x00109d        0x118 build/default/production/_ext/229065323/fan.o
+ .debug_abbrev    0x0011b5        0x224 build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_abbrev    0x0013d9        0x16e build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_abbrev    0x001547        0x145 build/default/production/_ext/1055087429/port.o
+ .debug_abbrev    0x00168c          0x1 build/default/production/_ext/1733941594/TouchScreen.o
+ .debug_abbrev    0x00168d          0x1 build/default/production/_ext/1733941594/touchCalib.o
+ .debug_abbrev    0x00168e          0x1 build/default/production/_ext/1733941594/sys_activityTouchCalib.o
+ .debug_abbrev    0x00168f          0x1 build/default/production/_ext/1733941594/port.o
+ .debug_abbrev    0x001690        0x1ad build/default/production/_ext/1670384666/UartCommand.o
+ .debug_abbrev    0x00183d        0x109 build/default/production/_ext/1670384666/port.o
+ .debug_abbrev    0x001946          0x1 build/default/production/_ext/327596014/font_resource.o
+ .debug_abbrev    0x001947          0x1 build/default/production/_ext/1977464509/PictureManager.o
+ .debug_abbrev    0x001948         0xfd build/default/production/_ext/1977464509/Buzzer.o
+ .debug_abbrev    0x001a45          0x1 build/default/production/_ext/1977464509/nestedDialogs.o
+ .debug_abbrev    0x001a46          0x1 build/default/production/_ext/1977464509/PictureServiceManager.o
+ .debug_abbrev    0x001a47          0x1 build/default/production/_ext/1977464509/ViewCommons.o
+ .debug_abbrev    0x001a48          0x1 build/default/production/_ext/1977464509/bt_lib_2.o
+ .debug_abbrev    0x001a49        0x101 build/default/production/_ext/1977464509/port.o
+ .debug_abbrev    0x001b4a         0xb0 build/default/production/_ext/654086336/crc16.o
+ .debug_abbrev    0x001bfa         0x5d build/default/production/_ext/654086336/base64.o
 
-.debug_line       0x000000       0x196a
+.debug_line       0x000000       0x1b80
  *(.debug_line)
  .debug_line      0x000000         0xa5 build/default/production/_ext/2107534167/adc.o
  .debug_line      0x0000a5        0x110 build/default/production/_ext/2107534167/spi.o
- .debug_line      0x0001b5        0x15b build/default/production/_ext/1693421727/main.o
- .debug_line      0x000310         0x78 build/default/production/_ext/570691859/resourceMan.o
- .debug_line      0x000388        0x127 build/default/production/_ext/570691859/ActivityMan.o
- .debug_line      0x0004af         0x1a build/default/production/_ext/1714851182/asn1write.o
- .debug_line      0x0004c9         0x1a build/default/production/_ext/1714851182/bignum.o
- .debug_line      0x0004e3         0x1a build/default/production/_ext/1714851182/oid.o
- .debug_line      0x0004fd         0x1a build/default/production/_ext/1714851182/aes.o
- .debug_line      0x000517         0x1a build/default/production/_ext/1714851182/md_wrap.o
- .debug_line      0x000531         0x1a build/default/production/_ext/1714851182/sha1.o
- .debug_line      0x00054b         0x1a build/default/production/_ext/1714851182/md.o
- .debug_line      0x000565         0x1a build/default/production/_ext/1714851182/rsa.o
- .debug_line      0x00057f         0x1a build/default/production/_ext/1714851182/asn1parse.o
- .debug_line      0x000599        0x288 build/default/production/_ext/699447939/tasker.o
- .debug_line      0x000821        0x148 build/default/production/_ext/581574207/port.o
- .debug_line      0x000969         0xa0 build/default/production/_ext/844173455/time.o
- .debug_line      0x000a09        0x10f build/default/production/_ext/844173455/utils.o
- .debug_line      0x000b18        0x108 build/default/production/_ext/844173455/d_alloc.o
- .debug_line      0x000c20         0x5e build/default/production/_ext/844173455/version.o
- .debug_line      0x000c7e         0x1a build/default/production/_ext/2113294451/GraphicsPMP.o
- .debug_line      0x000c98         0x1a build/default/production/_ext/2113294451/GraphicsController.o
- .debug_line      0x000cb2        0x104 build/default/production/_ext/229065323/fan.o
- .debug_line      0x000db6        0x25c build/default/production/_ext/1440923950/SerialFlash.o
- .debug_line      0x001012        0x168 build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_line      0x00117a        0x109 build/default/production/_ext/1055087429/port.o
- .debug_line      0x001283         0x1a build/default/production/_ext/1733941594/TouchScreen.o
- .debug_line      0x00129d         0x1a build/default/production/_ext/1733941594/touchCalib.o
- .debug_line      0x0012b7         0x1a build/default/production/_ext/1733941594/sys_activityTouchCalib.o
- .debug_line      0x0012d1         0x1a build/default/production/_ext/1733941594/port.o
- .debug_line      0x0012eb        0x160 build/default/production/_ext/1670384666/UartCommand.o
- .debug_line      0x00144b         0xc4 build/default/production/_ext/1670384666/port.o
- .debug_line      0x00150f         0x1a build/default/production/_ext/327596014/font_resource.o
- .debug_line      0x001529         0x1a build/default/production/_ext/1977464509/PictureManager.o
- .debug_line      0x001543        0x165 build/default/production/_ext/1977464509/Buzzer.o
- .debug_line      0x0016a8         0x1a build/default/production/_ext/1977464509/nestedDialogs.o
- .debug_line      0x0016c2         0x1a build/default/production/_ext/1977464509/PictureServiceManager.o
- .debug_line      0x0016dc         0x1a build/default/production/_ext/1977464509/ViewCommons.o
- .debug_line      0x0016f6         0x1a build/default/production/_ext/1977464509/bt_lib_2.o
- .debug_line      0x001710        0x121 build/default/production/_ext/1977464509/port.o
- .debug_line      0x001831         0x9c build/default/production/_ext/654086336/crc16.o
- .debug_line      0x0018cd         0x9d build/default/production/_ext/654086336/base64.o
+ .debug_line      0x0001b5        0x188 build/default/production/_ext/1693421727/main.o
+ .debug_line      0x00033d        0x1e9 build/default/production/_ext/1693421727/DisplayController.o
+ .debug_line      0x000526         0x78 build/default/production/_ext/570691859/resourceMan.o
+ .debug_line      0x00059e        0x127 build/default/production/_ext/570691859/ActivityMan.o
+ .debug_line      0x0006c5         0x1a build/default/production/_ext/1714851182/asn1write.o
+ .debug_line      0x0006df         0x1a build/default/production/_ext/1714851182/bignum.o
+ .debug_line      0x0006f9         0x1a build/default/production/_ext/1714851182/oid.o
+ .debug_line      0x000713         0x1a build/default/production/_ext/1714851182/aes.o
+ .debug_line      0x00072d         0x1a build/default/production/_ext/1714851182/md_wrap.o
+ .debug_line      0x000747         0x1a build/default/production/_ext/1714851182/sha1.o
+ .debug_line      0x000761         0x1a build/default/production/_ext/1714851182/md.o
+ .debug_line      0x00077b         0x1a build/default/production/_ext/1714851182/rsa.o
+ .debug_line      0x000795         0x1a build/default/production/_ext/1714851182/asn1parse.o
+ .debug_line      0x0007af        0x288 build/default/production/_ext/699447939/tasker.o
+ .debug_line      0x000a37        0x148 build/default/production/_ext/581574207/port.o
+ .debug_line      0x000b7f         0xa0 build/default/production/_ext/844173455/time.o
+ .debug_line      0x000c1f        0x10f build/default/production/_ext/844173455/utils.o
+ .debug_line      0x000d2e        0x108 build/default/production/_ext/844173455/d_alloc.o
+ .debug_line      0x000e36         0x5e build/default/production/_ext/844173455/version.o
+ .debug_line      0x000e94         0x1a build/default/production/_ext/2113294451/GraphicsPMP.o
+ .debug_line      0x000eae         0x1a build/default/production/_ext/2113294451/GraphicsController.o
+ .debug_line      0x000ec8        0x104 build/default/production/_ext/229065323/fan.o
+ .debug_line      0x000fcc        0x25c build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_line      0x001228        0x168 build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_line      0x001390        0x109 build/default/production/_ext/1055087429/port.o
+ .debug_line      0x001499         0x1a build/default/production/_ext/1733941594/TouchScreen.o
+ .debug_line      0x0014b3         0x1a build/default/production/_ext/1733941594/touchCalib.o
+ .debug_line      0x0014cd         0x1a build/default/production/_ext/1733941594/sys_activityTouchCalib.o
+ .debug_line      0x0014e7         0x1a build/default/production/_ext/1733941594/port.o
+ .debug_line      0x001501        0x160 build/default/production/_ext/1670384666/UartCommand.o
+ .debug_line      0x001661         0xc4 build/default/production/_ext/1670384666/port.o
+ .debug_line      0x001725         0x1a build/default/production/_ext/327596014/font_resource.o
+ .debug_line      0x00173f         0x1a build/default/production/_ext/1977464509/PictureManager.o
+ .debug_line      0x001759        0x165 build/default/production/_ext/1977464509/Buzzer.o
+ .debug_line      0x0018be         0x1a build/default/production/_ext/1977464509/nestedDialogs.o
+ .debug_line      0x0018d8         0x1a build/default/production/_ext/1977464509/PictureServiceManager.o
+ .debug_line      0x0018f2         0x1a build/default/production/_ext/1977464509/ViewCommons.o
+ .debug_line      0x00190c         0x1a build/default/production/_ext/1977464509/bt_lib_2.o
+ .debug_line      0x001926        0x121 build/default/production/_ext/1977464509/port.o
+ .debug_line      0x001a47         0x9c build/default/production/_ext/654086336/crc16.o
+ .debug_line      0x001ae3         0x9d build/default/production/_ext/654086336/base64.o
 
-.debug_frame      0x000000       0x1e9a
+.debug_frame      0x000000       0x2012
  *(.debug_frame)
  .debug_frame     0x000000         0x34 build/default/production/_ext/2107534167/adc.o
  .debug_frame     0x000034         0xae build/default/production/_ext/2107534167/spi.o
- .debug_frame     0x0000e2         0x56 build/default/production/_ext/1693421727/main.o
- .debug_frame     0x000138         0x64 build/default/production/_ext/570691859/resourceMan.o
- .debug_frame     0x00019c        0x148 build/default/production/_ext/570691859/ActivityMan.o
- .debug_frame     0x0002e4        0x6d6 build/default/production/_ext/699447939/tasker.o
- .debug_frame     0x0009ba        0x366 build/default/production/_ext/581574207/port.o
- .debug_frame     0x000d20         0x9a build/default/production/_ext/844173455/time.o
- .debug_frame     0x000dba        0x108 build/default/production/_ext/844173455/utils.o
- .debug_frame     0x000ec2        0x2aa build/default/production/_ext/844173455/d_alloc.o
- .debug_frame     0x00116c         0x4c build/default/production/_ext/844173455/version.o
- .debug_frame     0x0011b8         0xd8 build/default/production/_ext/229065323/fan.o
- .debug_frame     0x001290        0x476 build/default/production/_ext/1440923950/SerialFlash.o
- .debug_frame     0x001706        0x27c build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_frame     0x001982         0xe4 build/default/production/_ext/1055087429/port.o
- .debug_frame     0x001a66        0x1f6 build/default/production/_ext/1670384666/UartCommand.o
- .debug_frame     0x001c5c         0x82 build/default/production/_ext/1670384666/port.o
- .debug_frame     0x001cde         0xa6 build/default/production/_ext/1977464509/Buzzer.o
- .debug_frame     0x001d84         0x78 build/default/production/_ext/1977464509/port.o
- .debug_frame     0x001dfc         0x58 build/default/production/_ext/654086336/crc16.o
- .debug_frame     0x001e54         0x46 build/default/production/_ext/654086336/base64.o
+ .debug_frame     0x0000e2         0x66 build/default/production/_ext/1693421727/main.o
+ .debug_frame     0x000148        0x168 build/default/production/_ext/1693421727/DisplayController.o
+ .debug_frame     0x0002b0         0x64 build/default/production/_ext/570691859/resourceMan.o
+ .debug_frame     0x000314        0x148 build/default/production/_ext/570691859/ActivityMan.o
+ .debug_frame     0x00045c        0x6d6 build/default/production/_ext/699447939/tasker.o
+ .debug_frame     0x000b32        0x366 build/default/production/_ext/581574207/port.o
+ .debug_frame     0x000e98         0x9a build/default/production/_ext/844173455/time.o
+ .debug_frame     0x000f32        0x108 build/default/production/_ext/844173455/utils.o
+ .debug_frame     0x00103a        0x2aa build/default/production/_ext/844173455/d_alloc.o
+ .debug_frame     0x0012e4         0x4c build/default/production/_ext/844173455/version.o
+ .debug_frame     0x001330         0xd8 build/default/production/_ext/229065323/fan.o
+ .debug_frame     0x001408        0x476 build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_frame     0x00187e        0x27c build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_frame     0x001afa         0xe4 build/default/production/_ext/1055087429/port.o
+ .debug_frame     0x001bde        0x1f6 build/default/production/_ext/1670384666/UartCommand.o
+ .debug_frame     0x001dd4         0x82 build/default/production/_ext/1670384666/port.o
+ .debug_frame     0x001e56         0xa6 build/default/production/_ext/1977464509/Buzzer.o
+ .debug_frame     0x001efc         0x78 build/default/production/_ext/1977464509/port.o
+ .debug_frame     0x001f74         0x58 build/default/production/_ext/654086336/crc16.o
+ .debug_frame     0x001fcc         0x46 build/default/production/_ext/654086336/base64.o
 
-.debug_str        0x000000        0x426
+.debug_str        0x000000        0x46e
  *(.debug_str)
  .debug_str       0x000000         0x2a build/default/production/_ext/2107534167/adc.o
  .debug_str       0x00002a         0x4c build/default/production/_ext/2107534167/spi.o
  .debug_str       0x000076         0x16 build/default/production/_ext/1693421727/main.o
- .debug_str       0x00008c          0x9 build/default/production/_ext/570691859/resourceMan.o
- .debug_str       0x000095         0x4a build/default/production/_ext/570691859/ActivityMan.o
- .debug_str       0x0000df         0x78 build/default/production/_ext/699447939/tasker.o
- .debug_str       0x000157         0x65 build/default/production/_ext/581574207/port.o
- .debug_str       0x0001bc          0xb build/default/production/_ext/844173455/time.o
- .debug_str       0x0001c7          0xd build/default/production/_ext/844173455/utils.o
- .debug_str       0x0001d4         0xc1 build/default/production/_ext/844173455/d_alloc.o
- .debug_str       0x000295         0x18 build/default/production/_ext/229065323/fan.o
- .debug_str       0x0002ad         0xbf build/default/production/_ext/1440923950/SerialFlash.o
- .debug_str       0x00036c         0x24 build/default/production/_ext/1440923950/eeprom_i2c.o
- .debug_str       0x000390          0x5 build/default/production/_ext/1055087429/port.o
- .debug_str       0x000395         0x3c build/default/production/_ext/1670384666/UartCommand.o
- .debug_str       0x0003d1         0x30 build/default/production/_ext/1670384666/port.o
- .debug_str       0x000401         0x25 build/default/production/_ext/1977464509/port.o
+ .debug_str       0x00008c         0x48 build/default/production/_ext/1693421727/DisplayController.o
+ .debug_str       0x0000d4          0x9 build/default/production/_ext/570691859/resourceMan.o
+ .debug_str       0x0000dd         0x4a build/default/production/_ext/570691859/ActivityMan.o
+ .debug_str       0x000127         0x78 build/default/production/_ext/699447939/tasker.o
+ .debug_str       0x00019f         0x65 build/default/production/_ext/581574207/port.o
+ .debug_str       0x000204          0xb build/default/production/_ext/844173455/time.o
+ .debug_str       0x00020f          0xd build/default/production/_ext/844173455/utils.o
+ .debug_str       0x00021c         0xc1 build/default/production/_ext/844173455/d_alloc.o
+ .debug_str       0x0002dd         0x18 build/default/production/_ext/229065323/fan.o
+ .debug_str       0x0002f5         0xbf build/default/production/_ext/1440923950/SerialFlash.o
+ .debug_str       0x0003b4         0x24 build/default/production/_ext/1440923950/eeprom_i2c.o
+ .debug_str       0x0003d8          0x5 build/default/production/_ext/1055087429/port.o
+ .debug_str       0x0003dd         0x3c build/default/production/_ext/1670384666/UartCommand.o
+ .debug_str       0x000419         0x30 build/default/production/_ext/1670384666/port.o
+ .debug_str       0x000449         0x25 build/default/production/_ext/1977464509/port.o
 
 .debug_loc
  *(.debug_loc)
@@ -1380,55 +1417,57 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000       0x1165
+                  0x000000       0x127f
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x32 build/default/production/_ext/2107534167/adc.o
  .debug_pubnames
                   0x000032         0x8a build/default/production/_ext/2107534167/spi.o
  .debug_pubnames
-                  0x0000bc         0x29 build/default/production/_ext/1693421727/main.o
+                  0x0000bc         0x37 build/default/production/_ext/1693421727/main.o
  .debug_pubnames
-                  0x0000e5         0x80 build/default/production/_ext/570691859/resourceMan.o
+                  0x0000f3        0x10c build/default/production/_ext/1693421727/DisplayController.o
  .debug_pubnames
-                  0x000165        0x1e5 build/default/production/_ext/570691859/ActivityMan.o
+                  0x0001ff         0x80 build/default/production/_ext/570691859/resourceMan.o
  .debug_pubnames
-                  0x00034a        0x38d build/default/production/_ext/699447939/tasker.o
+                  0x00027f        0x1e5 build/default/production/_ext/570691859/ActivityMan.o
  .debug_pubnames
-                  0x0006d7        0x152 build/default/production/_ext/581574207/port.o
+                  0x000464        0x38d build/default/production/_ext/699447939/tasker.o
  .debug_pubnames
-                  0x000829         0x82 build/default/production/_ext/844173455/time.o
+                  0x0007f1        0x152 build/default/production/_ext/581574207/port.o
  .debug_pubnames
-                  0x0008ab         0xa2 build/default/production/_ext/844173455/utils.o
+                  0x000943         0x82 build/default/production/_ext/844173455/time.o
  .debug_pubnames
-                  0x00094d        0x167 build/default/production/_ext/844173455/d_alloc.o
+                  0x0009c5         0xa2 build/default/production/_ext/844173455/utils.o
  .debug_pubnames
-                  0x000ab4         0x28 build/default/production/_ext/844173455/version.o
+                  0x000a67        0x167 build/default/production/_ext/844173455/d_alloc.o
  .debug_pubnames
-                  0x000adc         0x58 build/default/production/_ext/229065323/fan.o
+                  0x000bce         0x28 build/default/production/_ext/844173455/version.o
  .debug_pubnames
-                  0x000b34        0x1f3 build/default/production/_ext/1440923950/SerialFlash.o
+                  0x000bf6         0x58 build/default/production/_ext/229065323/fan.o
  .debug_pubnames
-                  0x000d27         0x9d build/default/production/_ext/1440923950/eeprom_i2c.o
+                  0x000c4e        0x1f3 build/default/production/_ext/1440923950/SerialFlash.o
  .debug_pubnames
-                  0x000dc4        0x105 build/default/production/_ext/1055087429/port.o
+                  0x000e41         0x9d build/default/production/_ext/1440923950/eeprom_i2c.o
  .debug_pubnames
-                  0x000ec9        0x11e build/default/production/_ext/1670384666/UartCommand.o
+                  0x000ede        0x105 build/default/production/_ext/1055087429/port.o
  .debug_pubnames
-                  0x000fe7         0x5c build/default/production/_ext/1670384666/port.o
+                  0x000fe3        0x11e build/default/production/_ext/1670384666/UartCommand.o
  .debug_pubnames
-                  0x001043         0x55 build/default/production/_ext/1977464509/Buzzer.o
+                  0x001101         0x5c build/default/production/_ext/1670384666/port.o
  .debug_pubnames
-                  0x001098         0x5c build/default/production/_ext/1977464509/port.o
+                  0x00115d         0x55 build/default/production/_ext/1977464509/Buzzer.o
  .debug_pubnames
-                  0x0010f4         0x3b build/default/production/_ext/654086336/crc16.o
+                  0x0011b2         0x5c build/default/production/_ext/1977464509/port.o
  .debug_pubnames
-                  0x00112f         0x36 build/default/production/_ext/654086336/base64.o
+                  0x00120e         0x3b build/default/production/_ext/654086336/crc16.o
+ .debug_pubnames
+                  0x001249         0x36 build/default/production/_ext/654086336/base64.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000        0x1f8
+.debug_aranges    0x000000        0x210
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/_ext/2107534167/adc.o
@@ -1437,41 +1476,43 @@ __FUID3
  .debug_aranges
                   0x000030         0x18 build/default/production/_ext/1693421727/main.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/_ext/570691859/resourceMan.o
+                  0x000048         0x18 build/default/production/_ext/1693421727/DisplayController.o
  .debug_aranges
-                  0x000060         0x18 build/default/production/_ext/570691859/ActivityMan.o
+                  0x000060         0x18 build/default/production/_ext/570691859/resourceMan.o
  .debug_aranges
-                  0x000078         0x18 build/default/production/_ext/699447939/tasker.o
+                  0x000078         0x18 build/default/production/_ext/570691859/ActivityMan.o
  .debug_aranges
-                  0x000090         0x18 build/default/production/_ext/581574207/port.o
+                  0x000090         0x18 build/default/production/_ext/699447939/tasker.o
  .debug_aranges
-                  0x0000a8         0x18 build/default/production/_ext/844173455/time.o
+                  0x0000a8         0x18 build/default/production/_ext/581574207/port.o
  .debug_aranges
-                  0x0000c0         0x18 build/default/production/_ext/844173455/utils.o
+                  0x0000c0         0x18 build/default/production/_ext/844173455/time.o
  .debug_aranges
-                  0x0000d8         0x18 build/default/production/_ext/844173455/d_alloc.o
+                  0x0000d8         0x18 build/default/production/_ext/844173455/utils.o
  .debug_aranges
-                  0x0000f0         0x18 build/default/production/_ext/844173455/version.o
+                  0x0000f0         0x18 build/default/production/_ext/844173455/d_alloc.o
  .debug_aranges
-                  0x000108         0x18 build/default/production/_ext/229065323/fan.o
+                  0x000108         0x18 build/default/production/_ext/844173455/version.o
  .debug_aranges
-                  0x000120         0x18 build/default/production/_ext/1440923950/SerialFlash.o
+                  0x000120         0x18 build/default/production/_ext/229065323/fan.o
  .debug_aranges
-                  0x000138         0x18 build/default/production/_ext/1440923950/eeprom_i2c.o
+                  0x000138         0x18 build/default/production/_ext/1440923950/SerialFlash.o
  .debug_aranges
-                  0x000150         0x18 build/default/production/_ext/1055087429/port.o
+                  0x000150         0x18 build/default/production/_ext/1440923950/eeprom_i2c.o
  .debug_aranges
-                  0x000168         0x18 build/default/production/_ext/1670384666/UartCommand.o
+                  0x000168         0x18 build/default/production/_ext/1055087429/port.o
  .debug_aranges
-                  0x000180         0x18 build/default/production/_ext/1670384666/port.o
+                  0x000180         0x18 build/default/production/_ext/1670384666/UartCommand.o
  .debug_aranges
-                  0x000198         0x18 build/default/production/_ext/1977464509/Buzzer.o
+                  0x000198         0x18 build/default/production/_ext/1670384666/port.o
  .debug_aranges
-                  0x0001b0         0x18 build/default/production/_ext/1977464509/port.o
+                  0x0001b0         0x18 build/default/production/_ext/1977464509/Buzzer.o
  .debug_aranges
-                  0x0001c8         0x18 build/default/production/_ext/654086336/crc16.o
+                  0x0001c8         0x18 build/default/production/_ext/1977464509/port.o
  .debug_aranges
-                  0x0001e0         0x18 build/default/production/_ext/654086336/base64.o
+                  0x0001e0         0x18 build/default/production/_ext/654086336/crc16.o
+ .debug_aranges
+                  0x0001f8         0x18 build/default/production/_ext/654086336/base64.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -2698,346 +2739,351 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x0001f8        0xb4e
+                  0x000210        0xb60
  .debug_pubtypes
-                  0x0001f8         0x92 build/default/production/_ext/2107534167/adc.o
+                  0x000210         0x92 build/default/production/_ext/2107534167/adc.o
  .debug_pubtypes
-                  0x00028a         0xf1 build/default/production/_ext/2107534167/spi.o
+                  0x0002a2         0xf1 build/default/production/_ext/2107534167/spi.o
  .debug_pubtypes
-                  0x00037b         0xa8 build/default/production/_ext/1693421727/main.o
+                  0x000393         0x9c build/default/production/_ext/1693421727/main.o
  .debug_pubtypes
-                  0x000423         0x1d build/default/production/_ext/570691859/resourceMan.o
+                  0x00042f         0x1e build/default/production/_ext/1693421727/DisplayController.o
  .debug_pubtypes
-                  0x000440        0x10a build/default/production/_ext/570691859/ActivityMan.o
+                  0x00044d         0x1d build/default/production/_ext/570691859/resourceMan.o
  .debug_pubtypes
-                  0x00054a        0x108 build/default/production/_ext/699447939/tasker.o
+                  0x00046a        0x10a build/default/production/_ext/570691859/ActivityMan.o
  .debug_pubtypes
-                  0x000652        0x125 build/default/production/_ext/581574207/port.o
+                  0x000574        0x108 build/default/production/_ext/699447939/tasker.o
  .debug_pubtypes
-                  0x000777         0x1f build/default/production/_ext/844173455/time.o
+                  0x00067c        0x125 build/default/production/_ext/581574207/port.o
  .debug_pubtypes
-                  0x000796         0x7a build/default/production/_ext/844173455/utils.o
+                  0x0007a1         0x1f build/default/production/_ext/844173455/time.o
  .debug_pubtypes
-                  0x000810         0x3f build/default/production/_ext/844173455/d_alloc.o
+                  0x0007c0         0x7a build/default/production/_ext/844173455/utils.o
  .debug_pubtypes
-                  0x00084f         0x6c build/default/production/_ext/229065323/fan.o
+                  0x00083a         0x3f build/default/production/_ext/844173455/d_alloc.o
  .debug_pubtypes
-                  0x0008bb         0xa8 build/default/production/_ext/1440923950/SerialFlash.o
+                  0x000879         0x6c build/default/production/_ext/229065323/fan.o
  .debug_pubtypes
-                  0x000963        0x103 build/default/production/_ext/1440923950/eeprom_i2c.o
+                  0x0008e5         0xa8 build/default/production/_ext/1440923950/SerialFlash.o
  .debug_pubtypes
-                  0x000a66         0x53 build/default/production/_ext/1055087429/port.o
+                  0x00098d        0x103 build/default/production/_ext/1440923950/eeprom_i2c.o
  .debug_pubtypes
-                  0x000ab9         0x96 build/default/production/_ext/1670384666/UartCommand.o
+                  0x000a90         0x53 build/default/production/_ext/1055087429/port.o
  .debug_pubtypes
-                  0x000b4f         0xa9 build/default/production/_ext/1670384666/port.o
+                  0x000ae3         0x96 build/default/production/_ext/1670384666/UartCommand.o
  .debug_pubtypes
-                  0x000bf8         0x71 build/default/production/_ext/1977464509/Buzzer.o
+                  0x000b79         0xa9 build/default/production/_ext/1670384666/port.o
  .debug_pubtypes
-                  0x000c69         0xa0 build/default/production/_ext/1977464509/port.o
+                  0x000c22         0x71 build/default/production/_ext/1977464509/Buzzer.o
  .debug_pubtypes
-                  0x000d09         0x1f build/default/production/_ext/654086336/crc16.o
+                  0x000c93         0xa0 build/default/production/_ext/1977464509/port.o
  .debug_pubtypes
-                  0x000d28         0x1e build/default/production/_ext/654086336/base64.o
+                  0x000d33         0x1f build/default/production/_ext/654086336/crc16.o
+ .debug_pubtypes
+                  0x000d52         0x1e build/default/production/_ext/654086336/base64.o
 
 __c30_signature
-                  0x000d46        0x276
+                  0x000d70        0x27c
  __c30_signature
-                  0x000d46          0x6 build/default/production/_ext/2107534167/adc.o
+                  0x000d70          0x6 build/default/production/_ext/2107534167/adc.o
  __c30_signature
-                  0x000d4c          0x6 build/default/production/_ext/2107534167/spi.o
+                  0x000d76          0x6 build/default/production/_ext/2107534167/spi.o
  __c30_signature
-                  0x000d52          0x6 build/default/production/_ext/1693421727/main.o
+                  0x000d7c          0x6 build/default/production/_ext/1693421727/main.o
  __c30_signature
-                  0x000d58          0x6 build/default/production/_ext/570691859/resourceMan.o
+                  0x000d82          0x6 build/default/production/_ext/1693421727/DisplayController.o
  __c30_signature
-                  0x000d5e          0x6 build/default/production/_ext/570691859/ActivityMan.o
+                  0x000d88          0x6 build/default/production/_ext/570691859/resourceMan.o
  __c30_signature
-                  0x000d64          0x6 build/default/production/_ext/1714851182/asn1write.o
+                  0x000d8e          0x6 build/default/production/_ext/570691859/ActivityMan.o
  __c30_signature
-                  0x000d6a          0x6 build/default/production/_ext/1714851182/bignum.o
+                  0x000d94          0x6 build/default/production/_ext/1714851182/asn1write.o
  __c30_signature
-                  0x000d70          0x6 build/default/production/_ext/1714851182/oid.o
+                  0x000d9a          0x6 build/default/production/_ext/1714851182/bignum.o
  __c30_signature
-                  0x000d76          0x6 build/default/production/_ext/1714851182/aes.o
+                  0x000da0          0x6 build/default/production/_ext/1714851182/oid.o
  __c30_signature
-                  0x000d7c          0x6 build/default/production/_ext/1714851182/md_wrap.o
+                  0x000da6          0x6 build/default/production/_ext/1714851182/aes.o
  __c30_signature
-                  0x000d82          0x6 build/default/production/_ext/1714851182/sha1.o
+                  0x000dac          0x6 build/default/production/_ext/1714851182/md_wrap.o
  __c30_signature
-                  0x000d88          0x6 build/default/production/_ext/1714851182/md.o
+                  0x000db2          0x6 build/default/production/_ext/1714851182/sha1.o
  __c30_signature
-                  0x000d8e          0x6 build/default/production/_ext/1714851182/rsa.o
+                  0x000db8          0x6 build/default/production/_ext/1714851182/md.o
  __c30_signature
-                  0x000d94          0x6 build/default/production/_ext/1714851182/asn1parse.o
+                  0x000dbe          0x6 build/default/production/_ext/1714851182/rsa.o
  __c30_signature
-                  0x000d9a          0x6 build/default/production/_ext/699447939/tasker.o
+                  0x000dc4          0x6 build/default/production/_ext/1714851182/asn1parse.o
  __c30_signature
-                  0x000da0          0x6 build/default/production/_ext/581574207/port.o
+                  0x000dca          0x6 build/default/production/_ext/699447939/tasker.o
  __c30_signature
-                  0x000da6          0x6 build/default/production/_ext/844173455/time.o
+                  0x000dd0          0x6 build/default/production/_ext/581574207/port.o
  __c30_signature
-                  0x000dac          0x6 build/default/production/_ext/844173455/utils.o
+                  0x000dd6          0x6 build/default/production/_ext/844173455/time.o
  __c30_signature
-                  0x000db2          0x6 build/default/production/_ext/844173455/d_alloc.o
+                  0x000ddc          0x6 build/default/production/_ext/844173455/utils.o
  __c30_signature
-                  0x000db8          0x6 build/default/production/_ext/844173455/version.o
+                  0x000de2          0x6 build/default/production/_ext/844173455/d_alloc.o
  __c30_signature
-                  0x000dbe          0x6 build/default/production/_ext/2113294451/GraphicsPMP.o
+                  0x000de8          0x6 build/default/production/_ext/844173455/version.o
  __c30_signature
-                  0x000dc4          0x6 build/default/production/_ext/2113294451/GraphicsController.o
+                  0x000dee          0x6 build/default/production/_ext/2113294451/GraphicsPMP.o
  __c30_signature
-                  0x000dca          0x6 build/default/production/_ext/229065323/fan.o
+                  0x000df4          0x6 build/default/production/_ext/2113294451/GraphicsController.o
  __c30_signature
-                  0x000dd0          0x6 build/default/production/_ext/1440923950/SerialFlash.o
+                  0x000dfa          0x6 build/default/production/_ext/229065323/fan.o
  __c30_signature
-                  0x000dd6          0x6 build/default/production/_ext/1440923950/eeprom_i2c.o
+                  0x000e00          0x6 build/default/production/_ext/1440923950/SerialFlash.o
  __c30_signature
-                  0x000ddc          0x6 build/default/production/_ext/1055087429/port.o
+                  0x000e06          0x6 build/default/production/_ext/1440923950/eeprom_i2c.o
  __c30_signature
-                  0x000de2          0x6 build/default/production/_ext/1733941594/TouchScreen.o
+                  0x000e0c          0x6 build/default/production/_ext/1055087429/port.o
  __c30_signature
-                  0x000de8          0x6 build/default/production/_ext/1733941594/touchCalib.o
+                  0x000e12          0x6 build/default/production/_ext/1733941594/TouchScreen.o
  __c30_signature
-                  0x000dee          0x6 build/default/production/_ext/1733941594/sys_activityTouchCalib.o
+                  0x000e18          0x6 build/default/production/_ext/1733941594/touchCalib.o
  __c30_signature
-                  0x000df4          0x6 build/default/production/_ext/1733941594/port.o
+                  0x000e1e          0x6 build/default/production/_ext/1733941594/sys_activityTouchCalib.o
  __c30_signature
-                  0x000dfa          0x6 build/default/production/_ext/1670384666/UartCommand.o
+                  0x000e24          0x6 build/default/production/_ext/1733941594/port.o
  __c30_signature
-                  0x000e00          0x6 build/default/production/_ext/1670384666/port.o
+                  0x000e2a          0x6 build/default/production/_ext/1670384666/UartCommand.o
  __c30_signature
-                  0x000e06          0x6 build/default/production/_ext/327596014/font_resource.o
+                  0x000e30          0x6 build/default/production/_ext/1670384666/port.o
  __c30_signature
-                  0x000e0c          0x6 build/default/production/_ext/1977464509/PictureManager.o
+                  0x000e36          0x6 build/default/production/_ext/327596014/font_resource.o
  __c30_signature
-                  0x000e12          0x6 build/default/production/_ext/1977464509/Buzzer.o
+                  0x000e3c          0x6 build/default/production/_ext/1977464509/PictureManager.o
  __c30_signature
-                  0x000e18          0x6 build/default/production/_ext/1977464509/nestedDialogs.o
+                  0x000e42          0x6 build/default/production/_ext/1977464509/Buzzer.o
  __c30_signature
-                  0x000e1e          0x6 build/default/production/_ext/1977464509/PictureServiceManager.o
+                  0x000e48          0x6 build/default/production/_ext/1977464509/nestedDialogs.o
  __c30_signature
-                  0x000e24          0x6 build/default/production/_ext/1977464509/ViewCommons.o
+                  0x000e4e          0x6 build/default/production/_ext/1977464509/PictureServiceManager.o
  __c30_signature
-                  0x000e2a          0x6 build/default/production/_ext/1977464509/bt_lib_2.o
+                  0x000e54          0x6 build/default/production/_ext/1977464509/ViewCommons.o
  __c30_signature
-                  0x000e30          0x6 build/default/production/_ext/1977464509/port.o
+                  0x000e5a          0x6 build/default/production/_ext/1977464509/bt_lib_2.o
  __c30_signature
-                  0x000e36          0x6 build/default/production/_ext/654086336/crc16.o
+                  0x000e60          0x6 build/default/production/_ext/1977464509/port.o
  __c30_signature
-                  0x000e3c          0x6 build/default/production/_ext/654086336/base64.o
+                  0x000e66          0x6 build/default/production/_ext/654086336/crc16.o
  __c30_signature
-                  0x000e42          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
+                  0x000e6c          0x6 build/default/production/_ext/654086336/base64.o
  __c30_signature
-                  0x000e48          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extended.o)
+                  0x000e72          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x000e4e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
+                  0x000e78          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(data_init_extended.o)
  __c30_signature
-                  0x000e54          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divsf3.epeo)
+                  0x000e7e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
  __c30_signature
-                  0x000e5a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divsi3.epeo)
+                  0x000e84          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divsf3.epeo)
  __c30_signature
-                  0x000e60          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fixunssfdi.epeo)
+                  0x000e8a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divsi3.epeo)
  __c30_signature
-                  0x000e66          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatundisf.epeo)
+                  0x000e90          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fixunssfdi.epeo)
  __c30_signature
-                  0x000e6c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatunsisf.epeo)
+                  0x000e96          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatundisf.epeo)
  __c30_signature
-                  0x000e72          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fpack.epeo)
+                  0x000e9c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatunsisf.epeo)
  __c30_signature
-                  0x000e78          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(funpack.epeo)
+                  0x000ea2          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fpack.epeo)
  __c30_signature
-                  0x000e7e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(funpack2.epeo)
+                  0x000ea8          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(funpack.epeo)
  __c30_signature
-                  0x000e84          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(futil.epeo)
+                  0x000eae          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(funpack2.epeo)
  __c30_signature
-                  0x000e8a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(mulsf3.epeo)
+                  0x000eb4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(futil.epeo)
  __c30_signature
-                  0x000e90          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(udivsi3.epeo)
+                  0x000eba          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(mulsf3.epeo)
  __c30_signature
-                  0x000e96          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(umodsi3.epeo)
+                  0x000ec0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(udivsi3.epeo)
  __c30_signature
-                  0x000e9c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divmoddi3.epeo)
+                  0x000ec6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(umodsi3.epeo)
  __c30_signature
-                  0x000ea2          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(muldi3.epeo)
+                  0x000ecc          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divmoddi3.epeo)
  __c30_signature
-                  0x000ea8          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(umuldi3.epeo)
+                  0x000ed2          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(muldi3.epeo)
  __c30_signature
-                  0x000eae          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcmp.EP_eo)
+                  0x000ed8          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(umuldi3.epeo)
  __c30_signature
-                  0x000eb4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcpy.EP_eo)
+                  0x000ede          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcmp.EP_eo)
  __c30_signature
-                  0x000eba          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strlen.EP_eo)
+                  0x000ee4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcpy.EP_eo)
  __c30_signature
-                  0x000ec0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strncpy.EP_eo)
+                  0x000eea          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strlen.EP_eo)
  __c30_signature
-                  0x000ec6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strtok.EP_eo)
+                  0x000ef0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strncpy.EP_eo)
  __c30_signature
-                  0x000ecc          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xstoul.EP_eo)
+                  0x000ef6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strtok.EP_eo)
  __c30_signature
-                  0x000ed2          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(vsprintf.EP_eo)
+                  0x000efc          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xstoul.EP_eo)
  __c30_signature
-                  0x000ed8          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xprintf.EP_eo)
+                  0x000f02          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(vsprintf.EP_eo)
  __c30_signature
-                  0x000ede          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xputfld.EP_eo)
+                  0x000f08          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xprintf.EP_eo)
  __c30_signature
-                  0x000ee4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(isspace.EP_elso)
+                  0x000f0e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xputfld.EP_eo)
  __c30_signature
-                  0x000eea          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(tolower.EP_elso)
+                  0x000f14          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(isspace.EP_elso)
  __c30_signature
-                  0x000ef0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(errno.EP_elo)
+                  0x000f1a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(tolower.EP_elso)
  __c30_signature
-                  0x000ef6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strchr.EP_elo)
+                  0x000f20          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(errno.EP_elo)
  __c30_signature
-                  0x000efc          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xvacopy.EP_elo)
+                  0x000f26          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strchr.EP_elo)
  __c30_signature
-                  0x000f02          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(memchr.EP_eo)
+                  0x000f2c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xvacopy.EP_elo)
  __c30_signature
-                  0x000f08          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(memcpy.EP_eo)
+                  0x000f32          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(memchr.EP_eo)
  __c30_signature
-                  0x000f0e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcspn.EP_eo)
+                  0x000f38          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(memcpy.EP_eo)
  __c30_signature
-                  0x000f14          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strspn.EP_eo)
+                  0x000f3e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strcspn.EP_eo)
  __c30_signature
-                  0x000f1a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldtob.EP_eo)
+                  0x000f44          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strspn.EP_eo)
  __c30_signature
-                  0x000f20          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldunsca.EP_eo)
+                  0x000f4a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldtob.EP_eo)
  __c30_signature
-                  0x000f26          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xlitob.EP_eo)
+                  0x000f50          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldunsca.EP_eo)
  __c30_signature
-                  0x000f2c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xputtxt.EP_eo)
+                  0x000f56          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xlitob.EP_eo)
  __c30_signature
-                  0x000f32          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(ldiv.EP_elo)
+                  0x000f5c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xputtxt.EP_eo)
  __c30_signature
-                  0x000f38          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xdnorm.EP_elo)
+                  0x000f62          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(ldiv.EP_elo)
  __c30_signature
-                  0x000f3e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldscale.EP_elo)
+                  0x000f68          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xdnorm.EP_elo)
  __c30_signature
-                  0x000f44          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xgenld.EP_eo)
+                  0x000f6e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldscale.EP_elo)
  __c30_signature
-                  0x000f4a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(div.EP_elo)
+                  0x000f74          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xgenld.EP_eo)
  __c30_signature
-                  0x000f50          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(deqltle.epeo)
+                  0x000f7a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(div.EP_elo)
  __c30_signature
-                  0x000f56          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dgtge.epeo)
+                  0x000f80          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(deqltle.epeo)
  __c30_signature
-                  0x000f5c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divdf3.epeo)
+                  0x000f86          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dgtge.epeo)
  __c30_signature
-                  0x000f62          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dpack.epeo)
+                  0x000f8c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(divdf3.epeo)
  __c30_signature
-                  0x000f68          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dunpack2.epeo)
+                  0x000f92          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dpack.epeo)
  __c30_signature
-                  0x000f6e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(extendsfdf.epeo)
+                  0x000f98          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dunpack2.epeo)
  __c30_signature
-                  0x000f74          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fixdfsi.epeo)
+                  0x000f9e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(extendsfdf.epeo)
  __c30_signature
-                  0x000f7a          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatsidf.epeo)
+                  0x000fa4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(fixdfsi.epeo)
  __c30_signature
-                  0x000f80          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(muldf3.epeo)
+                  0x000faa          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatsidf.epeo)
  __c30_signature
-                  0x000f86          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(subdf3.epeo)
+                  0x000fb0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(muldf3.epeo)
  __c30_signature
-                  0x000f8c          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(mulsi3.epeo)
+                  0x000fb6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(subdf3.epeo)
  __c30_signature
-                  0x000f92          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(adddf3.epeo)
+                  0x000fbc          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(mulsi3.epeo)
  __c30_signature
-                  0x000f98          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dcompare.epeo)
+                  0x000fc2          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(adddf3.epeo)
  __c30_signature
-                  0x000f9e          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dpropagateNaN.epeo)
+                  0x000fc8          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dcompare.epeo)
  __c30_signature
-                  0x000fa4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dtype.epeo)
+                  0x000fce          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dpropagateNaN.epeo)
  __c30_signature
-                  0x000faa          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dunpack.epeo)
+                  0x000fd4          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dtype.epeo)
  __c30_signature
-                  0x000fb0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatdidf.epeo)
+                  0x000fda          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(dunpack.epeo)
  __c30_signature
-                  0x000fb6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatundidf.epeo)
+                  0x000fe0          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatdidf.epeo)
+ __c30_signature
+                  0x000fe6          0x6 /opt/microchip/xc16/v1.31/bin/bin/../../lib/libm-elf.a(floatundidf.epeo)
 
-.bss                0x1000       0x1a4e
- .bss               0x1000       0x100c build/default/production/_ext/844173455/d_alloc.o
+.bss                0x1000       0x1550
+ .bss               0x1000        0x80c build/default/production/_ext/844173455/d_alloc.o
                     0x1000                  _priv_dd_alloc_HEAP
-                    0x2000                  _max_empty_space
-                    0x2002                  _total_space_used
-                    0x2004                  _total_space_unused
-                    0x2006                  _number_of_allocated_vars
-                    0x2008                  _number_of_allocated_blocks
-                    0x200a                  _number_of_unallocated_blocks
- .bss               0x200c        0x46e build/default/production/_ext/1670384666/UartCommand.o
-                    0x200c                  _line_buffer
-                    0x220c                  _send_buffer
-                    0x240c                  _comands
-                    0x2470                  _debug_verify
- .bss               0x247a        0x420 build/default/production/_ext/1440923950/SerialFlash.o
- .bss               0x289a        0x1b4 build/default/production/_ext/699447939/tasker.o
-                    0x289a                  _kTasks_list
-                    0x2962                  _kTasks_listHigh
+                    0x1800                  _max_empty_space
+                    0x1802                  _total_space_used
+                    0x1804                  _total_space_unused
+                    0x1806                  _number_of_allocated_vars
+                    0x1808                  _number_of_allocated_blocks
+                    0x180a                  _number_of_unallocated_blocks
+ .bss               0x180c        0x602 build/default/production/_ext/1693421727/DisplayController.o
+                    0x180c                  _displayBuffer
+ .bss               0x1e0e        0x420 build/default/production/_ext/1440923950/SerialFlash.o
+ .bss               0x222e        0x1b4 build/default/production/_ext/699447939/tasker.o
+                    0x222e                  _kTasks_list
+                    0x22f6                  _kTasks_listHigh
+ .bss               0x23e2        0x16e build/default/production/_ext/1670384666/UartCommand.o
+                    0x23e2                  _line_buffer
+                    0x2462                  _send_buffer
+                    0x24e2                  _comands
+                    0x2546                  _debug_verify
 
-.data               0x2a4e        0x11c
- .data              0x2a4e         0x7a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldtob.EP_eo)
- .data              0x2ac8         0x4a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xstoul.EP_eo)
- .data              0x2b12         0x22 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xlitob.EP_eo)
- .data              0x2b34         0x1c build/default/production/_ext/1440923950/SerialFlash.o
-                    0x2b34                  _comand_clear_sector
-                    0x2b38                  _comand_set_add
-                    0x2b3c                  _comand_erase_flash
-                    0x2b40                  _comand_read_flash
-                    0x2b44                  _comand_put_on_bufferb64
-                    0x2b48                  _comand_conf_put_on_buffer64
-                    0x2b4c                  _comand_finish_buffer
- .data              0x2b50         0x1a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xprintf.EP_eo)
+.data               0x2550        0x11c
+ .data              0x2550         0x7a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xldtob.EP_eo)
+ .data              0x25ca         0x4a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xstoul.EP_eo)
+ .data              0x2614         0x22 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xlitob.EP_eo)
+ .data              0x2636         0x1c build/default/production/_ext/1440923950/SerialFlash.o
+                    0x2636                  _comand_clear_sector
+                    0x263a                  _comand_set_add
+                    0x263e                  _comand_erase_flash
+                    0x2642                  _comand_read_flash
+                    0x2646                  _comand_put_on_bufferb64
+                    0x264a                  _comand_conf_put_on_buffer64
+                    0x264e                  _comand_finish_buffer
+ .data              0x2652         0x1a /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xprintf.EP_eo)
 
-.bss                0x2b6a         0x16
- .bss               0x2b6a         0x16 build/default/production/_ext/1440923950/eeprom_i2c.o
+.bss                0x266c         0x16
+ .bss               0x266c         0x16 build/default/production/_ext/1440923950/eeprom_i2c.o
 
-.data               0x2b80         0x10
- .data              0x2b80         0x10 build/default/production/_ext/699447939/tasker.o
-                    0x2b80                  _running_tasks_cmd
-                    0x2b84                  _cmd_verify_alocation
-                    0x2b88                  _cmd_version
-                    0x2b8c                  _comand_get_equip
+.data               0x2682         0x10
+ .data              0x2682         0x10 build/default/production/_ext/699447939/tasker.o
+                    0x2682                  _running_tasks_cmd
+                    0x2686                  _cmd_verify_alocation
+                    0x268a                  _cmd_version
+                    0x268e                  _comand_get_equip
 
-.bss                0x2b90         0x32
- .bss               0x2b90          0xe build/default/production/_ext/570691859/ActivityMan.o
-                    0x2b90                  _this_activity
-                    0x2b92                  _next_activity
-                    0x2b94                  _redir_activity
- .bss               0x2b9e          0xa build/default/production/_ext/581574207/port.o
-                    0x2b9e                  _counter_wait_task
-                    0x2ba2                  _StkAddrLo
-                    0x2ba4                  _StkAddrHi
- .bss               0x2ba8          0xa build/default/production/_ext/844173455/version.o
- .bss               0x2bb2          0x8 build/default/production/_ext/844173455/time.o
- .bss               0x2bba          0x8 build/default/production/_ext/1977464509/Buzzer.o
+.bss                0x2692         0x32
+ .bss               0x2692          0xe build/default/production/_ext/570691859/ActivityMan.o
+                    0x2692                  _this_activity
+                    0x2694                  _next_activity
+                    0x2696                  _redir_activity
+ .bss               0x26a0          0xa build/default/production/_ext/581574207/port.o
+                    0x26a0                  _counter_wait_task
+                    0x26a4                  _StkAddrLo
+                    0x26a6                  _StkAddrHi
+ .bss               0x26aa          0xa build/default/production/_ext/844173455/version.o
+ .bss               0x26b4          0x8 build/default/production/_ext/844173455/time.o
+ .bss               0x26bc          0x8 build/default/production/_ext/1977464509/Buzzer.o
 
-.data               0x2bc2          0xe
- .data              0x2bc2          0x6 build/default/production/_ext/1670384666/UartCommand.o
-                    0x2bc2                  _uart_commands_list_cmd
- .data              0x2bc8          0x4 build/default/production/_ext/844173455/d_alloc.o
-                    0x2bc8                  _dd_alloc_private_data
- .data              0x2bcc          0x4 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strtok.EP_eo)
+.data               0x26c4          0xe
+ .data              0x26c4          0x6 build/default/production/_ext/1670384666/UartCommand.o
+                    0x26c4                  _uart_commands_list_cmd
+ .data              0x26ca          0x4 build/default/production/_ext/844173455/d_alloc.o
+                    0x26ca                  _dd_alloc_private_data
+ .data              0x26ce          0x4 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(strtok.EP_eo)
 
-.bss                0x2bd0          0x8
- .bss               0x2bd0          0x4 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(errno.EP_elo)
-                    0x2bd0                  _errno
-                    0x2bd2                  __Tls_setup_errno
- .bss               0x2bd4          0x2 build/default/production/_ext/2107534167/spi.o
-                    0x2bd4                  _spi1_wait
- .bss               0x2bd6          0x2 build/default/production/_ext/1693421727/main.o
+.bss                0x26d2          0x6
+ .bss               0x26d2          0x4 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(errno.EP_elo)
+                    0x26d2                  _errno
+                    0x26d4                  __Tls_setup_errno
+ .bss               0x26d6          0x2 build/default/production/_ext/2107534167/spi.o
+                    0x26d6                  _spi1_wait
 
-.data               0x2bd8          0x4
- .data              0x2bd8          0x2 build/default/production/_ext/570691859/resourceMan.o
-                    0x2bd8                  _language
- .data              0x2bda          0x2 build/default/production/_ext/581574207/port.o
-                    0x2bda                  _flag_should_verify
+.data               0x26d8          0x4
+ .data              0x26d8          0x2 build/default/production/_ext/570691859/resourceMan.o
+                    0x26d8                  _language
+ .data              0x26da          0x2 build/default/production/_ext/581574207/port.o
+                    0x26da                  _flag_should_verify
 
-.bss                0x2bdc          0x6
- .bss               0x2bdc          0x2 build/default/production/_ext/1055087429/port.o
-                    0x2bdc                  _dummy
- .bss               0x2bde          0x2 build/default/production/_ext/1670384666/port.o
- .bss               0x2be0          0x2 build/default/production/_ext/1977464509/port.o
+.bss                0x26dc          0x6
+ .bss               0x26dc          0x2 build/default/production/_ext/1055087429/port.o
+                    0x26dc                  _dummy
+ .bss               0x26de          0x2 build/default/production/_ext/1670384666/port.o
+ .bss               0x26e0          0x2 build/default/production/_ext/1977464509/port.o
 
-.data               0x2be2          0x2
- .data              0x2be2          0x2 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xgenld.EP_eo)
+.data               0x26e2          0x2
+ .data              0x26e2          0x2 /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-c-elf.a(xgenld.EP_eo)
 
 .ivt._SPI1Interrupt
                   0x000028          0x2
@@ -3098,197 +3144,213 @@ __c30_signature
  .ivt._T2Interrupt
                   0x000022          0x2 build/default/production/_ext/1977464509/port.o
 
-.const              0xa454        0x5ba load address 0x002454  
- .const             0xa454        0x1d6 build/default/production/_ext/699447939/tasker.o
- .const             0xa62a         0xf2 build/default/production/_ext/1440923950/SerialFlash.o
- .const             0xa71c         0xce build/default/production/_ext/844173455/d_alloc.o
- .const             0xa7ea         0xba build/default/production/_ext/1440923950/eeprom_i2c.o
- .const             0xa8a4         0xa0 build/default/production/_ext/581574207/port.o
- .const             0xa944         0x42 build/default/production/_ext/844173455/version.o
- .const             0xa986         0x38 build/default/production/_ext/1055087429/port.o
- .const             0xa9be         0x36 build/default/production/_ext/1670384666/UartCommand.o
- .const             0xa9f4          0xc build/default/production/_ext/1693421727/main.o
- .const             0xaa00          0x8 build/default/production/_ext/229065323/fan.o
- .const             0xaa08          0x6 build/default/production/_ext/1977464509/Buzzer.o
+.const              0xa454        0xd16 load address 0x002454  
+ .const             0xa454        0x756 build/default/production/_ext/1693421727/DisplayController.o
+                    0xa456                  _horizontalLengthsVerdana7
+                    0xa4f6                  _fontVerdana7
+ .const             0xabaa        0x1d6 build/default/production/_ext/699447939/tasker.o
+ .const             0xad80         0xf2 build/default/production/_ext/1440923950/SerialFlash.o
+ .const             0xae72         0xce build/default/production/_ext/844173455/d_alloc.o
+ .const             0xaf40         0xba build/default/production/_ext/1440923950/eeprom_i2c.o
+ .const             0xaffa         0xa0 build/default/production/_ext/581574207/port.o
+ .const             0xb09a         0x42 build/default/production/_ext/844173455/version.o
+ .const             0xb0dc         0x38 build/default/production/_ext/1055087429/port.o
+ .const             0xb114         0x36 build/default/production/_ext/1670384666/UartCommand.o
+ .const             0xb14a         0x12 build/default/production/_ext/1693421727/main.o
+ .const             0xb15c          0x8 build/default/production/_ext/229065323/fan.o
+ .const             0xb164          0x6 build/default/production/_ext/1977464509/Buzzer.o
 
-.text             0x002a0e       0x1aae
- .text            0x002a0e        0x7d8 build/default/production/_ext/699447939/tasker.o
-                  0x002a0e                  _dumy_print
-                  0x002a14                  _cmd_getequip
-                  0x002a7c                  _kTasker_alocated_tasks
-                  0x002a80                  _sQueue_create
-                  0x002a92                  _sQueue_delete
-                  0x002aa2                  _sQueue_force_pop
-                  0x002ac0                  _kTask_set_as_safe
-                  0x002ac6                  _kSchedule
-                  0x002ae6                  _kernel_set_long_running_operation
-                  0x002aea                  _kTask_bind_param
-                  0x002afc                  _kTask_unbind_param
-                  0x002b08                  _kTask_set_name
-                  0x002b12                  _kTask_get_name
-                  0x002b26                  _kTask_get_param
-                  0x002b30                  _kTask_isInitialization
-                  0x002b50                  _sTask_Delay
-                  0x002b62                  _sQueue_do_schedule
-                  0x002ba6                  _sQueue_wait
-                  0x002bb8                  _sQueue_send
-                  0x002bc8                  _sTask_DelayUntil
-                  0x002bdc                  _sTask_delete
-                  0x002be8                  _sTask_ReadySignal
-                  0x002bf4                  _sTask_WaitConclusion
-                  0x002c04                  _sTask_get
-                  0x002c08                  _kTime_micros
-                  0x002c26                  _kTask_create
-                  0x002c7c                  _kernel_setMode
-                  0x002c80                  _kernel_isMode
-                  0x002c8e                  _kernel_get_outfunc
-                  0x002c9c                  _kernel_version_command_handler
-                  0x002d58                  _kernel_tasks_command_handler
-                  0x002ea4                  _get_color_set_out
-                  0x00309e                  _kTasker
-                  0x0030a8                  _sQueue_receive
-                  0x00313c                  _kernel_set_safe_mode
-                  0x0031b2                  _init_kernel_commands
-                  0x0031c4                  _kTasker_init
- .text            0x0031e6        0x674 build/default/production/_ext/1440923950/SerialFlash.o
-                  0x0031e6                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
-                  0x003338                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
-                  0x003384                  _serialflash_wren
-                  0x0033a0                  _serialflash_wrsr
-                  0x0033ca                  _serialflash_disable_wp
-                  0x0033d2                  _serialflash_read
-                  0x003432                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
-                  0x0034ea                  _serialflash_readid
-                  0x003526                  _serialflash_readsr
-                  0x003556                  _serialflash_chiperase
-                  0x003590                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
-                  0x00359e                  _serialflash_serase
-                  0x0035e2                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
-                  0x00361c                  _serialflash_write_size
-                  0x003682                  _serialflash_write
-                  0x0036dc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
-                  0x0036fc                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
-                  0x0037b4                  _serial_flash_get_cs
-                  0x003824                  _serialflash_add_commands
-                  0x003842                  _serialflash_init
- .text            0x00385a        0x3c0 build/default/production/_ext/1440923950/eeprom_i2c.o
-                  0x0038dc                  _init_ctt_eeprom
-                  0x003a50                  _eeprom_init_data
-                  0x003bac                  _eeprom_read_data
-                  0x003bc8                  _eeprom_write_data
-                  0x003be4                  _eeprom_read_data_units
-                  0x003bfe                  _eeprom_write_data_units
- .text            0x003c1a        0x2d2 build/default/production/_ext/844173455/d_alloc.o
-                  0x003c1a                  _priv_dd_alloc_coalesce
-                  0x003c52                  _verify_allocation
-                  0x003d9a                  _dd_free
-                  0x003da4                  _dd_alloc
-                  0x003e90                  _verify_alocation_command
-                  0x003ecc                  _dd_free_all
-                  0x003ed2                  _is_alocated
- .text            0x003eec        0x20e build/default/production/_ext/1670384666/UartCommand.o
-                  0x003eec                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
-                  0x003f92                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
-                  0x004036                  _clear_buffer
-                  0x00403e                  _clear_send_buffer
-                  0x00404a                  _set_send_buffer
-                  0x004084                  _serial_printf
-                  0x00409c                  _append_buffer
-                  0x0040ac                  _UartInterface_init_task
-                  0x0040ba                  _teste_cmd
-                  0x0040da                  _uart_add_comand
-                  0x0040ea                  _UartInterface_init
- .text            0x0040fa        0x1f0 build/default/production/_ext/570691859/ActivityMan.o
-                  0x0040fa                  _ActivityMan_getCurrActivity
-                  0x004104                  _ActivityMan_ForceStartActivity
-                  0x004124                  _ActivityMan_ForceStartSubActivity
-                  0x0041a6                  _ActivityMan_startSubActivity
-                  0x0041ac                  _ActivityMan_getPastActivity
-                  0x0041b2                  _ActivityMan_onTick
-                  0x00424e                  _ActivityMan_redirect
-                  0x004252                  _ActivityMan_registerEvent
-                  0x004282                  _ActivityMan_unregisterEvent
-                  0x0042b2                  _ActivityMan_init_nested
-                  0x0042bc                  _ActivityMan_stop_nesting
-                  0x0042ca                  _ActivityMan_startActivity
-                  0x0042d6                  _ActivityMan_getBack
-                  0x0042de                  _ActivityMan_Task
- .text            0x0042ea        0x1d2 build/default/production/_ext/844173455/utils.o
-                  0x004302                  _list_create
-                  0x004310                  _list_insert
-                  0x004368                  _list_put
-                  0x0043c6                  _list_is_present
-                  0x0043e4                  _list_pop
-                  0x00440e                  _list_delete_item
-                  0x00444c                  _list_length
-                  0x00446a                  _list_get
-                  0x0044a0                  _list_delete
+.text             0x00316a       0x212a
+ .text            0x00316a        0x7d4 build/default/production/_ext/699447939/tasker.o
+                  0x00316a                  _dumy_print
+                  0x003170                  _cmd_getequip
+                  0x0031d8                  _kTasker_alocated_tasks
+                  0x0031dc                  _sQueue_create
+                  0x0031ee                  _sQueue_delete
+                  0x0031fe                  _sQueue_force_pop
+                  0x00321c                  _kTask_set_as_safe
+                  0x003222                  _kSchedule
+                  0x003242                  _kernel_set_long_running_operation
+                  0x003246                  _kTask_bind_param
+                  0x003258                  _kTask_unbind_param
+                  0x003264                  _kTask_set_name
+                  0x00326e                  _kTask_get_name
+                  0x003282                  _kTask_get_param
+                  0x00328c                  _kTask_isInitialization
+                  0x0032ac                  _sTask_Delay
+                  0x0032be                  _sQueue_do_schedule
+                  0x003302                  _sQueue_wait
+                  0x003314                  _sQueue_send
+                  0x003324                  _sTask_DelayUntil
+                  0x003338                  _sTask_delete
+                  0x003344                  _sTask_ReadySignal
+                  0x003350                  _sTask_WaitConclusion
+                  0x003360                  _sTask_get
+                  0x003364                  _kTime_micros
+                  0x003382                  _kTask_create
+                  0x0033d8                  _kernel_setMode
+                  0x0033dc                  _kernel_isMode
+                  0x0033ea                  _kernel_get_outfunc
+                  0x0033f8                  _kernel_version_command_handler
+                  0x0034b0                  _kernel_tasks_command_handler
+                  0x0035fc                  _get_color_set_out
+                  0x0037f6                  _kTasker
+                  0x003800                  _sQueue_receive
+                  0x003894                  _kernel_set_safe_mode
+                  0x00390a                  _init_kernel_commands
+                  0x00391c                  _kTasker_init
+ .text            0x00393e        0x674 build/default/production/_ext/1440923950/SerialFlash.o
+                  0x00393e                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_pre_put_buffer64
+                  0x003a90                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_set_add
+                  0x003adc                  _serialflash_wren
+                  0x003af8                  _serialflash_wrsr
+                  0x003b22                  _serialflash_disable_wp
+                  0x003b2a                  _serialflash_read
+                  0x003b8a                  build/default/production/_ext/1440923950/SerialFlash.o:_read_flash
+                  0x003c42                  _serialflash_readid
+                  0x003c7e                  _serialflash_readsr
+                  0x003cae                  _serialflash_chiperase
+                  0x003ce8                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_erase_all
+                  0x003cf6                  _serialflash_serase
+                  0x003d3a                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_clear_sector
+                  0x003d74                  _serialflash_write_size
+                  0x003dda                  _serialflash_write
+                  0x003e34                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_finish_buffer
+                  0x003e54                  build/default/production/_ext/1440923950/SerialFlash.o:_cmd_confirm_put_on_bufferb64
+                  0x003f0c                  _serial_flash_get_cs
+                  0x003f7c                  _serialflash_add_commands
+                  0x003f9a                  _serialflash_init
+ .text            0x003fb2        0x4ee build/default/production/_ext/1693421727/DisplayController.o
+                  0x003fb2                  _clearDisplayBuffer
+                  0x003fc0                  _sendByteDisplay
+                  0x00408a                  _setY
+                  0x00409a                  _setX
+                  0x0040aa                  _showDisplayBuffer
+                  0x004128                  _clearDisplay
+                  0x00412e                  _initializeDisplay
+                  0x004184                  _fillRectangle
+                  0x00424e                  _putPixel
+                  0x00425a                  _writeTextLine
+                  0x004446                  _writeText
+ .text            0x0044a0        0x3c0 build/default/production/_ext/1440923950/eeprom_i2c.o
+                  0x004522                  _init_ctt_eeprom
+                  0x004696                  _eeprom_init_data
+                  0x0047f2                  _eeprom_read_data
+                  0x00480e                  _eeprom_write_data
+                  0x00482a                  _eeprom_read_data_units
+                  0x004844                  _eeprom_write_data_units
+ .text            0x004860        0x2d2 build/default/production/_ext/844173455/d_alloc.o
+                  0x004860                  _priv_dd_alloc_coalesce
+                  0x004898                  _verify_allocation
+                  0x0049e0                  _dd_free
+                  0x0049ea                  _dd_alloc
+                  0x004ad6                  _verify_alocation_command
+                  0x004b12                  _dd_free_all
+                  0x004b18                  _is_alocated
+ .text            0x004b32        0x20e build/default/production/_ext/1670384666/UartCommand.o
+                  0x004b32                  build/default/production/_ext/1670384666/UartCommand.o:_show_commands
+                  0x004bd8                  build/default/production/_ext/1670384666/UartCommand.o:_task_execute_uart_cmd
+                  0x004c7c                  _clear_buffer
+                  0x004c84                  _clear_send_buffer
+                  0x004c90                  _set_send_buffer
+                  0x004cca                  _serial_printf
+                  0x004ce2                  _append_buffer
+                  0x004cf2                  _UartInterface_init_task
+                  0x004d00                  _teste_cmd
+                  0x004d20                  _uart_add_comand
+                  0x004d30                  _UartInterface_init
+ .text            0x004d40        0x1f0 build/default/production/_ext/570691859/ActivityMan.o
+                  0x004d40                  _ActivityMan_getCurrActivity
+                  0x004d4a                  _ActivityMan_ForceStartActivity
+                  0x004d6a                  _ActivityMan_ForceStartSubActivity
+                  0x004dec                  _ActivityMan_startSubActivity
+                  0x004df2                  _ActivityMan_getPastActivity
+                  0x004df8                  _ActivityMan_onTick
+                  0x004e94                  _ActivityMan_redirect
+                  0x004e98                  _ActivityMan_registerEvent
+                  0x004ec8                  _ActivityMan_unregisterEvent
+                  0x004ef8                  _ActivityMan_init_nested
+                  0x004f02                  _ActivityMan_stop_nesting
+                  0x004f10                  _ActivityMan_startActivity
+                  0x004f1c                  _ActivityMan_getBack
+                  0x004f24                  _ActivityMan_Task
+ .text            0x004f30        0x1d2 build/default/production/_ext/844173455/utils.o
+                  0x004f48                  _list_create
+                  0x004f56                  _list_insert
+                  0x004fae                  _list_put
+                  0x00500c                  _list_is_present
+                  0x00502a                  _list_pop
+                  0x005054                  _list_delete_item
+                  0x005092                  _list_length
+                  0x0050b0                  _list_get
+                  0x0050e6                  _list_delete
+ .text            0x005102        0x192 build/default/production/_ext/1693421727/main.o
+                  0x00512a                  _task_test
+                  0x005152                  _pinConfig
+                  0x005232                  _main
 
-.dinit            0x0044bc        0x18a
- .dinit           0x0044bc        0x18a data_init
+.dinit            0x005294        0x18a
+ .dinit           0x005294        0x18a data_init
 
-.text             0x004646        0x6e2
- .text            0x004646        0x15c build/default/production/_ext/229065323/fan.o
-                  0x00466e                  build/default/production/_ext/229065323/fan.o:_fan_task
-                  0x0046fe                  _fan_is_error
-                  0x004728                  _fan_start
-                  0x004794                  _fan_get_ident
-                  0x004798                  _fan_get_rotation
- .text            0x0047a2        0x100 build/default/production/_ext/1977464509/Buzzer.o
-                  0x0047a2                  _buzz_task_func_q
-                  0x00480e                  _init_buzz
-                  0x004838                  _sys_buzz
-                  0x004884                  _sys_clear_buzz
- .text            0x0048a2         0xac build/default/production/_ext/1055087429/port.o
-                  0x0048c4                  _portman_setAsOutput
-                  0x0048d0                  _portman_setAsInput
-                  0x0048dc                  _portman_setOutput
-                  0x0048e8                  _portman_clearOutput
-                  0x0048f4                  _portman_getInput
-                  0x004900                  _portman_setAsDigital
-                  0x00490c                  _portman_setAsAnalog
-                  0x004918                  _portman_get_fast_port
-                  0x00493e                  _portman_fast_set
-                  0x004946                  _portman_fast_clear
- .text            0x00494e         0x98 build/default/production/_ext/1693421727/main.o
-                  0x004976                  _task_test
-                  0x00499e                  _main
- .text            0x0049e6         0x98 build/default/production/_ext/654086336/base64.o
-                  0x0049e6                  _getBase64index
-                  0x004a1e                  _base64Decode
- .text            0x004a7e         0x8e build/default/production/_ext/1670384666/port.o
-                  0x004a7e                  _uart_put_char
-                  0x004a8c                  _sys_uart_init
-                  0x004abe                  __U2TXInterrupt
-                  0x004ac4                  __U2RXInterrupt
- .text            0x004b0c         0x80 build/default/production/_ext/844173455/version.o
-                  0x004b60                  _kernel_build_code
- .text            0x004b8c         0x7c build/default/production/_ext/844173455/time.o
-                  0x004b8c                  _ShortDelay
-                  0x004bc4                  _Delay_us
-                  0x004bc8                  _Delay_ms
-                  0x004bd4                  _timer_get_counter_ms
-                  0x004bfa                  _timer_set_ms_ref
-                  0x004c04                  _timer_get_core_timer
- .text            0x004c08         0x6c build/default/production/_ext/654086336/crc16.o
-                  0x004c08                  _getCrc
-                  0x004c3a                  _append_CRC
-                  0x004c4e                  _verify_crc
- .text            0x004c74         0x5e build/default/production/_ext/1977464509/port.o
-                  0x004c74                  _buzzer_init_timer
-                  0x004c94                  _BuzzerEnable
-                  0x004c98                  _BuzzerDisable
-                  0x004c9c                  __T2Interrupt
- .text            0x004cd2         0x2e build/default/production/_ext/570691859/resourceMan.o
-                  0x004cd2                  _setLang
-                  0x004ce0                  _getLanguage
-                  0x004ce4                  _getDefaultLanguage
-                  0x004ce8                  _setDefaultLanguage
-                  0x004cee                  _getResourcePrivate
- .text            0x004d00         0x28 build/default/production/_ext/2107534167/adc.o
-                  0x004d00                  _init_adc
-                  0x004d24                  __ADC1Interrupt
+.text             0x00541e        0x648
+ .text            0x00541e        0x15c build/default/production/_ext/229065323/fan.o
+                  0x005446                  build/default/production/_ext/229065323/fan.o:_fan_task
+                  0x0054d6                  _fan_is_error
+                  0x005500                  _fan_start
+                  0x00556c                  _fan_get_ident
+                  0x005570                  _fan_get_rotation
+ .text            0x00557a        0x100 build/default/production/_ext/1977464509/Buzzer.o
+                  0x00557a                  _buzz_task_func_q
+                  0x0055e6                  _init_buzz
+                  0x005610                  _sys_buzz
+                  0x00565c                  _sys_clear_buzz
+ .text            0x00567a         0xac build/default/production/_ext/1055087429/port.o
+                  0x00569c                  _portman_setAsOutput
+                  0x0056a8                  _portman_setAsInput
+                  0x0056b4                  _portman_setOutput
+                  0x0056c0                  _portman_clearOutput
+                  0x0056cc                  _portman_getInput
+                  0x0056d8                  _portman_setAsDigital
+                  0x0056e4                  _portman_setAsAnalog
+                  0x0056f0                  _portman_get_fast_port
+                  0x005716                  _portman_fast_set
+                  0x00571e                  _portman_fast_clear
+ .text            0x005726         0x98 build/default/production/_ext/654086336/base64.o
+                  0x005726                  _getBase64index
+                  0x00575e                  _base64Decode
+ .text            0x0057be         0x8e build/default/production/_ext/1670384666/port.o
+                  0x0057be                  _uart_put_char
+                  0x0057cc                  _sys_uart_init
+                  0x0057fe                  __U2TXInterrupt
+                  0x005804                  __U2RXInterrupt
+ .text            0x00584c         0x7e build/default/production/_ext/844173455/version.o
+                  0x0058a0                  _kernel_build_code
+ .text            0x0058ca         0x7c build/default/production/_ext/844173455/time.o
+                  0x0058ca                  _ShortDelay
+                  0x005902                  _Delay_us
+                  0x005906                  _Delay_ms
+                  0x005912                  _timer_get_counter_ms
+                  0x005938                  _timer_set_ms_ref
+                  0x005942                  _timer_get_core_timer
+ .text            0x005946         0x6c build/default/production/_ext/654086336/crc16.o
+                  0x005946                  _getCrc
+                  0x005978                  _append_CRC
+                  0x00598c                  _verify_crc
+ .text            0x0059b2         0x5e build/default/production/_ext/1977464509/port.o
+                  0x0059b2                  _buzzer_init_timer
+                  0x0059d2                  _BuzzerEnable
+                  0x0059d6                  _BuzzerDisable
+                  0x0059da                  __T2Interrupt
+ .text            0x005a10         0x2e build/default/production/_ext/570691859/resourceMan.o
+                  0x005a10                  _setLang
+                  0x005a1e                  _getLanguage
+                  0x005a22                  _getDefaultLanguage
+                  0x005a26                  _setDefaultLanguage
+                  0x005a2c                  _getResourcePrivate
+ .text            0x005a3e         0x28 build/default/production/_ext/2107534167/adc.o
+                  0x005a3e                  _init_adc
+                  0x005a62                  __ADC1Interrupt
 
-.init.delay32     0x004d28         0x1c
- .init.delay32    0x004d28         0x1c /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
-                  0x004d28                  ___delay32
+.init.delay32     0x005a66         0x1c
+ .init.delay32    0x005a66         0x1c /opt/microchip/xc16/v1.31/bin/bin/../../lib/liblega-pic30-elf.a(delay32ep.Leo)
+                  0x005a66                  ___delay32
