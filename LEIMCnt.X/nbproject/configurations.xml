@@ -10,6 +10,9 @@
           <itemPath>../Application/Peripherals/spi.h</itemPath>
         </logicalFolder>
         <itemPath>../Application/system_config.h</itemPath>
+        <itemPath>../Application/DisplayFonts.h</itemPath>
+        <itemPath>../Application/PinDefinitions.h</itemPath>
+        <itemPath>../Application/DisplayController.h</itemPath>
       </logicalFolder>
       <logicalFolder name="System" displayName="System" projectFiles="true">
         <logicalFolder name="ActivityManager"
@@ -114,6 +117,7 @@
           <itemPath>../Application/Peripherals/spi.c</itemPath>
         </logicalFolder>
         <itemPath>../Application/main.c</itemPath>
+        <itemPath>../Application/DisplayController.c</itemPath>
       </logicalFolder>
       <logicalFolder name="System" displayName="System" projectFiles="true">
         <logicalFolder name="ActivityManager"
@@ -400,6 +404,7 @@
         <property key="UART 1" value="true"/>
         <property key="UART 2" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
