@@ -86,7 +86,7 @@ extern "C" {
 	/**
 	 Define tamanho do HEAP a ser alocado
 	 */
-#define D_ALLOC_HEAP 4096
+#define D_ALLOC_HEAP 2048
 
 	/**
 	 Define alinhamento em bytes do HEAP
