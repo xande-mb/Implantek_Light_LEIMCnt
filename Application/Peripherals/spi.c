@@ -1,6 +1,6 @@
 
 #include <p33EP64MC206.h>
-#define FCY 16000000
+#define FCY 40000000
 #include <libpic30.h>
 
 #include "Utils/crc16.h"
