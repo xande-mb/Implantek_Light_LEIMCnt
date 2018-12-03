@@ -31,8 +31,9 @@
 #pragma config OSCIOFNC = ON
 #pragma config FCKSM = CSDCMD
 #pragma config FNOSC = FRCPLL
-
 #pragma config IESO = OFF
+//#pragma config PWMPIN = ON              // Motor Control PWM Module Pin Mode bit (PWM module pins controlled by PORT register at device Reset)
+#pragma config PWMLOCK = OFF  
 
 void task_test(void * param) {
     initializeDisplay();
@@ -94,22 +95,42 @@ void pinConfig(void){
 
 int main(void) {
     //configurações do clock (PLL)
-    PLLFBD = 63; // FRC 80MHz
-    CLKDIVbits.PLLPOST = 0;
-    CLKDIVbits.PLLPRE = 1;
+//    PLLFBD = 63; // FRC 80M
+//    CLKDIVbits.PLLPOST = 0;
+//    CLKDIVbits.PLLPRE = 1;
+//
+//    while (OSCCONbits.LOCK != 1);
+//    while (OSCCONbits.COSC != 0b001);
+	PLLFBD = 74; // M=76
+	CLKDIVbits.FRCDIV = 0;
+	CLKDIVbits.PLLPOST = 0; // N1=2
+	CLKDIVbits.PLLPRE = 0; // N2=2
+	OSCTUN = 0;
+	__builtin_write_OSCCONH(0x01);
+	__builtin_write_OSCCONL(OSCCON | 0x01);
+	while (OSCCONbits.COSC != 0b001);
+	// Wait for PLL to lock
 
-    while (OSCCONbits.LOCK != 1);
-    while (OSCCONbits.COSC != 0b001);
-
+	while (OSCCONbits.LOCK != 1);
     kTasker_init();
 
     kernel_setMode(MODE_PRODUCTION);
-    kTask_t * task = kernel_create_task(task_test, NULL, "TesteTouch", 0);
+//    kTask_t * task = kernel_create_task(task_test, NULL, "TesteTouch", 0);
+//    
+    ANSELB = 0x0000;
+	ANSELC = 0x0000;
+//	ANSELD = 0x0000;
+	ANSELE = 0x0000;
+    
+    ANSELBbits.ANSB0 = 1;
+    ANSELAbits.ANSA0 = 1;
     
     pinConfig();
 
     initializeDisplay();
     clearDisplay();
+//    init_adc();
+//    initHighSpeedPwm();
 
     writeText(texto, 128/2, (64-8)/2,
             VERDANA7, CENTER, SOLID, UPDATE_NOW);
@@ -123,9 +144,10 @@ int main(void) {
 
 //        kernel_create_task(ActivityMan_Task, NULL, "ActivityManager", 0);
 
-    //    ActivityMan_startActivity(&activityInicial);
+//        ActivityMan_startActivity(&activityInicial);
 
     kTasker();
 
     return 0;
 }
+
