@@ -64,6 +64,7 @@ void pinConfig(void){
     portman_setAsOutput(RST);
     portman_setAsOutput(CS1);
     portman_setAsOutput(CS2);
+    portman_setOutput(DRST);
     
     portman_setOutput(DISP_EN);
     portman_clearOutput(DB0);
@@ -80,6 +81,7 @@ void pinConfig(void){
     portman_clearOutput(DISP_RS);
     portman_setOutput(RST);
     
+    
     portman_setAsInput(SW1);
     portman_setAsInput(SW2);
     portman_setAsInput(SW3);
@@ -90,6 +92,8 @@ void pinConfig(void){
     portman_setAsInput(FSWF1);
     portman_setAsInput(FSWF2);
     portman_setAsInput(FSWF3);
+    
+    
 }
 
 int main(void) {
@@ -100,7 +104,10 @@ int main(void) {
 
     while (OSCCONbits.LOCK != 1);
     while (OSCCONbits.COSC != 0b001);
+    ANSELA = 0x00;
+    
 
+    
     kTasker_init();
 
     kernel_setMode(MODE_PRODUCTION);
@@ -110,6 +117,10 @@ int main(void) {
 
     initializeDisplay();
     clearDisplay();
+    
+        TRISA;
+        LATA;
+    CM1CONbits.OPMODE = 0;
 
     writeText(texto, 128/2, (64-8)/2,
             VERDANA7, CENTER, SOLID, UPDATE_NOW);

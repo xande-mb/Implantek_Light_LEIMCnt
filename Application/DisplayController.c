@@ -48,8 +48,8 @@ void clearDisplay() {
     Executa as operações necessária à inicialização do funcionamento do display
  */
 void initializeDisplay() {
-    
-    __delay_ms(10);
+    portman_setOutput(DRST);
+    __delay_ms(100);
     portman_clearOutput(DISP_EN);
     portman_clearOutput(DISP_RS);
 

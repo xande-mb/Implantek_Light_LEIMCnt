@@ -29,6 +29,8 @@
 #define CS1				PORT_D,5
 #define CS2				PORT_D,6
 
+#define DRST            PORT_A,4
+
 /**** Push buttons ****/
 #define SW1             PORT_A,7 
 #define SW2             PORT_G,7
