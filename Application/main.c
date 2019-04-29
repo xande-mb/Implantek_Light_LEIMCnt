@@ -9,6 +9,11 @@
 #include "PinDefinitions.h"
 #include "Peripherals/adc.h"
 #include "DisplayController.h"
+#include "Activities/ActivityMain.h"
+#include "Models/buttonsModel.h"
+#include "Models/step_motor.h"
+#include "Peripherals/i2ccom.h"
+
 #define FCY 40000000
 #include <libpic30.h>
 //#define DEFINE_VARIABLES
@@ -65,7 +70,9 @@ void pinConfig(void){
     portman_setAsOutput(RST);
     portman_setAsOutput(CS1);
     portman_setAsOutput(CS2);
-    portman_setOutput(DRST);
+    portman_setAsOutput(DRST);
+    portman_setAsOutput(PRESET);
+    
     
     portman_setOutput(DISP_EN);
     portman_clearOutput(DB0);
@@ -83,16 +90,25 @@ void pinConfig(void){
     portman_setOutput(RST);
     
     
-    portman_setAsInput(SW1);
-    portman_setAsInput(SW2);
-    portman_setAsInput(SW3);
-    portman_setAsInput(SW4);
-    portman_setAsInput(SW5);
-    portman_setAsInput(SW6);
+    portman_clearOutput(HLSEL);
+    portman_setAsOutput(HLSEL);
     
-    portman_setAsInput(FSWF1);
-    portman_setAsInput(FSWF2);
-    portman_setAsInput(FSWF3);
+    portman_clearOutput(VEEC);
+    portman_clearOutput(VEEM);
+    portman_setAsOutput(VEEC);
+    portman_setAsOutput(VEEM);
+    
+    
+//    portman_setAsInput(SW1);
+//    portman_setAsInput(SW2);
+//    portman_setAsInput(SW3);
+//    portman_setAsInput(SW4);
+//    portman_setAsInput(SW5);
+//    portman_setAsInput(SW6);
+//    
+//    portman_setAsInput(FSWF1);
+//    portman_setAsInput(FSWF2);
+//    portman_setAsInput(FSWF3);
     
     
 }
@@ -114,48 +130,64 @@ int main(void) {
 	__builtin_write_OSCCONL(OSCCON | 0x01);
 	while (OSCCONbits.COSC != 0b001);
 	// Wait for PLL to lock
-    
-
-    
+            
 	while (OSCCONbits.LOCK != 1);
     kTasker_init();
-
-    kernel_setMode(MODE_PRODUCTION);
+    
+    kernel_setMode(MODE_DEBUG);
 //    kTask_t * task = kernel_create_task(task_test, NULL, "TesteTouch", 0);
-//    
-    ANSELB = 0x0000;
+//  
+    ANSELB = 0x0000;    
 	ANSELC = 0x0000;
 //	ANSELD = 0x0000;
 	ANSELE = 0x0000;
     
     ANSELBbits.ANSB0 = 1;
     ANSELAbits.ANSA0 = 1;
+    ANSELAbits.ANSA12 = 1;
+    portman_setAsInput(PORT_A,0);
+    portman_setAsInput(PORT_B,0);
+    portman_setAsInput(PORT_A,12);
     
     pinConfig();
-
+    stepMotorInit();
     initializeDisplay();
     clearDisplay();
 //    init_adc();
 //    initHighSpeedPwm();
-        LATA;
-    CM1CONbits.OPMODE = 0;
-
+    LATA;
+    
     writeText(texto, 128/2, (64-8)/2,
             VERDANA7, CENTER, SOLID, UPDATE_NOW);
-
+    
+    fillRectangle(0,0,10,15,SOLID,UPDATE_NOW);
+    
     __delay_ms(250 * 10);
     showDisplayBuffer();
     clearDisplayBuffer();
     
     init_buzz();
     sys_buzz(10, 10);
-
-//        kernel_create_task(ActivityMan_Task, NULL, "ActivityManager", 0);
-
-//        ActivityMan_startActivity(&activityInicial);
-
+    
+    kernel_create_task(ActivityMan_Task, NULL, "ActivityManager", 0);
+    
+    ActivityMan_startActivity(&ActivityMain);
+        
+    buttonsInit();
+    
+    i2c_init();
+    
+//    portman_setOutput(VEEC);;
+//    volatile unsigned char data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
+//    volatile unsigned char data_read[4] = {};
+////    volatile unsigned int res_w = i2c_write(0xA0, 0, 0, 4, data);
+////    __delay32(10000);
+//    volatile unsigned int res = i2c_read(0xA0, 0, 0, 4, data_read);
+//    volatile int i =0;
+//    i++;
+    
     kTasker();
-
+    
     return 0;
 }
 

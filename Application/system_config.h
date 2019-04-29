@@ -65,7 +65,7 @@ extern "C" {
 
 #define BUZZER_PORT PORT_C,0
 
-#define BUZZER_USES_TIMER 2
+//#define BUZZER_USES_TIMER 2
 
 #define SYSTEM_USES_ACTIVITY_MANAGER
 

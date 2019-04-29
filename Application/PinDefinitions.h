@@ -31,18 +31,32 @@
 
 #define DRST            PORT_A,4
 
+#define HLSEL           PORT_B,10
+
+
+#define VEEC            PORT_E,15
+#define VEEM            PORT_A,10
+
+
 /**** Push buttons ****/
-#define SW1             PORT_A,7 
-#define SW2             PORT_G,7
-#define SW3             PORT_G,6
-#define SW4             PORT_E,15
-#define SW5             PORT_E,14
-#define SW6             PORT_E,13
+//#define SW1             PORT_A,7 
+//#define SW2             PORT_G,7
+//#define SW3             PORT_G,6
+//#define SW4             PORT_E,14
+//#define SW5             PORT_E,13
+//#define SW6             PORT_E,12
 
 /**** Pedal ****/
-#define FSWF1             PORT_F,1 
-#define FSWF2             PORT_B,10
-#define FSWF3             PORT_B,11
+//#define FSWF1             PORT_F,1 
+//#define FSWF2             PORT_B,10
+//#define FSWF3             PORT_B,11
+
+/******* Step Motor *********/
+
+#define PDIR              PORT_G,9
+#define PRESET            PORT_B,1
+#define PSTEP             PORT_G,8
+#define PSLEEP            PORT_A,1
 
 
 #endif	/* PINMAP_H */

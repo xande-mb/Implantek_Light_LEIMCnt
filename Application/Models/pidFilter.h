@@ -26,6 +26,7 @@ extern "C" {
 		int i_div;
 		int d_div;
 		int sum;
+        long int int_error_reminder;
 	} pid_context_t;
 
 	typedef struct {
@@ -40,22 +41,81 @@ extern "C" {
 		unsigned int current_value;
 	} ramp_t;
 
+    /**
+     * Atualiza o PID
+     * 
+     * @param pid Ponteiro para o PID.
+     * @param process_var Variável de processo do pid
+     * @param reference Alvo do pid
+     * @param dt Delta temporal
+     */
 	void pid_update(pid_context_t* pid, int process_var, int reference, int dt);
-
+    
+    /**
+     * Zera o PID
+     * 
+     * @param pid Ponteiro para o PID
+     */
 	void pid_zeroize(pid_context_t* pid);
 
+    /**
+     * Inicializa um filtro IIR.
+     * 
+     * @param pFilter ponteiro para o filtro.
+     * @param KFilter Constante de amortecimento do filtro.
+     */
 	void filter_init(filter_t *pFilter, int KFilter);
 
+    /**
+     * Zera os parametros internos do filtro.
+     * 
+     * @param pFilter ponteiro para o filtro.
+     */
 	void filter_zerate(filter_t *pFilter);
+    
 
+    /**
+     * Faz atualização do filtro.
+     * 
+     * @param pFilter Ponteiro para o filtro.
+     * @param value Valor a ser atualizado.
+     */
 	void filter_update(filter_t *pFilter, long int value);
 
+   
+    /**
+     * Inicializa uma rampa.
+     * 
+     * @param this Ponteiro para a rampa
+     * @param initial_value Valor inicial da rampa.
+     * @param slope Derivada da rampa.
+     * @param target Valor alvo da rampa.
+     */
 	void ramp_init(ramp_t * this, unsigned int initial_value, float slope, unsigned int target);
 
+    /**
+     * Faz atualização da rampa.
+     * 
+     * @param this Ponteiro para a rampa.
+     * @param time Delta de tempo.
+     */
 	void ramp_update(ramp_t * this, unsigned int time);
 
+    /**
+     * Modifica o valor alvo da rampa.
+     * 
+     * @param this Ponteiro para a rampa.
+     * @param target valor alvo da rampa.
+     */
 	void ramp_set_target(ramp_t * this, unsigned int target);
 
+    /**
+     * Reinicia uma rampa.
+     * 
+     * @param this Ponteiro para a rampa.
+     * @param initial_value Valor inicial da rampa.
+     * @param target Valor alvo da rampa.
+     */
 	void ramp_reset(ramp_t * this,unsigned int initial_value, unsigned int target);
     
 
