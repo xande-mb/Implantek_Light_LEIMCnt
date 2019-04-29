@@ -3,6 +3,7 @@
 #include "../Models/pidFilter.h"
 
 filter_t speedFilter;
+filter_t currentFilter;
 
 typedef struct {
     uint16_t readed;
@@ -16,6 +17,10 @@ static volatile uint16_t value_fmsum = 0;
 
 uint16_t getFilteredSpeed(){
     return speedFilter.FilterValue;
+}
+
+uint16_t getFilteredCurr(){
+    return currentFilter.FilterValue;
 }
 
 void init_adc(){
@@ -36,8 +41,8 @@ void init_adc(){
 	AD1CON2bits.ALTS = 0; // MUXA
 
 	AD1CON3bits.ADRC = 0; //ADC clock derived from system clock
-	AD1CON3bits.SAMC = 0; // Fsample = FAD/31;
-	AD1CON3bits.ADCS = 8; //TP *256 = TAD
+	AD1CON3bits.SAMC = 15; // Fsample = FAD/31;
+	AD1CON3bits.ADCS = 30; //TP *256 = TAD
 
 	AD1CON4bits.ADDMAEN = 0; // DMA OFF
 
@@ -51,11 +56,12 @@ void init_adc(){
     AD1CSSL = 0b0000010000000100;
     
     filter_init(&speedFilter, 30000);
+    filter_init(&currentFilter, 100);
 
 	IFS0bits.AD1IF = 0;			// Clear the A/D interrupt flag bit
 	IEC0bits.AD1IE = 1;			// Enable A/D interrupt
 	AD1CON1bits.ADON = 0;		// Turn on the A/D converter
-	IPC3bits.AD1IP = 1;
+	IPC3bits.AD1IP = 5;
     
     
 }
@@ -68,22 +74,26 @@ void initAdFMSUM() {
     flag_bemf = 0;
 }
 
-void initAdBEMF(){
-    AD1CSSL = 0b0000000000000100;
+void initAdBEMF(uint16_t is_rev){
+    
+    if (is_rev) AD1CSSL = 0b0000000000000100;
+    else AD1CSSL = 0b0000000000000001;
+    
     AD1CON1bits.ADON = 1;
     flag_bemf = 1;
 }
 
 void __attribute__((__interrupt__, no_auto_psv)) _AD1Interrupt(void) {
     IFS0bits.AD1IF = 0;
-    LATBbits.LATB1 = !LATBbits.LATB1;
     if (flag_bemf){
         value_bemf = ADC1BUF0;
         filter_update(&speedFilter, value_bemf);
     } else {
         value_fmsum = ADC1BUF0;
+        filter_update(&currentFilter, value_fmsum);
     }
     AD1CON1bits.ADON = 0;
+//    LATBbits.LATB1 = 0;
 //    static uint16_t ct = 0;
 //    if (ct<128){
 //        debug_vals[ct].filtered = speedFilter.FilterValue;

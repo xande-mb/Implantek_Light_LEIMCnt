@@ -14,6 +14,7 @@ void pid_zeroize(pid_context_t* pid) {
 	pid->p_term = 0;
 	pid->i_term = 0;
 	pid->d_term = 0;
+    pid->int_error_reminder=0;
 
 }
 int my_debug_counter = 0;
@@ -24,6 +25,7 @@ void pid_update(pid_context_t* pid, int process_var, int reference, int dt) {
     int diff;
     long p_term;
     long i_term;
+    int i_term_reminder;
     long d_term;
     
     long controler;
@@ -44,7 +46,7 @@ void pid_update(pid_context_t* pid, int process_var, int reference, int dt) {
 //    p_term = __builtin_mulss(p_term2, p_term);
 	
     i_term = __builtin_mulss(pid->i_mul, curr_error);// pid->i_mul*curr_error;
-    i_term = __builtin_divsd(i_term,pid->i_div);
+    i_term = __builtin_divmodsd(i_term, pid->i_div, &i_term_reminder);
 
     d_term = __builtin_mulss(pid->d_mul,diff);
     d_term = __builtin_divsd(d_term,pid->d_div);
@@ -62,7 +64,7 @@ void pid_update(pid_context_t* pid, int process_var, int reference, int dt) {
 //	if (sum < -5*ABS(pid->controler))
 //		sum = -4*ABS(pid->controler);
 
-	controler = p_term + pid->int_error + pid->d_term;
+	controler = p_term + pid->int_error - pid->d_term;
 
 	if (pid->max_out != 0 && controler > pid->max_out )
 		controler = pid->max_out;
@@ -73,6 +75,14 @@ void pid_update(pid_context_t* pid, int process_var, int reference, int dt) {
 	
     pid->prev_error = curr_error;
 	pid->int_error += (i_term);
+    
+    pid->int_error_reminder += i_term_reminder;
+    
+    int rem;
+    if (pid->int_error_reminder > pid->i_div || pid->int_error_reminder < -pid->i_div) {
+        pid->int_error += __builtin_divmodsd(pid->int_error_reminder, pid->i_div, &rem);
+        pid->int_error_reminder = rem;
+    }
 
 }
 
