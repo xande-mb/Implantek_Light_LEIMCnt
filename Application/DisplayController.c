@@ -16,6 +16,17 @@
 #include "PinDefinitions.h"
 #include <libpic30.h>
 
+#define dataAsInput() portman_setAsInput(DB0);portman_setAsInput(DB1);portman_setAsInput(DB2);portman_setAsInput(DB3);\
+                        portman_setAsInput(DB4);portman_setAsInput(DB5);portman_setAsInput(DB6);portman_setAsInput(DB7);
+
+#define dataAsOutput() portman_setAsOutput(DB0);portman_setAsOutput(DB1);portman_setAsOutput(DB2);portman_setAsOutput(DB3);\
+                        portman_setAsOutput(DB4);portman_setAsOutput(DB5);portman_setAsOutput(DB6);portman_setAsOutput(DB7);
+
+
+unsigned char readByteDisplay(unsigned char displayRS);
+
+static unsigned int is_shutdown = 0;
+
 struct {
     //! Conteúdo do buffer do display
     unsigned char buff[1536];
@@ -49,7 +60,7 @@ void clearDisplay() {
  */
 void initializeDisplay() {
     portman_setOutput(DRST);
-    __delay_ms(100);
+    __delay_ms(10);
     portman_clearOutput(DISP_EN);
     portman_clearOutput(DISP_RS);
 
@@ -97,6 +108,46 @@ void setY(unsigned char y) {
     __delay_us(5);
 }
 
+void displayDown(){
+//    portman_clearOutput(DRST);
+    portman_clearOutput(DISP_EN);
+    portman_clearOutput(DISP_RS);
+    portman_clearOutput(DISP_RW);
+    portman_clearOutput(RST);
+    portman_clearOutput(CS1);
+    portman_clearOutput(CS2);
+    portman_clearOutput(DB0);
+    portman_clearOutput(DB1);
+    portman_clearOutput(DB2);
+    portman_clearOutput(DB3);
+    portman_clearOutput(DB4);
+    portman_clearOutput(DB5);
+    portman_clearOutput(DB6);
+    portman_clearOutput(DB7);
+    
+    is_shutdown = 1;
+}
+
+void resetDisplay(unsigned int time_us) {
+    displayDown();
+//    __delay_us(time_us*100);
+//        portman_setOutput(DISP_EN);
+//    portman_setOutput(DRST);
+    __delay_us(100);
+    is_shutdown = 0;
+    portman_setOutput(RST);
+    portman_setOutput(DISP_RS);
+//    __delay_us(time_us*1000);
+//    __delay_us(time_us*1000);
+//    __delay_us(time_us*1000);
+    
+//    portman_setOutput(DRST);
+    __delay_us(50);
+    initializeDisplay();
+    __delay_us(50);        
+    showDisplayBuffer();
+}
+
 
 //! Atualiza o display com o conteúdo armazenado em seu buffer.
 
@@ -104,6 +155,10 @@ void setY(unsigned char y) {
     Atualiza o display para que o mesmo exiba o conteúdo armazenado no buffer
  */
 void showDisplayBuffer() {
+    
+//    resetDisplay();
+    
+    if (is_shutdown) return;
 
     unsigned int i, j;
 
@@ -134,6 +189,46 @@ void showDisplayBuffer() {
     }
 }
 
+/**
+ * 
+ */
+void getDisplayBuffer() {
+
+//    unsigned int i, j;
+//
+//    portman_setOutput(CS1);
+//    portman_setOutput(CS2);
+//
+//    setY(0);
+//
+//    //percorre as páginas do display
+//    for (i = 0; i < 8; i++) {
+//
+//        portman_setOutput(CS1); //tela 1
+//        portman_clearOutput(CS2);
+//        setX(i);
+//
+//        //percorre as colunas da página
+//        unsigned char x = readByteDisplay(1);
+//        for (j = 0; j < DISPLAY_V_RES; j++){
+////            sendByteDisplay(1, displayBuffer.buff[DISPLAY_H_RES * i + j]);
+//            volatile unsigned char data1 = displayBuffer.buff[DISPLAY_H_RES * i + j],
+//            data_2 = readByteDisplay(1),ikkk=0;
+//            if (data1 != data_2){
+//                ikkk++;
+//            }
+//        }
+//        portman_clearOutput(CS1);
+//        portman_setOutput(CS2); //tela2
+//
+//        setX(i);
+//
+//        //percorre as colunas da página
+//        for (j = 64; j < DISPLAY_H_RES; j++)
+//            sendByteDisplay(1, displayBuffer.buff[DISPLAY_H_RES * i + j]);
+//    }
+}
+
 
 //! Esvazia o buffer do display.
 
@@ -150,8 +245,6 @@ void clearDisplayBuffer() {
 }
 
 
-//! Envia ao display um byte de dado ou de comando.
-
 /*!
     Envia ao display um byte de dado ou de comando.
 
@@ -159,6 +252,8 @@ void clearDisplayBuffer() {
     \param displayData byte a ser enviado
  */
 void sendByteDisplay(unsigned char displayRS, unsigned char displayData) {
+    
+    if (is_shutdown) return;
 
     (displayRS == 0) ? portman_clearOutput(DISP_RS) : portman_setOutput(DISP_RS);
     Nop();
@@ -179,6 +274,48 @@ void sendByteDisplay(unsigned char displayRS, unsigned char displayData) {
     __delay_us(2);
     portman_clearOutput(DISP_EN);
     __delay_us(2);
+}
+
+unsigned char readByteDisplay(unsigned char displayRS) {
+    
+    dataAsInput();
+    
+    portman_setOutput(DISP_RW);
+    
+    unsigned char displayData = 0;
+    (displayRS == 0) ? portman_clearOutput(DISP_RS) : portman_setOutput(DISP_RS);
+    Nop();
+    
+    __delay_us(2);
+
+    //finaliza o envio
+    portman_setOutput(DISP_EN);
+    __delay_ms(10);
+//    portman_clearOutput(DISP_EN);
+//    __delay_us(2);
+    
+    displayData = (portman_getInput(DB0)) +
+                  (portman_getInput(DB1) << 1) +
+                  (portman_getInput(DB2) << 2) +
+                  (portman_getInput(DB3) << 3) +
+                  (portman_getInput(DB4) << 4) +
+                  (portman_getInput(DB5) << 5) +
+                  (portman_getInput(DB6) << 6) +
+                  (portman_getInput(DB7) << 7);
+
+    __delay_us(2);
+
+    //finaliza o envio
+//    portman_setOutput(DISP_EN);
+//    __delay_us(2);
+    portman_clearOutput(DISP_EN);
+    __delay_us(2);
+    
+    dataAsOutput();
+    
+    portman_clearOutput(DISP_RW);
+    
+    return displayData;
 }
 
 

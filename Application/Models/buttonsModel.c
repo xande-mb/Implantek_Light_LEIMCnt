@@ -22,8 +22,8 @@ static void init_button(front_buttons_t btl, PORTS_t port, uint16_t bt){
     portman_setAsInput(port, bt);
     portman_get_fast_port(port, bt, &front_buttons_array[btl].port);
     front_buttons_array[btl].callback = NULL;
-    front_buttons_array[btl].event.current_value = portman_fast_read(&(front_buttons_array[BUTTON_LEFT_UP].port));
-    front_buttons_array[btl].event.last_value = front_buttons_array[BUTTON_LEFT_UP].event.current_value;
+    front_buttons_array[btl].event.current_value = portman_fast_read(&(front_buttons_array[btl].port));
+    front_buttons_array[btl].event.last_value = front_buttons_array[btl].event.current_value;
     front_buttons_array[btl].event.time_event = 0;
     
 }

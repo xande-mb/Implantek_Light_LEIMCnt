@@ -23,10 +23,6 @@ extern "C" {
 	 *
 	 */
 
-	//TODO: Remover isso!
-//#ifndef _SUPPRESS_PLIB_WARNING
-//#define _SUPPRESS_PLIB_WARNING
-//#endif
 
 	/**
 	 * Definir clock do processador
