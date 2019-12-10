@@ -19,6 +19,8 @@ static int ct = 0;
 static uint16_t is_rev = 0;
 static ramp_t motor_ramp;
 
+static unsigned int counter_error_vel;
+
 /**
  * 4 -> 500
  * 29 -> 1760
@@ -62,7 +64,7 @@ void initHighSpeedPwm(){
     
     ct = 0;
      
-    pid.max_out = 5000;
+    pid.max_out = 5500;
 	pid.min_out = 1;
 	pid.p_mul = 10;
 	pid.p_div = 1;
@@ -217,13 +219,27 @@ void brushedMotor_stop(){
 static unsigned int curr_lim = 6;
 
 void brushedMotor_setTorque(unsigned int value){
-    curr_lim = value*2;//6 + (value-5)*6/5;
+    if (value < 45) curr_lim = 6 + (value-5)*2;
+    else curr_lim = 120 + (value-45)*4.5;
 }
 
 void verify_current_limit(){
     if (brushedMotor_getCurrent() > curr_lim + rpm_speed/1500){
         velocity_control = 0;
         safe_stop = 1;
+    }
+}
+
+void verify_motor_velocity_error(unsigned int cur_vel, unsigned int expected_vel){
+    if (cur_vel < expected_vel/2 && velocity_control > 0){
+        counter_error_vel++;
+        if (counter_error_vel > 50){
+            velocity_control = 0;
+            safe_stop = 1;
+            counter_error_vel = 0;
+        }
+    } else {
+        counter_error_vel = 0;
     }
 }
 
@@ -244,7 +260,7 @@ void doControl(){
         
         PDC1 = 0;
         PDC2 = 0;
-    } else if (ct == 2){
+    } else if (ct == 4){
         
         // Control!!
         PDC1 = 0;
@@ -257,10 +273,9 @@ void doControl(){
 //        LATBbits.LATB1 = 1;
         initAdBEMF(is_rev);       
     } else if (ct == 6){
-        
         if (velocity_control){
             if (pid.controler < 10) pid.controler = 10;
-            if (pid.controler > 5000) pid.controler = 5000;
+            if (pid.controler > 5500) pid.controler = 5500;
             PDC1 = pid.controler;
             PDC2 = pid.controler;
         }
@@ -271,8 +286,10 @@ void doControl(){
     } else if (ct == 20) {
         verify_current_limit();
         uint16_t val = getFilteredSpeed();
+//        if (val > 865) val = 865;
         pid_update(&pid,val,motor_ramp.current_value,1);
         ct = 0;
+//        verify_motor_velocity_error(val,motor_ramp.current_value);
     }
 }
 

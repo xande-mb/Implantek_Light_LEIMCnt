@@ -1,3 +1,11 @@
+/**
+ * \file: step_motor.h
+ * 
+ *  Modelo responsável pela rotação do motor de passo.
+ * 
+ */
+
+
 #ifndef STEP_MOTOR_H
 #define STEP_MOTOR_H
 

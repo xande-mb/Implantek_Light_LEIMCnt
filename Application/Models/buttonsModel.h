@@ -1,3 +1,10 @@
+/**
+ * \file: buttonsModel.h
+ * 
+ *  Modelo responsável pela detecção de eventos nos botões da mebrana do equipamentos.
+ * 
+ */
+
 #ifndef BUTTONSMODEL_H
 #define BUTTONSMODEL_H
 

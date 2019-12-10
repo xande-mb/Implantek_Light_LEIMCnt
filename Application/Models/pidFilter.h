@@ -1,3 +1,10 @@
+/**
+ * \file: pidFilter.h
+ * 
+ *  Unidade de software responsável por abstrair o PID e os filtros de aquisição de sinal.
+ * 
+ */
+
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
@@ -9,6 +16,9 @@
 extern "C" {
 #endif /* __cplusplus */
 
+    /**
+     * Estrutura que abstrai um módulo PID.
+     */
 	typedef struct {
 		long windup_guard;
 		int p_term;
@@ -29,12 +39,18 @@ extern "C" {
         long int int_error_reminder;
 	} pid_context_t;
 
+    /**
+     * Estrutura que abstrai um módulo de filtro FIR.
+     */
 	typedef struct {
 		int KFilter;
 		long int FilterValue;
 		long int FilterStateVar;
 	} filter_t;
 
+    /**
+     * Estrutura que abstrai uma rampa digital.
+     */
 	typedef struct {
 		unsigned int target;
 		float slope;

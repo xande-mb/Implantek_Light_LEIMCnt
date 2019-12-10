@@ -1,3 +1,10 @@
+/**
+ * \file: brushed_motor.h
+ * 
+ *  Modelo responsável pela rotação do motor brushed.
+ * 
+ */
+
 #ifndef BRUSHED_MOTOR_H
 #define BRUSHED_MOTOR_H
 

@@ -18,7 +18,7 @@
 #include <libpic30.h>
 //#define DEFINE_VARIABLES
 
-#define texto "Teste"
+#define texto "Implantek Light"
 
 #pragma config WDTPOST = PS2048
 #pragma config WDTPRE = PR128
@@ -39,6 +39,11 @@
 #pragma config IESO = OFF
 //#pragma config PWMPIN = ON              // Motor Control PWM Module Pin Mode bit (PWM module pins controlled by PORT register at device Reset)
 #pragma config PWMLOCK = OFF  
+
+
+unsigned char read_i2c_board_mem(unsigned char csel, unsigned char add);
+void write_i2c_board_mem(unsigned char csel, unsigned char add, unsigned char value);
+
 
 void task_test(void * param) {
     initializeDisplay();
@@ -75,6 +80,7 @@ void pinConfig(void){
     
     
     portman_setOutput(DISP_EN);
+    portman_clearOutput(DISP_RW);
     portman_clearOutput(DB0);
     portman_clearOutput(DB1);
     portman_clearOutput(DB2);
@@ -112,6 +118,15 @@ void pinConfig(void){
     
     
 }
+
+void resetDisplay_Task(void * context) {
+	
+    resetDisplay(1);;
+	sTask_Delay(NULL, 5000*tMILLIS);
+
+	return;
+}
+
 
 int main(void) {
     //configura��es do clock (PLL)
@@ -157,10 +172,14 @@ int main(void) {
 //    initHighSpeedPwm();
     LATA;
     
-    writeText(texto, 128/2, (64-8)/2,
+    writeText(texto, 128/2, (64-8)/2 - 10,
             VERDANA7, CENTER, SOLID, UPDATE_NOW);
     
-    fillRectangle(0,0,10,15,SOLID,UPDATE_NOW);
+    writeText("v 1.0", 128/2, (64-8)/2+10,
+            VERDANA7, CENTER, SOLID, UPDATE_NOW);
+    
+    
+//    fillRectangle(0,0,10,15,SOLID,UPDATE_NOW);
     
     __delay_ms(250 * 10);
     showDisplayBuffer();
@@ -171,18 +190,27 @@ int main(void) {
     
     kernel_create_task(ActivityMan_Task, NULL, "ActivityManager", 0);
     
+    kernel_create_task(resetDisplay_Task, NULL, "display_reset", 0);
+    
     ActivityMan_startActivity(&ActivityMain);
         
     buttonsInit();
     
     i2c_init();
     
+//    uint8_t data[64] = {};
+//    
+//    memset(data, 0xff, 64);
 //    portman_setOutput(VEEC);;
-//    volatile unsigned char data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
-//    volatile unsigned char data_read[4] = {};
-////    volatile unsigned int res_w = i2c_write(0xA0, 0, 0, 4, data);
-////    __delay32(10000);
-//    volatile unsigned int res = i2c_read(0xA0, 0, 0, 4, data_read);
+//        volatile unsigned int res_w = i2c_write(0xA0, 32, 0, 16, data);
+//    __delay32(10000);
+//    
+//    volatile unsigned char data_read[64] = {};
+//    
+//    volatile unsigned int res = i2c_read(0xA0, 32, 0, 16, data_read);
+    
+//    
+
 //    volatile int i =0;
 //    i++;
     
@@ -191,3 +219,20 @@ int main(void) {
     return 0;
 }
 
+
+unsigned char read_i2c_board_mem(unsigned char add, unsigned char csel){
+    portman_setOutput(VEEC);
+    volatile unsigned char data_read[4] = {};
+    volatile unsigned int res = i2c_read(0xA0, add, csel, 1, data_read);
+    __delay32(10000);
+//    portman_clearOutput(VEEC);
+    return data_read[0];
+}
+
+void write_i2c_board_mem(unsigned char add, unsigned char csel, unsigned char value) {
+    portman_setOutput(VEEC);
+    volatile unsigned char data[4] = {value, 0, 0, 0};
+    volatile unsigned int res_w = i2c_write(0xA0, add, csel, 1, data);
+    __delay32(10000);
+//    portman_clearOutput(VEEC);
+}
