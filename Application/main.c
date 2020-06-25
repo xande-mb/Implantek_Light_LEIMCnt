@@ -208,8 +208,6 @@ int main(void) {
 //    volatile unsigned char data_read[64] = {};
 //    
 //    volatile unsigned int res = i2c_read(0xA0, 32, 0, 16, data_read);
-    
-//    
 
 //    volatile int i =0;
 //    i++;
