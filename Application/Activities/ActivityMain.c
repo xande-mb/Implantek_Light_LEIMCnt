@@ -507,11 +507,11 @@ void ActivityMain_onCreate(void * param) {
     showDisplayBuffer();
     
     buttons_registerCallback(BUTTON_RIGHT_UP, callbackPump);
-    buttons_registerCallback(BUTTON_DOWN_LEFT, callbackTorque);
+    buttons_registerCallback(BUTTON_DOWN_LEFT, callbackSpeedDown);
     buttons_registerCallback(BUTTON_RIGHT_DOWN, callbackProg);
-    buttons_registerCallback(BUTTON_DOWN_RIGHT, callbackLam);
-    buttons_registerCallback(BUTTON_LEFT_UP, callbackSpeedUp);
-    buttons_registerCallback(BUTTON_LEFT_DOWN, callbackSpeedDown);
+    buttons_registerCallback(BUTTON_DOWN_RIGHT, callbackSpeedUp);
+    buttons_registerCallback(BUTTON_LEFT_UP, callbackLam);
+    buttons_registerCallback(BUTTON_LEFT_DOWN, callbackTorque);
 
     buttons_registerCallback(BUTTON_FS_CENTER, callbackCenterFS);
     buttons_registerCallback(BUTTON_FS_LEFT, callbackPump);
